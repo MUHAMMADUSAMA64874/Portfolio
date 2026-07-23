@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; form-action https://formspree.io; upgrade-insecure-requests">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+  <meta name="description" content="Muhammad Usama — Full-Stack and Automation Engineer building scalable web systems, AI workflows and custom WordPress solutions.">
+  <title>Muhammad Usama | Full-Stack & Automation Engineer</title>
+  
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/favicon.png">
+  <link rel="stylesheet" href="./css/style.css?v=20260723-4">
+  <link rel="stylesheet" href="./css/project-modal.css?v=20260723-1">
+  <link rel="stylesheet" href="./css/scroll-enhancements.css?v=20260723-1">
+  <link rel="stylesheet" href="./css/gallery-lock.css?v=20260723-2">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Three.js Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <!-- GSAP Core & Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+</head>
+<body>
+
+  <header class="site-header" aria-label="Portfolio controls">
+    <a class="brand-mark" href="#hero" aria-label="Back to home"><span>MU</span><small>Creative engineer</small></a>
+    <div class="header-actions">
+      <span id="section-counter" class="section-counter" aria-live="polite">01 / 07</span>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">&#9788;</span><span class="theme-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+  <nav id="section-dots" class="section-dots" aria-label="Page sections"></nav>
+
+  <!-- WebGL Canvas Container (Fixed) -->
+  <div id="canvas-container"></div>
+
+  <!-- Main Content wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      
+      <main>
+        
+        <!-- HERO SECTION -->
+        <section id="hero" class="section hero-section">
+          <div class="container">
+            <p class="hero-subtitle">Full-Stack & Automation Engineer</p>
+            <h1 id="hero-name" class="hero-title">Muhammad Usama</h1>
+            <p class="hero-desc">Building cleanly structured, performance-optimized, and automation-ready web systems.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">&#8599;</span></a>
+              <a class="btn btn-secondary" href="#contact">Start a project <span aria-hidden="true">&#8594;</span></a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section">
+          <div class="section-inner">
+            <div class="container">
+              <h2 class="section-title">About Me</h2>
+              <div id="about-content" class="about-content text-body">
+                <!-- Injected by main.js -->
+              </div>
+              <div class="about-actions">
+                <button id="about-focus-btn" class="btn btn-primary" type="button">Spotlight my work <span aria-hidden="true">&#10022;</span></button>
+                <a class="btn btn-secondary" href="./profile.html#story">Read my full story <span aria-hidden="true">&#8594;</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="section">
+          <div class="section-inner">
+            <div class="container">
+              <div class="section-title-row">
+                <h2 class="section-title">Capabilities</h2>
+                <button id="restore-caps-btn" class="btn btn-secondary" style="display:none; font-size:12px;">↺ Restore Cards</button>
+              </div>
+              <div id="skills-grid" class="bento-grid">
+                <!-- Injected by main.js -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI LAB / HIGHLIGHT SECTION -->
+        <section id="ai-lab" class="section">
+          <div class="section-inner">
+            <div class="container">
+              <h2 class="section-title">AI Automation Lab</h2>
+              <div class="lab-content">
+                <p class="text-h3">Connecting LLMs, APIs, databases, and web scraping tools to reduce manual work and increase operational efficiency.</p>
+                <ul class="lab-features text-body">
+                  <li>n8n & Make.com Workflows</li>
+                  <li>Custom Chatbots & Prompts</li>
+                  <li>Data Scraping & Structuring</li>
+                  <li>Backend AI Integrations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS GALLERY (Horizontal Scroll) -->
+        <section id="projects" class="section projects-section">
+          <div class="container" style="padding-bottom: 0;">
+            <div class="projects-header">
+              <h2 class="section-title" style="margin-bottom: 16px;">Selected Work</h2>
+              <div class="projects-controls">
+                <select id="project-filter" class="form-input">
+                  <option value="all">All Projects</option>
+                  <!-- Injected by main.js -->
+                </select>
+                <button id="skip-projects-btn" class="btn btn-secondary">Skip Gallery ⬇</button>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-direction-hint" id="gallery-direction-hint" role="status" aria-live="polite">
+            <span class="wheel-symbol" aria-hidden="true"><i></i></span>
+            <p><strong>Vertical scroll controls this gallery</strong><small>Scroll down or up to move horizontally</small></p>
+            <b aria-hidden="true">← &nbsp; →</b>
+          </div>
+          <div class="projects-track-container">
+            <div id="projects-track" class="projects-track">
+              <!-- Injected by main.js -->
+            </div>
+          </div>
+          <div class="gallery-progress" aria-hidden="true"><span id="gallery-progress-bar"></span><small id="gallery-progress-count">01 / 01</small></div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="section">
+          <div class="section-inner">
+            <div class="container timeline-container">
+              <h2 class="section-title">Experience</h2>
+              <div class="timeline-line">
+                <div class="timeline-progress" id="timeline-progress"></div>
+              </div>
+              <div id="experience-list" class="timeline-list">
+                <!-- Injected by main.js -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT SECTION (includes footer at bottom) -->
+        <section id="contact" class="section">
+          <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="text-body contact-desc" style="margin-bottom: 12px;">Interested in collaborating? Let's talk.</p>
+            
+            <form action="https://formspree.io/f/xrbzeqrb" method="POST" class="contact-form" accept-charset="UTF-8">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
+              <div class="input-group">
+                <input type="text" name="fullname" class="form-input" placeholder="Full Name" autocomplete="name" maxlength="100" required>
+                <input type="email" name="email" class="form-input" placeholder="Email Address" autocomplete="email" maxlength="254" required>
+              </div>
+              <textarea name="message" class="form-input" placeholder="Your Message" maxlength="3000" required rows="3" style="margin-bottom: 12px;"></textarea>
+              <button class="btn btn-primary" type="submit">Send Message</button>
+            </form>
+
+            <a class="btn btn-primary full-profile-link" href="./profile.html">Explore my complete profile & CV <span aria-hidden="true">&#8594;</span></a>
+            
+            <div class="contact-links">
+              <a href="mailto:tahir12721@gmail.com" class="text-mono link-hover">tahir12721@gmail.com</a>
+              <a href="https://wa.me/923207101485" class="text-mono link-hover">+92 3207101485</a>
+              <a href="https://www.linkedin.com/in/muhammad-usama-5996bb24b/" class="text-mono link-hover" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="./Muhammad-Usama-CV.pdf" class="text-mono link-hover" download>Download Resume</a>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <div class="project-preview-modal" id="project-preview-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+    <div class="project-preview-backdrop" data-close-preview></div>
+    <div class="project-preview-dialog">
+      <button class="preview-close" type="button" data-close-preview aria-label="Close project preview">&times;</button>
+      <div class="preview-image-wrap"><img id="preview-image" src="" alt=""></div>
+      <div class="preview-copy"><p id="preview-category" class="text-mono"></p><h2 id="preview-title"></h2><p id="preview-description">Selected project preview.</p><div class="preview-actions"><a id="preview-visit" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">View project &#8599;</a><button class="btn btn-secondary" type="button" data-close-preview>Keep browsing</button></div></div>
+    </div>
+  </div>
+
+
+
+  <!-- Entry Point -->
+    <script type="module" src="./js/main.js?v=20260723-19"></script>
+</body>
+</html>

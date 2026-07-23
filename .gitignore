@@ -1,0 +1,25 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.agents/
+old/
+*.log
+
+# Secrets and environment configuration must never be published
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+
+# Research/source exports used to prepare the public portfolio
+private/
+linkdein all.pdf
+muhammad-usama-profile-data.txt
+Profile*.pdf

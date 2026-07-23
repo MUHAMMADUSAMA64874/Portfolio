@@ -1,0 +1,18 @@
+.developer-motion{height:155px;display:grid;place-items:center;overflow:hidden;border-radius:14px;background:linear-gradient(145deg,#f2efff,#e8fff7)}
+.developer-motion svg{width:100%;height:100%;overflow:visible}
+.dev-head{fill:#ffc49c;transform-origin:120px 68px;animation:devNod 2.4s ease-in-out infinite}
+.dev-hair{fill:#171821;transform-origin:120px 68px;animation:devNod 2.4s ease-in-out infinite}
+.dev-body{fill:#705cff}
+.dev-arm{fill:none;stroke:#ffc49c;stroke-width:13;stroke-linecap:round;transform-box:fill-box;transform-origin:center top}
+.dev-arm-left{animation:typeLeft .65s ease-in-out infinite alternate}.dev-arm-right{animation:typeRight .55s ease-in-out infinite alternate}
+.dev-screen{fill:#171821;stroke:#5de0b5;stroke-width:3}
+.dev-code{fill:none;stroke:#5de0b5;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:120;animation:codePulse 1.8s ease-in-out infinite}
+.dev-base{fill:none;stroke:#171821;stroke-width:7;stroke-linecap:round}
+.dev-spark{fill:#ff9369;transform-box:fill-box;transform-origin:center;animation:spark 1.5s ease-in-out infinite}.spark-two{fill:#5de0b5;animation-delay:-.7s}
+@keyframes devNod{50%{transform:rotate(4deg) translateY(2px)}}
+@keyframes typeLeft{to{transform:rotate(7deg) translateY(3px)}}
+@keyframes typeRight{to{transform:rotate(-7deg) translateY(3px)}}
+@keyframes codePulse{50%{stroke-dashoffset:18;opacity:.55}}
+@keyframes spark{50%{transform:scale(1.8);opacity:.35}}
+@media(max-width:700px){.developer-motion{height:100px}}
+@media(prefers-reduced-motion:reduce){.developer-motion *{animation:none!important}}
