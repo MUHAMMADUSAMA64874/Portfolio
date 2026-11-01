@@ -469,3 +469,9 @@ kbd { font: .72rem var(--f-mono); padding: 3px 7px; border-radius: 6px; border: 
   .mg-bubble { max-width: 180px; font-size: .74rem; padding: 8px 11px; }
   .mg-close { opacity: 1; width: 20px; height: 20px; }
 }
+.mg.chips .mg-bubble { pointer-events: auto; }
+.mg-chips { display: none; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.mg.chips .mg-chips { display: flex; }
+.mg-chips button { padding: 4px 8px; border-radius: 999px; background: var(--bg); color: var(--text); font: 600 .72rem var(--f-body); transition: background-color .2s, color .2s; }
+.mg-chips button:hover { background: var(--accent); color: var(--on-accent); }
+.mg-text { display: block; }

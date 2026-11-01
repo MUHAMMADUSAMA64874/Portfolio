@@ -1,0 +1,165 @@
+/* Shared chrome for sub-pages (profile, CV, n8n hub, case studies, 404):
+   tokens, floating nav, cursor, buttons, toast and the mouse guide.
+   Copied from site.css so sub-pages don't inherit the home page layout. */
+:root {
+  --bg: #08090c;
+  --bg-2: #0d0f14;
+  --card: #12141b;
+  --card-2: #171a23;
+  --line: rgba(255, 255, 255, .08);
+  --line-2: rgba(255, 255, 255, .16);
+  --text: #ecedf2;
+  --muted: #8b90a5;
+  --accent: #c8ff2e;          /* fills */
+  --accent-ink: #c8ff2e;      /* accent used as text on bg */
+  --on-accent: #0a0b0d;
+  --violet: #7b61ff;
+  --glow: rgba(200, 255, 46, .18);
+  --shadow: 0 30px 80px -20px rgba(0, 0, 0, .7);
+
+  --live: #34d399; --staging: #fbbf24; --local: #60a5fa; --archive: #c084fc; --github: #a3a3a3; --down: #f87171;
+
+  --f-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --f-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  --wrap: 1240px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --r: 18px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f3ee;
+  --bg-2: #ebe9e2;
+  --card: #ffffff;
+  --card-2: #f7f6f2;
+  --line: rgba(10, 11, 14, .09);
+  --line-2: rgba(10, 11, 14, .18);
+  --text: #0d0e12;
+  --muted: #5d6070;
+  --accent: #c8ff2e;
+  --accent-ink: #4b2fe0;
+  --violet: #5b3df5;
+  --glow: rgba(91, 61, 245, .12);
+  --shadow: 0 30px 70px -25px rgba(20, 20, 40, .25);
+  --live: #059669; --staging: #b45309; --local: #2563eb; --archive: #9333ea; --down: #dc2626;
+  color-scheme: light;
+}
+.cx a { color: inherit; text-decoration: none; }
+.cx button, .mg button, .mg-restore { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+.mono { font-family: var(--f-mono); font-size: .82rem; letter-spacing: .02em; }
+/* ---------- Cursor ---------- */
+.cursor { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .has-cursor, .has-cursor a, .has-cursor button, .has-cursor [data-cursor] { cursor: none; }
+  .has-cursor input, .has-cursor textarea { cursor: text; }
+  .has-cursor .cursor { display: block; opacity: 0; transition: opacity .3s; }
+  .cursor-dot, .cursor-ring { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 250; border-radius: 50%; will-change: transform; }
+  .cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--accent); }
+  .cursor-ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1.5px solid var(--line-2); display: grid; place-items: center; transition: width .35s var(--ease), height .35s var(--ease), margin .35s var(--ease), background-color .35s, border-color .35s; }
+  .cursor.hover .cursor-ring { width: 56px; height: 56px; margin: -28px 0 0 -28px; border-color: var(--accent); background: var(--glow); }
+  .cursor.label .cursor-ring { width: 88px; height: 88px; margin: -44px 0 0 -44px; background: var(--accent); border-color: var(--accent); }
+  .cursor.label .cursor-dot { opacity: 0; }
+  .cursor-label { font: 600 12px var(--f-body); color: var(--on-accent); opacity: 0; transform: scale(.6); transition: .25s var(--ease); white-space: nowrap; }
+  .cursor.label .cursor-label { opacity: 1; transform: none; }
+  .cursor.down .cursor-ring { transform-origin: center; scale: .85; }
+}
+
+/* ---------- Progress + nav ---------- */
+.scroll-progress { position: fixed; inset: 0 0 auto; height: 2px; z-index: 120; }
+.scroll-progress i { display: block; height: 100%; background: linear-gradient(90deg, var(--violet), var(--accent)); transform-origin: left; transform: scaleX(0); }
+
+.nav {
+  position: fixed; top: 14px; left: 50%; z-index: 100; translate: -50% 0;
+  width: min(calc(100% - 24px), 1100px);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 10px 10px 10px 20px; border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1px solid var(--line); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  transition: transform .5s var(--ease-out), background-color .4s;
+}
+.nav.hidden { transform: translateY(-140%); }
+.logo { font: 800 22px/1 var(--f-display); letter-spacing: -.04em; display: inline-block; }
+.nav-links { display: flex; gap: 4px; }
+.nav-links a { position: relative; padding: 8px 14px; border-radius: 999px; font-size: .9rem; color: var(--muted); transition: color .25s, background-color .25s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--line); }
+.nav-actions { display: flex; gap: 8px; align-items: center; }
+.icon-btn { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: var(--card); transition: border-color .25s, transform .25s var(--ease); }
+.icon-btn:hover { border-color: var(--line-2); }
+[data-theme="dark"] .i-moon, [data-theme="light"] .i-sun { display: none; }
+.menu-btn { display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center; }
+.menu-btn span { width: 16px; height: 1.5px; background: currentColor; transition: transform .35s var(--ease); }
+.menu-btn[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+
+.mobile-menu { position: fixed; inset: 0; z-index: 90; background: var(--bg); display: flex; flex-direction: column; justify-content: center; padding: 100px var(--gutter) 40px; gap: 28px; }
+.mobile-menu[hidden] { display: none; }
+.mobile-menu:not([hidden]) { animation: menuIn .5s var(--ease-out); }
+.mobile-menu nav { display: grid; gap: 4px; }
+.mobile-menu a { font: 600 clamp(34px, 9vw, 54px)/1.15 var(--f-display); letter-spacing: -.03em; opacity: 0; transform: translateY(24px); animation: rise .6s var(--ease-out) forwards; }
+.mobile-menu a:nth-child(2) { animation-delay: .05s } .mobile-menu a:nth-child(3) { animation-delay: .1s } .mobile-menu a:nth-child(4) { animation-delay: .15s } .mobile-menu a:nth-child(5) { animation-delay: .2s } .mobile-menu a:nth-child(6) { animation-delay: .25s }
+@keyframes menuIn { from { clip-path: circle(0 at calc(100% - 40px) 40px); } to { clip-path: circle(150% at calc(100% - 40px) 40px); } }
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+/* ---------- Buttons / chips ---------- */
+.btn { --bx: 0px; --by: 0px; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 600; font-size: .95rem; position: relative; overflow: hidden; isolation: isolate; transition: transform .3s var(--ease), box-shadow .3s, background-color .3s, color .3s, border-color .3s; }
+.btn-sm { padding: 10px 18px; font-size: .88rem; }
+.btn-accent { background: var(--accent); color: var(--on-accent); box-shadow: 0 10px 30px -10px rgba(200, 255, 46, .55); }
+.btn-accent::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--text); transform: translateY(101%); transition: transform .45s var(--ease-out); border-radius: inherit; }
+.btn-accent:hover { color: var(--bg); }
+.btn-accent:hover::before { transform: none; }
+.btn-ghost { border: 1px solid var(--line-2); background: color-mix(in srgb, var(--card) 60%, transparent); }
+.btn-ghost:hover { border-color: var(--accent-ink); color: var(--accent-ink); }
+.full { grid-column: 1 / -1; justify-content: center; }
+
+.chip { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); font-size: .82rem; color: var(--muted); }
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 0 var(--live); animation: pulse 2s infinite; flex: none; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+
+/* ---------- FAB / toast ---------- */
+.fab { position: fixed; right: 18px; bottom: 18px; z-index: 80; display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 700; box-shadow: 0 14px 40px -10px rgba(0, 0, 0, .6); transform: translateY(120px); transition: transform .6s var(--ease-out); }
+.fab.show { transform: none; }
+.fab .pulse { background: var(--on-accent); box-shadow: none; }
+.toast { position: fixed; left: 50%; bottom: 28px; z-index: 260; translate: -50% 0; padding: 12px 20px; border-radius: 999px; background: var(--text); color: var(--bg); font-weight: 600; font-size: .9rem; opacity: 0; transform: translateY(20px); transition: .45s var(--ease-out); pointer-events: none; }
+.toast.show { opacity: 1; transform: none; }
+
+[hidden] { display: none !important; }
+
+/* ---------- Mouse guide ---------- */
+.mg { position: fixed; left: 12px; bottom: 6px; z-index: 85; width: var(--mw, 96px); height: var(--mh, 130px); will-change: transform; pointer-events: none; transition: opacity .5s; }
+.mg.bye { opacity: 0; }
+.mg-body { position: absolute; inset: 0; padding: 0; pointer-events: auto; }
+.mg-sprite { position: absolute; inset: 0; background-repeat: no-repeat; image-rendering: auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+.mg-shadow { position: absolute; left: 22%; right: 22%; bottom: 2px; height: 8px; border-radius: 50%; background: rgba(0,0,0,.28); filter: blur(3px); z-index: -1; }
+.mg-body:hover .mg-sprite { animation: mgHop .45s var(--ease-out); }
+@keyframes mgHop { 40% { translate: 0 -8px; } }
+.mg-bubble { position: absolute; left: 50%; bottom: calc(100% - 4px); translate: -24px 0; width: max-content; max-width: 230px; padding: 10px 14px; border-radius: 14px 14px 14px 4px; background: var(--text); color: var(--bg); font: 600 .82rem/1.35 var(--f-body); box-shadow: var(--shadow); opacity: 0; transform: translateY(8px) scale(.92); transform-origin: bottom left; transition: opacity .3s, transform .4s var(--ease-out); pointer-events: none; }
+.mg.talk .mg-bubble { opacity: 1; transform: none; }
+.mg-close { position: absolute; top: 4px; right: -6px; width: 22px; height: 22px; border-radius: 50%; font-size: 10px; background: var(--card); border: 1px solid var(--line-2); color: var(--muted); opacity: 0; transition: opacity .25s; pointer-events: auto; }
+.mg:hover .mg-close, .mg-close:focus-visible { opacity: 1; }
+.mg.zz::after { content: 'z'; position: absolute; right: 8px; top: 6px; font: 700 14px var(--f-display); color: var(--muted); animation: zz 2s ease-in-out infinite; }
+@keyframes zz { 0% { opacity: 0; transform: translate(0, 6px) scale(.7); } 50% { opacity: 1; } 100% { opacity: 0; transform: translate(10px, -16px) scale(1.2); } }
+.mg-restore { position: fixed; left: 14px; bottom: 14px; z-index: 85; width: 42px; height: 42px; border-radius: 50%; background: var(--card); border: 1px solid var(--line-2); font-size: 20px; box-shadow: var(--shadow); }
+@media (max-width: 720px) {
+  .mg-bubble { max-width: 180px; font-size: .74rem; padding: 8px 11px; }
+  .mg-close { opacity: 1; width: 20px; height: 20px; }
+}
+.mg.chips .mg-bubble { pointer-events: auto; }
+.mg-chips { display: none; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.mg.chips .mg-chips { display: flex; }
+.mg-chips button { padding: 4px 8px; border-radius: 999px; background: var(--bg); color: var(--text); font: 600 .72rem var(--f-body); transition: background-color .2s, color .2s; }
+.mg-chips button:hover { background: var(--accent); color: var(--on-accent); }
+.mg-text { display: block; }
+.nav, .mobile-menu, .nav * { font-family: var(--f-body); box-sizing: border-box; }
+.nav .logo { font-family: var(--f-display); color: var(--text); }
+.nav-links a.current { color: var(--text); background: var(--line); }
+@media (max-width: 1024px) { .nav-links { display: none; } .menu-btn { display: flex; } }
+@media (max-width: 720px) { .hide-sm { display: none !important; } }
+@media (prefers-reduced-motion: reduce) { .nav, .cursor, .mg * { transition: none !important; animation: none !important; } }
+/* Win over legacy page stylesheets that also define .btn */
+.nav .btn-accent, .mobile-menu .btn-accent { background: var(--accent) !important; color: var(--on-accent) !important; border: 0 !important; box-shadow: 0 10px 30px -10px rgba(200, 255, 46, .55) !important; }
+.nav .icon-btn { background: var(--card) !important; border: 1px solid var(--line) !important; color: var(--text) !important; }
+@media print { .nav, .cursor, .mg, .mg-restore, .scroll-progress, .mobile-menu { display: none !important; } }

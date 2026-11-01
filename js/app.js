@@ -1,5 +1,5 @@
 // Portfolio front end. Content comes from data.js; this file only renders and animates.
-import { initMouseGuide } from './mouse.js';
+import { initMouseGuide } from './mouse.js?v=20261102';
 import { meta, statusMeta, about, experience, projects, categories, categoryShort, projectStats, education, languages, workflows, stack } from './data.js';
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -139,7 +139,8 @@ const statusOrder = ['live', 'staging', 'local', 'archive', 'github', 'down'];
 const ordered = [...projects].sort((a, b) =>
   (a.category === 'Credentials') - (b.category === 'Credentials') ||
   statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status));
-const state = { cat: 'All', status: 'All', q: '' };
+const PAGE = () => (innerWidth < 720 ? 10 : 24);
+const state = { cat: 'All', status: 'All', q: '', limit: PAGE() };
 $('#archive-lede').textContent = `All ${projects.length} projects — ${projectStats.clientSites} live client sites, staging builds, local tools, plugins and sites that have since gone offline. Statuses checked ${fmtDate(meta.lastAudit)}.`;
 
 function pillHTML(group, value, label, n) {
@@ -162,7 +163,8 @@ function matches(p) {
 }
 function renderArchive() {
   const list = ordered.filter(matches);
-  $('#archive-grid').innerHTML = list.map((p, i) => `
+  const shown = list.slice(0, state.limit);
+  $('#archive-grid').innerHTML = shown.map((p, i) => `
     <button class="card" type="button" data-open="${esc(p.id)}" data-cursor="Open" style="--i:${i};view-transition-name:p-${esc(p.id)}">
       <div class="card-media"><img src="${src(thumbFor(p))}" alt="${esc(p.title)} preview" loading="lazy" decoding="async" width="800" height="520"></div>
       <span class="badge">${statusBadge(p.status)}</span>
@@ -172,20 +174,24 @@ function renderArchive() {
         <div class="meta"><span>${esc(categoryShort[p.category] || p.category)}${p.tech?.[0] && p.tech[0] !== (categoryShort[p.category] || p.category) ? ' · ' + esc(p.tech[0]) : ''}</span></div>
       </div>
     </button>`).join('');
-  $('#count').textContent = `Showing ${list.length} of ${projects.length}`;
+  $('#count').textContent = `Showing ${shown.length} of ${list.length}${list.length !== projects.length ? ` (filtered from ${projects.length})` : ''}`;
+  const more = $('#more');
+  more.hidden = shown.length >= list.length;
+  more.textContent = `Show more projects (${list.length - shown.length} left)`;
   $('#empty').hidden = list.length > 0;
 }
 function update(fn) {
-  const go = () => { fn(); renderPills(); renderArchive(); };
+  const go = () => { fn(); state.limit = PAGE(); renderPills(); renderArchive(); };
   if (document.startViewTransition && !reduced) document.startViewTransition(go); else go();
 }
 $('#cat-pills').addEventListener('click', e => { const b = e.target.closest('[data-cat]'); if (b) update(() => { state.cat = b.dataset.cat; state.status = 'All'; }); });
 $('#status-pills').addEventListener('click', e => { const b = e.target.closest('[data-status]'); if (b) update(() => { state.status = b.dataset.status; }); });
 let qTimer;
-$('#search').addEventListener('input', e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value.trim().toLowerCase(); renderPills(); renderArchive(); }, 120); });
+$('#search').addEventListener('input', e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value.trim().toLowerCase(); state.limit = state.q ? 999 : PAGE(); renderPills(); renderArchive(); }, 120); });
 addEventListener('keydown', e => {
   if (e.key === '/' && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); $('#search').focus(); }
 });
+$('#more').addEventListener('click', () => { state.limit += PAGE() * 2; renderArchive(); });
 renderPills(); renderArchive();
 
 /* ---------- Experience ---------- */
@@ -249,11 +255,18 @@ function openProject(id, list = ordered) {
     link.href = p.link.startsWith('http') || p.link.startsWith('./') ? p.link : src(p.link);
     link.textContent = (p.linkLabel || (p.link.startsWith('assets/') ? 'View full image' : 'Open project')) + ' ↗';
   } else link.hidden = true;
-  if (!modal.open) { modal.showModal(); lenis?.stop(); }
+  if (!modal.open) {
+    modal.showModal(); lenis?.stop();
+    // the custom cursor can't sit above the dialog's top layer, so use the native one
+    document.documentElement.classList.remove('has-cursor');
+  }
   $('.m-body', modal).scrollTop = 0;
 }
 function closeModal() { modal.close(); }
-modal.addEventListener('close', () => lenis?.start());
+modal.addEventListener('close', () => {
+  lenis?.start();
+  if (finePointer && !reduced) document.documentElement.classList.add('has-cursor');
+});
 modal.addEventListener('click', e => {
   if (e.target === modal || e.target.closest('[data-close]')) closeModal();
   const shot = e.target.closest('[data-shot]');

@@ -1,75 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Page Not Found — Muhammad Usama</title>
-  <link rel="icon" href="./assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="./css/style.css?v=20261028-12">
+  <meta name="robots" content="noindex">
+  <title>Page not found — Muhammad Usama</title>
+  <link rel="icon" href="/Portfolio/assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Portfolio/css/chrome.css?v=20261102">
+  <script src="/Portfolio/js/theme-init.js?v=20261102"></script>
   <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: #0a0a0e;
-      color: #f4f4f5;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      text-align: center;
-      padding: 24px;
-      margin: 0;
-    }
-    .not-found-card {
-      max-width: 480px;
-      background: rgba(18, 19, 26, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 48px 32px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
-    }
-    .status-code {
-      font-size: 64px;
-      font-weight: 800;
-      font-family: monospace;
-      color: #ff5c5c;
-      letter-spacing: -2px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: 24px;
-      margin: 0 0 12px;
-      font-weight: 600;
-    }
-    p {
-      color: #a1a1aa;
-      font-size: 14px;
-      line-height: 1.6;
-      margin: 0 0 28px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #6366f1;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 14px;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .btn:hover {
-      background: #4f46e5;
-      transform: translateY(-2px);
-    }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; background: var(--bg); color: var(--text); font-family: var(--f-body); text-align: center; padding: 24px; }
+    .code { font: 800 clamp(96px, 22vw, 220px)/.85 var(--f-display); letter-spacing: -.06em; color: transparent; -webkit-text-stroke: 1.5px var(--text); }
+    h1 { font: 700 clamp(26px, 4vw, 40px)/1.1 var(--f-display); letter-spacing: -.03em; margin: 18px 0 10px; }
+    p { color: var(--muted); max-width: 420px; margin: 0 auto 28px; }
+    .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .btn-ghost { border: 1px solid var(--line-2); }
   </style>
 </head>
 <body>
-  <div class="not-found-card">
-    <div class="status-code">404</div>
-    <h1>Page Not Found</h1>
-    <p>The system or archive you are looking for does not exist or has been relocated.</p>
-    <a href="./index.html" class="btn">Return to Interactive Portfolio →</a>
-  </div>
+  <main>
+    <div class="code">404</div>
+    <h1>This page wandered off.</h1>
+    <p>The link may be old, or the project moved. Everything I've built is on the home page.</p>
+    <div class="row">
+      <a class="btn btn-accent" href="/Portfolio/">Back to the portfolio</a>
+      <a class="btn btn-ghost" href="/Portfolio/#archive">Browse all projects</a>
+    </div>
+  </main>
 </body>
 </html>

@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/site.css?v=20261101">
-  <script>try{var t=localStorage.getItem('portfolio-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+  <link rel="stylesheet" href="./css/site.css?v=20261102">
+  <script src="./js/theme-init.js?v=20261102"></script>
   <style>
     .cs { padding: 120px 0 80px; }
     .cs h1 { font: 800 clamp(40px, 7vw, 88px)/.95 var(--f-display); letter-spacing: -.045em; margin: 18px 0 22px; }
@@ -31,7 +31,7 @@
 </head>
 <body>
   <main class="cs wrap">
-    <a class="back mono" href="./index.html#work">← Back to portfolio</a>
+    
     <p class="kicker" style="margin-top:34px"><span>Case study</span> Archive engineering</p>
     <h1>Commander Safeguard<br><em style="font-style:normal;color:var(--muted)">Web Museum.</em></h1>
     <p class="lede">A Pakistani childhood mascot site from 2005–2016, rebuilt from the Internet Archive. Ten playback points across three layout eras, served from original Wayback files, with surviving Flash games playable again through the Ruffle emulator.</p>
@@ -40,6 +40,10 @@
       <span class="chip">10 playback points</span>
       <span class="chip">879 capture records audited</span>
       <span class="chip">Node.js · Ruffle · Wayback CDX</span>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:-20px 0 50px">
+      <a class="btn btn-accent" href="https://muhammadusama64874.github.io/commander-safeguard-museum/" target="_blank" rel="noopener">Open the full museum ↗</a>
+      <a class="btn btn-ghost" href="https://muhammadusama64874.github.io/commander-safeguard-museum/catalogue.html" target="_blank" rel="noopener">Play the recovered games ↗</a>
     </div>
 
     <div class="cs-shots">
@@ -68,7 +72,8 @@
         <p>Seven payloads can't be replayed by Wayback, and some game files were never archived. Those are documented as gaps — no substitute games are passed off as originals.</p>
       </article>
     </div>
-    <p class="muted" style="margin-top:40px">The full museum runs locally (it serves ~770 archived files). Ask me for a live walkthrough.</p>
+    <p class="muted" style="margin-top:40px">The museum is a static export of the restoration (1,169 files) hosted on GitHub Pages. Unofficial fan preservation — not affiliated with Procter &amp; Gamble or Safeguard. Episode videos are intentionally not hosted.</p>
   </main>
+  <script type="module" src="./js/page-commander.js?v=20261102"></script>
 </body>
 </html>

@@ -65,9 +65,9 @@ function renderHub(root) {
           ${SERVICE_SVGS.n8n}
           Production n8n Templates
         </div>
-        <h2 class="section-title">AI & Automation Workflow Hub</h2>
+        <h1 class="section-title">AI & Automation Workflow Hub</h1>
         <p class="n8n-hub-subtitle">
-          Battle-tested, production-ready n8n workflow architectures. 100% credential-sanitized with strictly defined typeVersion tags. Single-click copy directly into your local or cloud n8n canvas.
+          Battle-tested, production-ready n8n workflow architectures. Credentials, private hosts and captured run data are stripped, with explicit typeVersion tags. Single-click copy directly into your local or cloud n8n canvas.
         </p>
       </div>
 

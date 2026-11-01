@@ -9,7 +9,7 @@
 #ai-lab.section {
   justify-content: flex-start;
   padding: 0;
-  background: #070c16 !important;
+  background: var(--bg) !important;
   color: #f1f5f9 !important;
 }
 
@@ -19,12 +19,12 @@
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(56, 189, 248, 0.45) transparent;
+  scrollbar-color: rgba(200, 255, 46, 0.45) transparent;
   -webkit-overflow-scrolling: touch;
 }
 
 #n8n-hub-root:focus-visible {
-  outline: 2px solid #38bdf8;
+  outline: 2px solid #c8ff2e;
   outline-offset: -2px;
 }
 
@@ -33,7 +33,7 @@
 }
 
 #n8n-hub-root::-webkit-scrollbar-thumb {
-  background: rgba(56, 189, 248, 0.4);
+  background: rgba(200, 255, 46, 0.4);
   border-radius: 999px;
 }
 
@@ -61,15 +61,15 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  background: rgba(200, 255, 46, 0.08);
+  border: 1px solid rgba(200, 255, 46, 0.25);
   border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #38bdf8;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.12);
+  color: #c8ff2e;
+  box-shadow: 0 0 20px rgba(200, 255, 46, 0.12);
   margin-bottom: 12px;
 }
 
@@ -112,16 +112,16 @@
 
 .n8n-filter-btn:hover {
   background: rgba(51, 65, 85, 0.8);
-  border-color: #38bdf8;
+  border-color: #c8ff2e;
   color: #ffffff;
   transform: translateY(-1px);
 }
 
 .n8n-filter-btn.active {
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(99, 102, 241, 0.25));
-  border-color: #38bdf8;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(123, 97, 255, 0.25));
+  border-color: #c8ff2e;
   color: #ffffff;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 16px rgba(200, 255, 46, 0.3);
 }
 
 /* Featured Template Stage (Reference Layout from user image) */
@@ -130,7 +130,7 @@
   grid-template-columns: 420px 1fr;
   gap: 32px;
   background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  border: 1px solid rgba(200, 255, 46, 0.2);
   border-radius: 24px;
   padding: 36px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
@@ -171,13 +171,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #38bdf8;
+  color: #c8ff2e;
   transition: transform 0.2s;
 }
 
 .n8n-service-icon-badge:hover {
   transform: scale(1.1);
-  border-color: #38bdf8;
+  border-color: #c8ff2e;
 }
 
 .n8n-service-icon-badge svg {
@@ -226,7 +226,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #38bdf8;
+  color: #c8ff2e;
 }
 
 .n8n-meta-tag svg {
@@ -247,7 +247,7 @@
   min-width: 180px;
   padding: 13px 22px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  background: linear-gradient(135deg, #a3e635, #2563eb);
   color: #ffffff;
   font-size: 13px;
   font-weight: 700;
@@ -264,9 +264,9 @@
 }
 
 .btn-n8n-copy:hover {
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  background: linear-gradient(135deg, #c8ff2e, #a3e635);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.45);
+  box-shadow: 0 8px 25px rgba(200, 255, 46, 0.45);
 }
 
 .btn-n8n-copy.copied {
@@ -291,15 +291,15 @@
 
 .btn-n8n-download:hover {
   background: rgba(51, 65, 85, 0.9);
-  border-color: #38bdf8;
-  color: #38bdf8;
+  border-color: #c8ff2e;
+  color: #c8ff2e;
 }
 
 /* Right Column: Interactive Visual Node Pipeline */
 .n8n-pipeline-canvas-box {
   position: relative;
   background: #090d16;
-  border: 1px solid rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(200, 255, 46, 0.15);
   border-radius: 18px;
   height: 380px;
   overflow: hidden;
@@ -310,7 +310,7 @@
   position: absolute;
   inset: 0;
   background-image: 
-    radial-gradient(circle, rgba(56, 189, 248, 0.12) 1.2px, transparent 1.2px);
+    radial-gradient(circle, rgba(200, 255, 46, 0.12) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
   pointer-events: none;
 }
@@ -325,7 +325,7 @@
   overflow-y: hidden;
   cursor: grab;
   scrollbar-width: thin;
-  scrollbar-color: rgba(56, 189, 248, 0.3) transparent;
+  scrollbar-color: rgba(200, 255, 46, 0.3) transparent;
 }
 
 .n8n-pipeline-viewport:active {
@@ -355,8 +355,8 @@
 
 .n8n-node-chip:hover {
   transform: translateY(-3px);
-  border-color: #38bdf8;
-  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+  border-color: #c8ff2e;
+  box-shadow: 0 12px 30px rgba(200, 255, 46, 0.25);
 }
 
 .n8n-chip-icon {
@@ -367,7 +367,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #38bdf8;
+  color: #c8ff2e;
 }
 
 .n8n-chip-icon svg {
@@ -397,7 +397,7 @@
 .n8n-connector-arrow {
   width: 36px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(99, 102, 241, 0.5), rgba(56, 189, 248, 0.85));
+  background: linear-gradient(90deg, rgba(123, 97, 255, 0.5), rgba(200, 255, 46, 0.85));
   position: relative;
   display: flex;
   align-items: center;
@@ -408,8 +408,8 @@
   content: '';
   width: 6px;
   height: 6px;
-  border-top: 2px solid #38bdf8;
-  border-right: 2px solid #38bdf8;
+  border-top: 2px solid #c8ff2e;
+  border-right: 2px solid #c8ff2e;
   transform: rotate(45deg);
   margin-right: -1px;
 }
@@ -423,7 +423,7 @@
   align-items: center;
   gap: 6px;
   background: rgba(15, 23, 42, 0.92);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: 1px solid rgba(200, 255, 46, 0.25);
   border-radius: 10px;
   padding: 4px;
   z-index: 5;
@@ -453,9 +453,9 @@
 }
 
 .n8n-zoom-btn:hover {
-  background: rgba(56, 189, 248, 0.22) !important;
-  border-color: #38bdf8 !important;
-  color: #38bdf8 !important;
+  background: rgba(200, 255, 46, 0.22) !important;
+  border-color: #c8ff2e !important;
+  color: #c8ff2e !important;
   transform: translateY(-1px);
 }
 
@@ -497,15 +497,15 @@
 
 .n8n-card:hover {
   background: rgba(30, 41, 59, 0.85);
-  border-color: rgba(56, 189, 248, 0.4);
+  border-color: rgba(200, 255, 46, 0.4);
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .n8n-card.active {
   background: rgba(30, 41, 59, 0.95);
-  border-color: #38bdf8;
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.22), inset 0 0 14px rgba(56, 189, 248, 0.05);
+  border-color: #c8ff2e;
+  box-shadow: 0 0 24px rgba(200, 255, 46, 0.22), inset 0 0 14px rgba(200, 255, 46, 0.05);
 }
 
 .n8n-card-category {
@@ -516,17 +516,17 @@
   letter-spacing: 0.06em;
   padding: 3px 9px;
   border-radius: 6px;
-  background: rgba(56, 189, 248, 0.1);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  background: rgba(200, 255, 46, 0.1);
+  color: #c8ff2e;
+  border: 1px solid rgba(200, 255, 46, 0.22);
   margin-bottom: 10px;
   width: fit-content;
 }
 
 .n8n-card-category[data-cat="seogrowth"] {
-  background: rgba(56, 189, 248, 0.1);
-  color: #38bdf8;
-  border-color: rgba(56, 189, 248, 0.25);
+  background: rgba(200, 255, 46, 0.1);
+  color: #c8ff2e;
+  border-color: rgba(200, 255, 46, 0.25);
 }
 
 .n8n-card-category[data-cat="contentcms"] {
@@ -555,15 +555,15 @@
 }
 
 .n8n-card-category[data-cat="devopsteam"] {
-  background: rgba(6, 182, 212, 0.12);
+  background: rgba(200, 255, 46, 0.12);
   color: #67e8f9;
-  border-color: rgba(6, 182, 212, 0.28);
+  border-color: rgba(200, 255, 46, 0.28);
 }
 
 .n8n-card-category[data-cat="datascraping"] {
-  background: rgba(96, 165, 250, 0.12);
+  background: rgba(123, 97, 255, 0.12);
   color: #93c5fd;
-  border-color: rgba(96, 165, 250, 0.28);
+  border-color: rgba(123, 97, 255, 0.28);
 }
 
 .n8n-card-title {
@@ -602,14 +602,14 @@
 .n8n-card-select-hint {
   font-size: 11px;
   font-weight: 700;
-  color: #38bdf8;
+  color: #c8ff2e;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
 /* ==========================================================================
-   Portfolio alignment layer — the hub now inherits the page palette instead of
+   Portfolio alignment layer ï¿½ the hub now inherits the page palette instead of
    running a separate cyan theme. The node canvas keeps its dark editor look.
    ========================================================================== */
 
@@ -936,7 +936,7 @@
     margin: 0 auto;
     justify-content: center;
     align-items: flex-end;
-    background: linear-gradient(180deg, rgba(99, 102, 241, 0.5), rgba(56, 189, 248, 0.85));
+    background: linear-gradient(180deg, rgba(123, 97, 255, 0.5), rgba(200, 255, 46, 0.85));
   }
 
   #ai-lab .n8n-connector-arrow::after {
@@ -955,3 +955,7 @@
     height: 300px;
   }
 }
+
+/* 2026-11 site palette: primary action uses the lime accent */
+.btn-n8n-copy { background: var(--accent) !important; color: var(--on-accent) !important; border: 0 !important; box-shadow: 0 10px 30px -10px rgba(200, 255, 46, .55) !important; }
+.btn-n8n-copy:hover { filter: brightness(1.05); transform: translateY(-1px); }

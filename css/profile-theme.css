@@ -1,0 +1,41 @@
+/* Bridges the long-form profile page onto the site design tokens (chrome.css),
+   so it matches the home page in both light and dark themes. */
+:root {
+  --ink: var(--text);
+  --paper: var(--bg);
+  --card: var(--card);
+  --muted: var(--muted);
+  --line: var(--line-2);
+  --purple: var(--violet);
+  --mint: var(--accent);
+  --font: var(--f-body);
+  --display: var(--f-display);
+}
+body { background: var(--bg); color: var(--text); font-family: var(--f-body); transition: background-color .5s, color .5s; }
+
+/* panels that were hard-coded white */
+.technology-strip, .expertise-card, .certificate-panel, .resume-sheet, .contact-options > button, .modal-close, .lottie-card { background: var(--card) !important; color: var(--text); }
+.cv-section { background: var(--bg-2) !important; }
+.closing-section, .contact-dialog, .channel-animation { background: var(--bg) !important; }
+.portrait-card figcaption { background: color-mix(in srgb, var(--card) 86%, transparent) !important; }
+.portrait-card { background: linear-gradient(145deg, color-mix(in srgb, var(--violet) 35%, var(--card)), color-mix(in srgb, var(--accent) 30%, var(--card))) !important; }
+.resume-columns p, .resume-columns li { color: var(--muted) !important; }
+.tech-sticker { background: var(--bg-2) !important; box-shadow: 4px 4px 0 var(--text) !important; }
+.expertise-card li { background: var(--bg-2) !important; }
+
+/* solid "ink" buttons and chips keep contrast in both themes */
+.primary-action, .mini-contact, .cv-header a, .portrait-card figcaption > span { background: var(--accent) !important; color: var(--on-accent) !important; }
+.expertise-icon { background: var(--text) !important; color: var(--bg) !important; }
+.closing-contact { background: var(--accent) !important; color: var(--on-accent) !important; }
+
+/* the dark experience band stays dark in light mode, and uses the lime accent */
+.experience-section { background: #0d0f14 !important; color: #ecedf2 !important; }
+.experience-section .section-heading > p, .career-item p, .career-summary a { color: #c8ff2e !important; }
+.education-panel { background: var(--violet) !important; color: #fff !important; }
+.career-item.featured:before { background: var(--accent) !important; color: var(--on-accent) !important; }
+
+/* headings use the site display face */
+.hero-copy h1, .section-heading h2, .cv-header h2, .education-panel h2, .closing-section h2, .resume-sheet > header h2, .expertise-card h3, .career-item h3 { font-family: var(--f-display) !important; letter-spacing: -.045em; }
+.hero-copy h1 em, .closing-section em { color: var(--accent-ink) !important; font-style: normal; }
+.profile-hero { padding-top: 130px !important; }
+.eyebrow > span { background: var(--live) !important; }

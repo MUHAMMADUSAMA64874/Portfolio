@@ -14,12 +14,15 @@ const ACTIONS = {
   sleep: { frames: 5,  fps: 4,  loop: true }
 };
 const TRICKS = ['punch', 'flip', 'combo', 'cheer'];
+const TRICK_LABEL = { punch: '🥊 Punch', flip: '🤸 Flip', combo: '⚡ Combo', cheer: '🎉 Cheer' };
+// The cartoon this mouse comes from — shown at the end of the page.
+const RECOGNIZE_URL = 'https://youtu.be/NenlQz-FkLY?t=6142';
 
-export function initMouseGuide({ stats, years }) {
+export function initMouseGuide({ stats, years, messages }) {
   try { if (localStorage.getItem('mouse-guide') === 'off') return showRestore(); } catch {}
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const SECTION = {
+  const SECTION = messages || {
     top:        ['idle',  "Hi! I'm Usama's guide. Click me for a trick 🥊"],
     work:       ['flip',  'Flagship builds — click any card for the full story.'],
     automation: ['combo', `${stats.automations} automations. These five save the most hours.`],
@@ -27,7 +30,7 @@ export function initMouseGuide({ stats, years }) {
     archive:    ['flip',  `All ${stats.total} projects. Press / to search.`],
     experience: ['punch', `${years} years, ${stats.roles} roles — follow the timeline.`],
     about:      ['idle',  "That's Usama — Karachi-based, remote-ready."],
-    contact:    ['cheer', 'Hiring? Copy the email — replies within 24 h 🎉']
+    contact:    ['cheer', 'Do you recognize me? If not, click me to watch ↗']
   };
   const CLICK_LINES = [
     `${stats.clientSites} live client sites and counting!`,
@@ -41,7 +44,7 @@ export function initMouseGuide({ stats, years }) {
   const root = document.createElement('div');
   root.className = 'mg';
   root.innerHTML = `
-    <div class="mg-bubble" role="status" aria-live="polite"></div>
+    <div class="mg-bubble" role="status" aria-live="polite"><span class="mg-text"></span><span class="mg-chips"></span></div>
     <button class="mg-body" type="button" aria-label="Mouse guide — click for a trick" data-cursor="Poke">
       <span class="mg-sprite"></span><span class="mg-shadow"></span>
     </button>
@@ -50,6 +53,14 @@ export function initMouseGuide({ stats, years }) {
   const sprite = root.querySelector('.mg-sprite');
   const body = root.querySelector('.mg-body');
   const bubble = root.querySelector('.mg-bubble');
+  const bubbleText = root.querySelector('.mg-text');
+  const chips = root.querySelector('.mg-chips');
+  chips.innerHTML = TRICKS.map(t => `<button type="button" data-trick="${t}">${TRICK_LABEL[t]}</button>`).join('');
+  chips.addEventListener('click', e => {
+    const b = e.target.closest('[data-trick]'); if (!b) return;
+    e.stopPropagation(); wake(); trick(b.dataset.trick);
+    say({ punch: 'Pow! 🥊 Quick right jab.', flip: 'Whoa! 🤸 Backflip.', combo: 'Flurry combo! ⚡', cheer: 'Victory! 🎉' }[b.dataset.trick], 3500, true);
+  });
 
   // Preload strips
   for (const a of Object.keys(ACTIONS)) { const i = new Image(); i.src = `./assets/mouse/${a}.webp`; }
@@ -72,8 +83,9 @@ export function initMouseGuide({ stats, years }) {
     root.style.setProperty('--mh', FRAME_H * s + 'px');
     const a = action; action = ''; setAction(a);
   }
-  function say(text, ms = 3800) {
-    bubble.textContent = text;
+  function say(text, ms = 3800, withChips = false) {
+    bubbleText.textContent = text;
+    root.classList.toggle('chips', withChips);
     root.classList.add('talk');
     clearTimeout(bubbleTimer);
     bubbleTimer = setTimeout(() => root.classList.remove('talk'), ms);
@@ -104,17 +116,18 @@ export function initMouseGuide({ stats, years }) {
       section = id;
       const [anim, text] = SECTION[id];
       if (anim !== 'idle' && !reduced) trick(anim);
-      say(text);
+      say(text, id === 'contact' ? 600000 : 3800);
     }
   }, { threshold: 0.45 });
   document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
 
   body.addEventListener('click', () => {
     wake();
+    if (section === 'contact') { trick('cheer'); window.open(RECOGNIZE_URL, '_blank', 'noopener,noreferrer'); return; }
     trick(TRICKS[Math.floor(Math.random() * TRICKS.length)]);
-    say(CLICK_LINES[clickIdx++ % CLICK_LINES.length]);
+    say(CLICK_LINES[clickIdx++ % CLICK_LINES.length], 6000, true);
   });
-  body.addEventListener('pointerenter', () => { if (!oneShot && !root.classList.contains('talk')) say('Psst… click me!', 1800); });
+  body.addEventListener('pointerenter', () => { if (section !== 'contact' && !oneShot && !root.classList.contains('talk')) say('Psst… click me!', 1800); });
   root.querySelector('.mg-close').addEventListener('click', () => {
     root.classList.add('bye');
     try { localStorage.setItem('mouse-guide', 'off'); } catch {}
@@ -137,7 +150,8 @@ export function initMouseGuide({ stats, years }) {
     }
     vel *= 0.9;
     root.style.transform = `translateX(${x}px)`;
-    sprite.style.transform = `scaleX(${facing})`;
+    // sprite art faces left, so mirror it when walking right
+    sprite.style.transform = `scaleX(${-facing})`;
     // frames
     const a = ACTIONS[action];
     if (!reduced || oneShot) {
