@@ -1,816 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CV of Muhammad Usama — Full-Stack WordPress Developer & AI Automation Engineer, Karachi. 4+ years, 37 live client sites, 81+ production n8n automations.">
+  <title>Muhammad Usama — CV · Full-Stack WordPress Developer & AI Automation Engineer</title>
+  <meta name="description" content="CV of Muhammad Usama — Full-Stack WordPress Developer & AI Automation Engineer in Karachi. 4+ years, 37 live client sites, 81+ production n8n automations. Available for remote roles.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://muhammadusama64874.github.io/Portfolio/cv.html">
-  <title>Muhammad Usama - Full-Stack WordPress & AI Automation Engineer CV</title>
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" href="./assets/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="./assets/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/chrome.css?v=20261102">
+  <script src="./js/theme-init.js?v=20261102"></script>
   <style>
-    :root {
-      --primary: #0f172a;
-      --primary-accent: #0284c7;
-      --secondary: #334155;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --bg: #ffffff;
-      --tag-bg: #f8fafc;
-      --badge-bg: #eff6ff;
-      --badge-text: #0369a1;
-    }
+    /* The CV sheet itself is always ink-on-paper, whatever the site theme. */
+    .sheet { --ink: #12131a; --sub: #4a4d5a; --rule: #dcdde3; --acc: #4b2fe0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg, #f4f3ee); font: 400 10pt/1.45 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .toolbar { max-width: 210mm; margin: 96px auto 14px; padding: 0 12px; display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+    .toolbar a, .toolbar button { font: 600 13px Inter, sans-serif; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line-2, #ccc); background: var(--card, #fff); color: var(--text, #111); cursor: pointer; text-decoration: none; }
+    .toolbar .primary { background: #c8ff2e; color: #0a0b0d; border-color: #c8ff2e; }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    .sheet { width: 210mm; min-height: 297mm; margin: 0 auto 60px; padding: 13mm 15mm 12mm; background: #fff; color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.18); }
+    header.cv { display: grid; grid-template-columns: 1fr auto; gap: 3mm; align-items: end; padding-bottom: 5mm; border-bottom: 2px solid var(--ink); }
+    h1 { font: 800 25pt/1 'Bricolage Grotesque', Inter, sans-serif; letter-spacing: -.03em; margin: 0; }
+    .title { margin: 2.2mm 0 0; font-weight: 600; font-size: 10pt; color: var(--acc); white-space: nowrap; }
+    .avail { margin: 1.5mm 0 0; font-size: 8.6pt; color: var(--sub); white-space: nowrap; }
+    .contact { list-style: none; margin: 0; padding: 0; text-align: right; font-size: 8pt; line-height: 1.6; color: var(--sub); }
+    .contact a { color: var(--ink); text-decoration: none; }
+    .contact li { white-space: nowrap; }
+    .sheet ul.contact { padding: 0; margin: 0; }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--secondary);
-      background-color: #f1f5f9;
-      line-height: 1.5;
-      font-size: 13px;
-      -webkit-font-smoothing: antialiased;
-      padding: 56px 20px 48px;
-    }
+    .sheet section { margin-top: 4.2mm; }
+    .sheet h2 { font: 700 8.6pt/1 Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); margin: 0 0 2.6mm; padding-bottom: 1.4mm; border-bottom: 1px solid var(--rule); }
+    .sheet p { margin: 0; }
+    .summary { font-size: 9.4pt; }
 
-    /* TOP ACTION TOOLBAR */
-    .cv-toolbar {
-      max-width: 880px;
-      margin: 0 auto 16px auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .skills { display: grid; grid-template-columns: 34mm 1fr; gap: 1mm 4mm; font-size: 8.9pt; margin: 0; }
+    .skills dt { font-weight: 600; }
+    .skills dd { margin: 0; color: var(--sub); }
 
-    .toolbar-back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #0f172a;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      background: #ffffff;
-      padding: 9px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: all 0.2s ease;
-    }
+    .job { margin-bottom: 3mm; break-inside: avoid; }
+    .job-head { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
+    .job-head h3 { margin: 0; font-size: 10.2pt; font-weight: 700; }
+    .job-head h3 span { font-weight: 500; color: var(--sub); }
+    .when { font-size: 8.8pt; color: var(--sub); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .sheet ul { margin: 1.2mm 0 0; padding-left: 4.2mm; }
+    .sheet li { margin: .5mm 0; font-size: 8.95pt; line-height: 1.4; }
+    .sheet li::marker { color: var(--acc); }
 
-    .toolbar-back-btn:hover {
-      background: #f8fafc;
-      color: var(--primary-accent);
-      border-color: #cbd5e1;
-      transform: translateX(-2px);
-    }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+    .proj { margin-bottom: 2.4mm; break-inside: avoid; }
+    .proj b { font-size: 9.4pt; }
+    .proj p { font-size: 8.7pt; color: var(--sub); }
+    .proj a, .sheet .more a { color: var(--acc); text-decoration: none; font-size: 8.4pt; }
+    .sheet .plain { list-style: none; padding: 0; margin: 0; }
+    .sheet .plain li { font-size: 8.8pt; margin: 0 0 1mm; }
+    .plain li span { color: var(--sub); }
+    footer.cv { margin-top: 5mm; padding-top: 2mm; border-top: 1px solid var(--rule); font-size: 8pt; color: var(--sub); display: flex; justify-content: space-between; }
+    footer.cv a { color: var(--sub); text-decoration: none; }
 
-    .toolbar-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+    @media screen and (max-width: 820px) {
+      .sheet { width: 100%; min-height: 0; padding: 22px 18px; margin: 0 0 40px; box-shadow: none; }
+      header.cv { grid-template-columns: 1fr; }
+      .contact { text-align: left; }
+      .title, .avail { white-space: normal; }
+      .skills { grid-template-columns: 1fr; }
+      .skills dt { margin-top: 6px; }
+      .two { grid-template-columns: 1fr; gap: 0; }
+      .job-head { flex-direction: column; gap: 2px; }
+      .toolbar { margin-top: 84px; justify-content: flex-start; }
     }
-
-    .toolbar-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #475569;
-      text-decoration: none;
-      font-size: 12.5px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: color 0.15s ease;
-    }
-
-    .toolbar-link:hover {
-      color: var(--primary);
-    }
-
-    .toolbar-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 12.5px;
-      font-weight: 700;
-      padding: 9px 16px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .toolbar-btn.secondary {
-      background: #ffffff;
-      color: #0f172a;
-      border-color: var(--border);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .toolbar-btn.secondary:hover {
-      background: #f8fafc;
-      color: var(--primary-accent);
-      border-color: #cbd5e1;
-    }
-
-    .toolbar-btn.primary {
-      background: linear-gradient(135deg, #0284c7, #2563eb);
-      color: #ffffff;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
-    }
-
-    .toolbar-btn.primary:hover {
-      background: linear-gradient(135deg, #0369a1, #1d4ed8);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
-    }
-
-    .cv-container {
-      max-width: 880px;
-      margin: 0 auto;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 44px 52px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
-    }
-
-    /* HEADER */
-    header {
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 22px;
-      margin-bottom: 22px;
-    }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-      margin-bottom: 6px;
-    }
-
-    .target-title {
-      font-size: 15.5px;
-      font-weight: 700;
-      color: var(--primary-accent);
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-    }
-
-    .badge-available {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background-color: #ecfdf5;
-      color: #047857;
-      font-weight: 700;
-      font-size: 11.5px;
-      padding: 5px 12px;
-      border-radius: 9999px;
-      border: 1px solid #a7f3d0;
-    }
-
-    .badge-available::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: #10b981;
-    }
-
-    .contact-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px 22px;
-      font-size: 12.5px;
-      color: var(--muted);
-      margin-top: 14px;
-    }
-
-    .contact-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .contact-item svg {
-      width: 14px;
-      height: 14px;
-      fill: var(--primary-accent);
-      flex-shrink: 0;
-    }
-
-    .contact-item a {
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.15s ease;
-    }
-
-    .contact-item a:hover {
-      color: var(--primary-accent);
-      text-decoration: underline;
-    }
-
-    /* SECTION STYLES */
-    section {
-      margin-bottom: 24px;
-    }
-
-    .section-title {
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--primary);
-      border-bottom: 1.5px solid var(--border);
-      padding-bottom: 5px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    /* SUMMARY */
-    .summary-text {
-      color: var(--secondary);
-      font-size: 13px;
-      line-height: 1.65;
-    }
-
-    /* SKILLS GRID */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px 16px;
-    }
-
-    @media (max-width: 768px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .skill-category {
-      background: #f8fafc;
-      border: 1px solid #f1f5f9;
-      border-radius: 8px;
-      padding: 12px 14px;
-    }
-
-    .skill-category h4 {
-      font-size: 11.5px;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .skill-tags {
-      font-size: 11.5px;
-      color: #475569;
-      line-height: 1.5;
-    }
-
-    /* ENTRIES */
-    .job-entry {
-      margin-bottom: 18px;
-    }
-
-    .job-entry:last-child {
-      margin-bottom: 0;
-    }
-
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .job-title-company {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .job-company {
-      color: var(--primary-accent);
-      font-weight: 700;
-    }
-
-    .job-meta {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .project-links {
-      font-size: 11.5px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .project-links a {
-      color: var(--primary-accent);
-      text-decoration: none;
-      font-weight: 600;
-      margin-right: 14px;
-    }
-
-    .project-links a:hover {
-      text-decoration: underline;
-    }
-
-    ul.bullet-list {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    ul.bullet-list li {
-      position: relative;
-      padding-left: 16px;
-      margin-bottom: 5px;
-      font-size: 12.5px;
-      line-height: 1.55;
-    }
-
-    ul.bullet-list li::before {
-      content: "•";
-      position: absolute;
-      left: 3px;
-      color: var(--primary-accent);
-      font-size: 14px;
-      line-height: 1;
-      top: 2px;
-    }
-
-    ul.bullet-list li strong {
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    /* CERTIFICATIONS */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px 18px;
-    }
-
-    @media (max-width: 600px) {
-      .certs-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .cert-item {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 10px 14px;
-    }
-
-    .cert-title {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 3px;
-    }
-
-    .cert-issuer {
-      font-size: 11.5px;
-      color: var(--primary-accent);
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .cert-id {
-      font-size: 10.5px;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--muted);
-    }
-
-    /* EDUCATION */
-    .edu-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-bottom: 3px;
-    }
-
-    .edu-degree {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .edu-school {
-      color: var(--secondary);
-      font-weight: 500;
-      font-size: 12.5px;
-    }
-
-    /* PRINT STYLES */
+    @page { size: A4; margin: 0; }
     @media print {
-      .cv-toolbar {
-        display: none !important;
-      }
-
-      body {
-        background: #fff;
-        padding: 0;
-        font-size: 11px;
-      }
-
-      .cv-container {
-        border: none;
-        box-shadow: none;
-        padding: 0;
-        max-width: 100%;
-      }
-
-      header {
-        padding-bottom: 12px;
-        margin-bottom: 14px;
-      }
-
-      h1 { font-size: 24px; }
-      .target-title { font-size: 13.5px; margin-bottom: 6px; }
-      section { margin-bottom: 12px; }
-      .job-entry, .cert-item, .skill-category { break-inside: avoid; }
-      .section-title { break-after: avoid; }
-      .section-title { font-size: 11.5px; margin-bottom: 6px; }
-      .job-entry { margin-bottom: 12px; }
-      ul.bullet-list li { font-size: 10.5px; margin-bottom: 3px; }
-      .skills-grid { grid-template-columns: repeat(3, 1fr); gap: 6px 10px; }
-      .skill-category { padding: 6px 8px; }
-      .certs-grid { grid-template-columns: repeat(2, 1fr); gap: 6px 10px; }
-      a { color: inherit !important; text-decoration: none !important; }
+      .sheet { padding: 13mm 15mm 12mm; }
+      .sheet h2 { break-after: avoid; }
+      .job { break-inside: auto; }
+      .job-head { break-after: avoid; }
+      .sheet li { break-inside: avoid; }
+      body { background: #fff; }
+      .toolbar { display: none !important; }
+      .sheet { margin: 0; box-shadow: none; width: 210mm; min-height: 0; }
+      .page-break { break-before: page; padding-top: 12mm; }
     }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/chrome.css?v=20261102">
-  <style>@media screen { body { padding-top: 84px !important; } .cv-toolbar { top: 84px !important; } }</style>
 </head>
-
 <body>
-
-  <!-- TOP ACTION TOOLBAR -->
-  <div class="cv-toolbar">
-    <a href="./index.html" class="toolbar-back-btn" aria-label="Back to portfolio">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      <span>Portfolio</span>
-    </a>
-    <div class="toolbar-actions">
-      <a href="./profile.html" class="toolbar-link">Full Story & Profile</a>
-      <a href="./Muhammad-Usama-CV.pdf" class="toolbar-btn secondary" download>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-        <span>PDF Download</span>
-      </a>
-      <button class="toolbar-btn primary" type="button" onclick="window.print()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-        <span>Print CV</span>
-      </button>
-    </div>
+  <div class="toolbar">
+    <a href="./profile.html">Full profile</a>
+    <a href="./Muhammad-Usama-CV.pdf" download>Download PDF</a>
+    <button class="primary" type="button" id="print-cv">Print</button>
   </div>
 
-  <div class="cv-container">
-
-    <!-- HEADER -->
-    <header>
-      <div class="header-top">
-        <div>
-          <h1>Muhammad Usama</h1>
-          <div class="target-title">Full-Stack WordPress Developer & AI Automation Engineer</div>
-        </div>
-        <div>
-          <span class="badge-available">Available for Global Remote Roles</span>
-        </div>
+  <main class="sheet">
+    <header class="cv">
+      <div>
+        <h1>Muhammad Usama</h1>
+        <p class="title">Full-Stack WordPress Developer &amp; AI Automation Engineer</p>
+        <p class="avail">Karachi, Pakistan · Remote worldwide · Available now, 0-day notice</p>
       </div>
-
-      <div class="contact-bar">
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Karachi, Pakistan (Open to Global Remote)
-        </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <a href="tel:+923207101485">+92 320 7101485</a>
-        </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <a href="mailto:tahir12721@gmail.com">tahir12721@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          <a href="https://github.com/MUHAMMADUSAMA64874" target="_blank" rel="noopener noreferrer">github.com/MUHAMMADUSAMA64874</a>
-        </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          <a href="https://www.linkedin.com/in/muhammad-usama-5996bb24b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/muhammad-usama</a>
-        </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-          <a href="https://muhammadusama64874.github.io/Portfolio/">muhammadusama64874.github.io/Portfolio</a>
-        </div>
-      </div>
+      <ul class="contact">
+        <li><a href="mailto:tahir12721@gmail.com">tahir12721@gmail.com</a></li>
+        <li><a href="tel:+923207101485">+92 320 7101485</a></li>
+        <li><a href="https://muhammadusama64874.github.io/Portfolio/">muhammadusama64874.github.io/Portfolio</a></li>
+        <li><a href="https://www.linkedin.com/in/muhammad-usama-5996bb24b/">linkedin.com/in/muhammad-usama-5996bb24b</a></li>
+        <li><a href="https://github.com/MUHAMMADUSAMA64874">github.com/MUHAMMADUSAMA64874</a></li>
+      </ul>
     </header>
 
-    <!-- PROFESSIONAL SUMMARY -->
     <section>
-      <h2 class="section-title">Professional Summary</h2>
-      <p class="summary-text">
-<strong>Full-Stack WordPress Developer & AI Automation Engineer</strong> with <strong>4+ years of production experience</strong> engineering enterprise web platforms, custom WooCommerce stores, and autonomous AI automation pipelines. Launched <strong>37 live client websites</strong> (UK, US, Australia, Europe) with strict speed optimization, headless architectures, ACF Pro integrations, and zero reliance on heavy page builders. Deeply specialized in <strong>autonomous n8n workflows (81+ production pipelines)</strong>, local LLMs (Ollama / Llama 3.2, Qwen, Gemma, Phi), and on-device computer vision (<strong>Android MediaPipe 21 Hand Landmarks + TensorFlow Lite</strong>). Proven track record executing 3,474 legacy 301 redirects with zero SEO loss and mapping 72 payment flows.
-      </p>
+      <h2>Profile</h2>
+      <p class="summary">Full-stack WordPress developer and AI automation engineer with <b>4+ years</b> of shipping production work. I have delivered <b>37 live client websites</b> for businesses in the UK, US, EU and Pakistan on WordPress, WooCommerce and Shopify, built <b>81+ production n8n automations</b>, and led a 6-language Joomla-to-WordPress migration for Chef Academy of London. I build custom plugins instead of page-builder workarounds, and I measure automations by the hours they give back.</p>
     </section>
 
-    <!-- CORE TECHNICAL EXPERTISE -->
     <section>
-      <h2 class="section-title">Technical Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h4>Full-Stack CMS & E-Commerce</h4>
-          <div class="skill-tags">WordPress (Headless & Core), WooCommerce REST API, Shopify Liquid, Custom Plugins/Themes, ACF Pro, Polylang Pro, WP Rocket, Database Indexing, PageSpeed Optimization</div>
-        </div>
-        <div class="skill-category">
-          <h4>AI & Automation Workflows</h4>
-          <div class="skill-tags">n8n (Self-Hosted/Cloud), Make.com, LangChain, Local LLMs (Ollama, Llama 3.2, Gemma, Qwen, Phi), OpenAI GPT-4o, Claude API, Multi-Agent Swarms, Prompt Engineering</div>
-        </div>
-        <div class="skill-category">
-          <h4>Computer Vision & Edge AI</h4>
-          <div class="skill-tags">Google MediaPipe (21 3D Landmarks), TensorFlow Lite (TFLite), Android CameraX, OpenCV, Python Data Pipelines, AR Skeleton Overlays, Text-to-Speech (TTS)</div>
-        </div>
-        <div class="skill-category">
-          <h4>Programming & Backend</h4>
-          <div class="skill-tags">PHP 8.x, JavaScript (ES6+), TypeScript, Python 3.12, Node.js, Express, React.js, Electron, RESTful APIs, WebSockets, Webhooks</div>
-        </div>
-        <div class="skill-category">
-          <h4>Databases & Data Storage</h4>
-          <div class="skill-tags">MySQL, PostgreSQL, MSSQL, MongoDB, Supabase, Firebase Firestore, SQLite, Vector Databases (Pinecone, Qdrant), NocoDB</div>
-        </div>
-        <div class="skill-category">
-          <h4>DevOps & Business Integrations</h4>
-          <div class="skill-tags">Git/GitHub, Docker, Linux, DigitalOcean, Cloudways, Stripe Checkout & Split Billing, Meta Graph API, Google Cloud APIs, Slack, Jira, HubSpot</div>
-        </div>
-      </div>
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>CMS &amp; e-commerce</dt><dd>WordPress (custom themes &amp; plugins), WooCommerce, Shopify / Liquid, ACF Pro, Elementor Pro, Polylang Pro, WP Rocket, Rank Math</dd>
+        <dt>Automation &amp; AI</dt><dd>n8n, Make.com, OpenAI, Claude, Gemini, Ollama (Llama 3.2), LLM agents, prompt engineering</dd>
+        <dt>Languages</dt><dd>PHP, JavaScript (ES6+), Python, HTML5, CSS3, SQL · Node.js, Express, Laravel</dd>
+        <dt>APIs &amp; data</dt><dd>REST, GraphQL, webhooks, Playwright, Puppeteer, Cheerio, Apify, DataForSEO · MySQL, PostgreSQL / Supabase, MongoDB</dd>
+        <dt>Tools &amp; hosting</dt><dd>Git / GitHub, Docker, DigitalOcean, Cloudways, cPanel, Stripe, Google Workspace APIs, Jira, ClickUp</dd>
+      </dl>
     </section>
 
-    <!-- FEATURED FLAGSHIP ARCHITECTURES -->
     <section>
-      <h2 class="section-title">Featured Flagship Architectures</h2>
+      <h2>Experience</h2>
 
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">Real-Time Android ASL Gesture Interpreter (Edge AI & Computer Vision)</div>
-          <div class="job-meta">Java, Android CameraX, Google MediaPipe, TensorFlow Lite, SQLite, Android TTS</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Architected an on-device American Sign Language translator: captures high-FPS live video via CameraX, extracts <strong>21 3D hand landmarks</strong> with Google MediaPipe, and classifies gestures in real-time using a custom quantized <strong>TensorFlow Lite neural network</strong> (`asl_model.tflite`).</li>
-          <li>Engineered custom `OverlayView` drawing real-time AR skeletal bones over detected hands, built dynamic SQLite sentence builder, and integrated multi-lingual Text-to-Speech synthesis for natural vocal playback.</li>
+      <div class="job">
+        <div class="job-head"><h3>WordPress Developer <span>· Codencoders, Karachi</span></h3><span class="when">Feb 2026 – Present</span></div>
+        <ul>
+          <li>Build and maintain client websites on WordPress, WooCommerce and Shopify for UK and US businesses, including Hairforce 1, Whoopba, Accretive Wealth Management, Copa System, Air Avizone and Snugglebug.</li>
+          <li>Develop custom plugin functionality and ACF Pro content models so clients can update their sites without page builders or a developer.</li>
+          <li>Run performance and technical-SEO audits (WP Rocket, WebP, database query tuning, Rank Math), cutting page load times by 40–60%.</li>
         </ul>
       </div>
 
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">MenuCanvas Suite (Multi-Branch POS & Kitchen Dispatch with WooCommerce Sync)</div>
-          <div class="job-meta">Electron, React, Node.js, ESC/POS Thermal Printing, WooCommerce REST API, SQLite</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Engineered cross-platform restaurant ordering, inventory, and table management desktop application with Electron and React. Features multi-printer kitchen thermal routing and live order status boards.</li>
-          <li>Built bidirectional background synchronization with client's WooCommerce web storefront, synchronizing inventory stock and online orders in real-time without database contention.</li>
+      <div class="job">
+        <div class="job-head"><h3>n8n Automation Engineer <span>· Decotechs, Karachi</span></h3><span class="when">Sep 2025 – Feb 2026</span></div>
+        <ul>
+          <li>Designed and deployed 81+ AI-driven automation workflows with n8n and Make.com, connecting LLMs, web scrapers, databases, CRMs and Telegram / Slack bots.</li>
+          <li>Built LLM pipelines on both cloud models and local models via Ollama, plus scraping and data-cleaning flows that turned raw web data into reports.</li>
         </ul>
       </div>
 
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">QRlytics Dynamic QR Attribution & Analytics Platform</div>
-          <div class="job-meta">Full-Stack SaaS, Dynamic Redirect Engine, Device Attribution, Geolocation Analytics</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Developed dynamic QR code campaign tracking SaaS allowing instant target destination switching without reprinting physical collateral, featuring real-time city-level scan geolocation and user device telemetry.</li>
+      <div class="job">
+        <div class="job-head"><h3>Lead WordPress &amp; Migration Engineer <span>· Chef Academy of London &amp; Online (UK, freelance)</span></h3><span class="when">2025 – Present</span></div>
+        <ul>
+          <li>Migrated the academy from legacy Joomla to WordPress across 6 languages with Polylang Pro, resolving 26 cross-language routing and taxonomy conflicts.</li>
+          <li>Mapped 3,474 legacy URLs to 301 redirects to protect search rankings, and audited 72 Stripe payment links used for enrolment deposits.</li>
+          <li>Built a custom course-booking plugin: intake dates, waitlists with threshold alerts, enrolment forms and admin notifications.</li>
         </ul>
       </div>
 
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">Production n8n Workflow Automation Hub (81+ Deployed Workflows)</div>
-          <div class="job-meta">n8n, DataForSEO, Slack, WhatsApp Cloud API, OpenAI, Google Sheets, Jira REST API</div>
-        </div>
-        <ul class="bullet-list">
-          <li><strong>SERP Rank Tracker:</strong> Automated daily 1:00 AM UTC batch queries across hundreds of target keywords via DataForSEO, detecting rank anomalies (±3 positions) and firing instant Slack alerts.</li>
-          <li><strong>SEO Content Syndicator:</strong> Ingests markdown drafts, structures SEO meta tags via OpenAI, publishes directly via WordPress REST API, and syndicates assets across LinkedIn and Meta.</li>
-          <li><strong>WhatsApp CRM Helpdesk:</strong> Inbound ticket triage matching customer profiles in MongoDB, automating intent routing, and appending conversational logs to Google Sheets.</li>
+      <div class="job">
+        <div class="job-head"><h3>WordPress Developer <span>· Diznik, Karachi</span></h3><span class="when">Jul 2024 – Jul 2025</span></div>
+        <ul>
+          <li>Built bespoke WordPress themes and WooCommerce stores from Figma designs for clients such as Home Sweet Linens, Dawateislami USA, Rogue Logics and Flintrock Suites.</li>
+          <li>Handled speed optimisation, responsive design systems and deployments on Cloudways and DigitalOcean.</li>
         </ul>
       </div>
 
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">Commander Safeguard Interactive Web Experience & Audio Engine</div>
-          <div class="job-meta">HTML5 Canvas, Sprite Animation Pipeline, WebAudio API, Responsive Event Loop</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Engineered high-performance multimedia character game experience featuring custom multi-frame sprite sheet cycles, multi-track audio playback, dynamic sound effect triggers, and responsive stage scaling.</li>
-        </ul>
+      <div class="job">
+        <div class="job-head"><h3>Web Developer <span>· XPACE Technologies (Pvt) Ltd, Karachi</span></h3><span class="when">May 2024 – Jul 2024</span></div>
+        <ul><li>Shipped full-stack features with Laravel, MySQL and responsive front ends.</li></ul>
       </div>
 
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">Enterprise Shopify & High-Scale E-Commerce (SKL Watches & Custom Brands)</div>
-          <div class="job-meta">Shopify Liquid, Custom WooCommerce REST API, AJAX Drawer Cart, Split Stripe Billing</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Developed bespoke Shopify Liquid templates and high-throughput WooCommerce checkout platforms with sub-second response times, multi-currency switching, and automated multi-warehouse inventory synchronization.</li>
-        </ul>
+      <div class="job">
+        <div class="job-head"><h3>WordPress Developer <span>· BrandSoft Solutions, Karachi</span></h3><span class="when">Oct 2023 – Feb 2024</span></div>
+        <ul><li>Customised themes and WooCommerce flows, fixed production bugs and built in-house plugins (certificate generator, employee directory).</li></ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><h3>SEO &amp; WordPress Intern <span>· DigiSkills.pk (remote)</span></h3><span class="when">Nov 2022 – Jan 2023</span></div>
       </div>
     </section>
 
-    <!-- PROFESSIONAL EXPERIENCE -->
     <section>
-      <h2 class="section-title">Professional Experience</h2>
-
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">WordPress Developer — <span class="job-company">Codencoders</span></div>
-          <div class="job-meta">Feb 2026 – Present | Karachi</div>
-        </div>
-        <div class="project-links">
-          <span>Selected Client Deliveries:</span>
-          <a href="https://hairforce-1.co.uk/" target="_blank">Hairforce 1</a>
-          <a href="https://lightsalmon-skunk-273227.hostingersite.com/" target="_blank">SKL Watches</a>
-          <a href="https://inyourpostcode.co.uk/" target="_blank">InYourPostcode</a>
-          <a href="https://thequantumnorth.com/" target="_blank">The Quantum North</a>
-          <a href="https://www.whoopba.com/" target="_blank">Whoopba</a>
-          <a href="https://avizonetech.com/" target="_blank">Avizone Tech</a>
-        </div>
-        <ul class="bullet-list">
-          <li>Advanced WordPress development and enterprise client site delivery across WordPress, WooCommerce and Shopify, with custom plugin functionality instead of page-builder bloat.</li>
-          <li>Custom PHP modules, client dashboards and custom post type architectures with <strong>ACF Pro</strong> so non-technical teams can manage content.</li>
-          <li>Performance audits with WP Rocket, WebP compression, query optimization and Rank Math technical SEO, cutting load times by <strong>40–60%</strong>.</li>
-        </ul>
-      </div>
-
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">n8n Automation Engineer — <span class="job-company">Decotechs</span></div>
-          <div class="job-meta">Sep 2025 – Feb 2026 | Karachi</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Architected and deployed <strong>81+ AI-driven automation workflows</strong> with n8n, Make.com, LLMs, web scrapers and multi-channel notification bots (Telegram / Slack).</li>
-          <li>Built SERP rank tracking with anomaly alerts, an SEO content auto-publisher with social syndication, and a WhatsApp helpdesk with MongoDB-based routing.</li>
-        </ul>
-      </div>
-
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">WordPress Developer — <span class="job-company">Diznik</span></div>
-          <div class="job-meta">Jul 2024 – Jul 2025 | Karachi</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Bespoke WordPress theme and e-commerce development from Figma designs, with speed optimization and responsive design systems.</li>
-          <li>Client sites included Home Sweet Linens, Dawateislami USA, Rogue Logics, Flintrock Suites and Pursuit Athletic.</li>
-        </ul>
-      </div>
-
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">Web Developer — <span class="job-company">XPACE Technologies (Pvt) Ltd</span></div>
-          <div class="job-meta">May 2024 – Jul 2024 | Karachi</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Full-stack work across responsive front ends, MySQL data models and Laravel backend endpoints.</li>
-        </ul>
-      </div>
-
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">WordPress Developer — <span class="job-company">BrandSoft Solutions</span></div>
-          <div class="job-meta">Oct 2023 – Feb 2024 | Karachi</div>
-        </div>
-        <ul class="bullet-list">
-          <li>Theme customization, custom WooCommerce flows, bug resolution and live production deployments; built in-house plugins including a certificate generator and an employee directory.</li>
-        </ul>
-      </div>
-
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">SEO & WordPress Intern — <span class="job-company">DigiSkills.pk</span></div>
-          <div class="job-meta">Nov 2022 – Jan 2023 | Online</div>
-        </div>
-      </div>
+      <h2>Selected automations</h2>
+      <ul>
+        <li><b>Monthly SEO reporting engine</b> — pulls DataForSEO and Sheets data, a local Llama 3.2 model writes the analysis, and 15+ Google Slides are generated, exported and emailed. Saves 15–20 hours a month.</li>
+        <li><b>WordPress auto-publisher</b> — drafts SEO articles with OpenAI, publishes through the WordPress REST API and syndicates to Facebook, X and LinkedIn. Saves 10–15 hours a week.</li>
+        <li><b>SERP rank tracker</b> — daily keyword checks via DataForSEO with alerts on ±3-position moves and history in Google Sheets.</li>
+        <li><b>WhatsApp helpdesk bot</b> — authenticates users against MongoDB and routes tickets to the right person with an instant reply.</li>
+        <li><b>Invoice extraction</b> — parallel Gemini agents turn uploaded PDFs into structured records, keeping only results above a 90% confidence threshold.</li>
+      </ul>
     </section>
 
-    <!-- MAJOR CLIENT PROJECT -->
     <section>
-      <h2 class="section-title">Major Client Project</h2>
-      <div class="job-entry">
-        <div class="job-header">
-          <div class="job-title-company">Lead WordPress & Migration Engineer — <span class="job-company">Chef Academy of London & Online (UK)</span></div>
-          <div class="job-meta">2025 – Present | Remote</div>
+      <h2>Selected projects</h2>
+      <div class="two">
+        <div>
+          <div class="proj"><b>n8n Workflow Hub</b><p>16 production workflows, sanitised and ready to import into any n8n canvas.</p><a href="https://muhammadusama64874.github.io/Portfolio/n8n-hub.html">muhammadusama64874.github.io/Portfolio/n8n-hub.html</a></div>
+          <div class="proj"><b>Commander Safeguard Web Museum</b><p>Restored a 2005–2016 cartoon brand site from the Internet Archive: 767 recovered files, 10 playback years, Flash games running again in Ruffle.</p><a href="https://muhammadusama64874.github.io/Portfolio/commander-safeguard.html">muhammadusama64874.github.io/Portfolio/commander-safeguard.html</a></div>
         </div>
-        <div class="project-links">
-          <span>Live Systems:</span>
-          <a href="https://www.chefacademyonline.co.uk/" target="_blank">chefacademyonline.co.uk (Live)</a>
-          <a href="https://chefacademyoflondon.com/en/" target="_blank">chefacademyoflondon.com</a>
+        <div>
+          <div class="proj"><b>ASL Gesture Interpreter</b><p>Android app that recognises sign language in real time on-device with CameraX, MediaPipe hand landmarks and TensorFlow Lite.</p></div>
+          <div class="proj"><b>Hand-tracking Fruit Ninja</b><p>Browser game you slice with your index finger, using MediaPipe hand tracking and HTML Canvas.</p><a href="https://github.com/MUHAMMADUSAMA64874/hand_detection_game">github.com/MUHAMMADUSAMA64874/hand_detection_game</a></div>
         </div>
-        <ul class="bullet-list">
-          <li><strong>Enterprise CMS Migration:</strong> Spearheaded architectural migration from legacy Joomla to custom WordPress, restructuring international culinary courses, syllabus catalogs, and dynamic media.</li>
-          <li><strong>Multilingual Infrastructure:</strong> Configured 6 international languages using Polylang Pro, debugging and resolving 26 critical cross-language translation routing and taxonomy conflicts.</li>
-          <li><strong>Financial & Payment Integration:</strong> Audited, re-mapped, and verified 72 custom Stripe payment links and checkout flows for course deposits, ensuring zero payment drop-offs.</li>
-          <li><strong>SEO Authority Preservation:</strong> Mapped and executed <strong>3,474 old URL 301 redirects</strong> to prevent 404 errors, successfully safeguarding 100% of historical organic search rankings.</li>
-          <li><strong>Custom Booking Plugin (v4.3.2):</strong> Built a custom WordPress plugin for course intake dates, waitlists with threshold alerts, and a full enrolment application form with admin notifications.</li>
+      </div>
+      <p class="more" style="font-size:9pt;margin-top:1mm">All 93 projects, with live links and screenshots: <a href="https://muhammadusama64874.github.io/Portfolio/#archive">muhammadusama64874.github.io/Portfolio</a></p>
+    </section>
+
+    <div class="two">
+      <section>
+        <h2>Education</h2>
+        <ul class="plain">
+          <li><b>BS Computer Science</b><br><span>Karachi Institute of Economics &amp; Technology (KIET) · 2021 – 2026 · CGPA 3.23 / 4.00</span></li>
+          <li><b>HSC, Pre-Engineering</b><br><span>Fazaia Degree College, Karachi · 2018 – 2019</span></li>
         </ul>
-      </div>
-    </section>
+        <h2 style="margin-top:4mm">Languages</h2>
+        <ul class="plain"><li>English <span>— professional working</span> · Urdu <span>— native</span></li></ul>
+      </section>
+      <section>
+        <h2>Certifications</h2>
+        <ul class="plain">
+          <li>Building Web Applications in PHP <span>— University of Michigan, 2025</span></li>
+          <li>HTML, CSS and JavaScript for Web Developers <span>— Johns Hopkins University, 2025</span></li>
+          <li>Introduction to Web Development <span>— UC Davis, 2025</span></li>
+          <li>React AI Chatbot with ChatGPT, Gemini &amp; DeepSeek <span>— Udemy, 2025</span></li>
+          <li>Git, GitHub &amp; Markdown <span>— Udemy, 2024</span></li>
+        </ul>
+      </section>
+    </div>
 
-    <!-- VERIFIED LICENSES & CERTIFICATIONS -->
-    <section>
-      <h2 class="section-title">Verified Licenses & Certifications</h2>
-      <div class="certs-grid">
-        <div class="cert-item">
-          <div class="cert-title">HTML, CSS, & Bootstrap - Certification Course for Beginners</div>
-          <div class="cert-issuer">Udemy • Issued Oct 2024</div>
-          <div class="cert-id">Credential ID: UC-46819960-3af4-4e1d-b78e-5178374527b7</div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-title">Git, GitHub & Markdown Crash Course: Learn Git, GitHub & MD</div>
-          <div class="cert-issuer">Udemy • Issued Oct 2024</div>
-          <div class="cert-id">Credential ID: UC-0021e75c-e501-4c60-9a97-26c693efa7dc</div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-title">React-js AI Chatbot built with ChatGPT, Gemini and DeepSeek</div>
-          <div class="cert-issuer">Udemy • Issued Jun 2025</div>
-          <div class="cert-id">Credential ID: UC-91a46a00-4bee-48fb-b4c1-46772dc331cc</div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-title">HTML, CSS, and Javascript for Web Developers</div>
-          <div class="cert-issuer">Johns Hopkins University (Coursera) • Issued Jan 2025</div>
-          <div class="cert-id">Credential ID: 5L3TTS7YY14A</div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-title">Building Web Applications in PHP</div>
-          <div class="cert-issuer">University of Michigan (Coursera) • Issued Feb 2025</div>
-          <div class="cert-id">Credential ID: 4HVBIOSDLLRH</div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-title">Introduction to Web Development</div>
-          <div class="cert-issuer">University of California, Davis (Coursera) • Issued Jan 2025</div>
-          <div class="cert-id">Credential ID: Q5PZN7EYLJRX</div>
-        </div>
-      </div>
-    </section>
+    <footer class="cv">
+      <span>Muhammad Usama · CV · November 2026</span>
+      <a href="https://muhammadusama64874.github.io/Portfolio/">muhammadusama64874.github.io/Portfolio</a>
+    </footer>
+  </main>
 
-    <!-- EDUCATION -->
-    <section>
-      <h2 class="section-title">Education</h2>
-      <div class="job-entry">
-        <div class="edu-row">
-          <div class="edu-degree">Bachelor of Science in Computer Science (BSCS)</div>
-          <div class="job-meta">2021 – 2026</div>
-        </div>
-        <div class="edu-school">PAF-Karachi Institute of Economics & Technology (KIET) — CGPA: 3.23 / 4.00</div>
-      </div>
-      <div class="job-entry" style="margin-top: 8px;">
-        <div class="edu-row">
-          <div class="edu-degree">Higher Secondary Certificate (HSC) — Pre-Engineering</div>
-          <div class="job-meta">2018 – 2019</div>
-        </div>
-        <div class="edu-school">Fazaia Degree College, Karachi</div>
-      </div>
-    </section>
-
-  </div>
-
-  <script type="module" src="./js/page-cv.js?v=20261102"></script>
+  <script type="module" src="./js/page-cv.js?v=20261103"></script>
 </body>
-
 </html>
