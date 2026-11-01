@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commander Safeguard Web Museum — Muhammad Usama</title>
+  <meta name="description" content="Case study: restoring the archived Commander Safeguard website (2005–2016) from the Wayback Machine, with surviving Flash games running through Ruffle.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/site.css?v=20261101">
+  <script>try{var t=localStorage.getItem('portfolio-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+  <style>
+    .cs { padding: 120px 0 80px; }
+    .cs h1 { font: 800 clamp(40px, 7vw, 88px)/.95 var(--f-display); letter-spacing: -.045em; margin: 18px 0 22px; }
+    .cs-stats { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 50px; }
+    .cs-shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+    .cs-shots figure { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--card); }
+    .cs-shots img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; }
+    .cs-shots figcaption { padding: 12px 16px; color: var(--muted); font-size: .88rem; }
+    .cs-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 50px; }
+    .cs-body article { padding: 24px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); }
+    .cs-body h2 { font-size: 1.2rem; letter-spacing: -.02em; margin-bottom: 10px; }
+    .cs-body p, .cs-body li { color: var(--muted); }
+    .cs-body ul { padding-left: 18px; margin: 0; }
+    .back { display: inline-flex; gap: 8px; color: var(--muted); }
+    .back:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <main class="cs wrap">
+    <a class="back mono" href="./index.html#work">← Back to portfolio</a>
+    <p class="kicker" style="margin-top:34px"><span>Case study</span> Archive engineering</p>
+    <h1>Commander Safeguard<br><em style="font-style:normal;color:var(--muted)">Web Museum.</em></h1>
+    <p class="lede">A Pakistani childhood mascot site from 2005–2016, rebuilt from the Internet Archive. Ten playback points across three layout eras, served from original Wayback files, with surviving Flash games playable again through the Ruffle emulator.</p>
+    <div class="cs-stats">
+      <span class="chip">767 recovered files</span>
+      <span class="chip">10 playback points</span>
+      <span class="chip">879 capture records audited</span>
+      <span class="chip">Node.js · Ruffle · Wayback CDX</span>
+    </div>
+
+    <div class="cs-shots">
+      <figure><img src="./assets/images/commander-safeguard.webp" alt="Restored museum home" loading="lazy"><figcaption>Museum home with playback timeline</figcaption></figure>
+      <figure><img src="./assets/images/commander/snapshot-2007.webp" alt="2007 layout" loading="lazy"><figcaption>The 2007 layout, replayed from original files</figcaption></figure>
+      <figure><img src="./assets/images/commander/games.webp" alt="Games index" loading="lazy"><figcaption>Games index — surviving Flash games via Ruffle</figcaption></figure>
+      <figure><img src="./assets/images/commander/catalogue.webp" alt="Character catalogue" loading="lazy"><figcaption>Character catalogue</figcaption></figure>
+    </div>
+
+    <div class="cs-body">
+      <article>
+        <h2>The problem</h2>
+        <p>The site lived at two domains over eleven years. Flash is dead in every browser, many assets were never captured, and the most obvious domain only kept unreadable robots records.</p>
+      </article>
+      <article>
+        <h2>What I built</h2>
+        <ul>
+          <li>Resumable Wayback CDX downloader with an audit of every capture</li>
+          <li>Alias mapping so pages find assets saved under other paths</li>
+          <li>Local server that replays each era as it originally looked</li>
+          <li>Ruffle runtime so surviving SWF games run again</li>
+        </ul>
+      </article>
+      <article>
+        <h2>Honest gaps</h2>
+        <p>Seven payloads can't be replayed by Wayback, and some game files were never archived. Those are documented as gaps — no substitute games are passed off as originals.</p>
+      </article>
+    </div>
+    <p class="muted" style="margin-top:40px">The full museum runs locally (it serves ~770 archived files). Ask me for a live walkthrough.</p>
+  </main>
+</body>
+</html>

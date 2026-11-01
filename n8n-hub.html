@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Production n8n Workflow Hub - 81+ Deployed Automation Pipelines by Muhammad Usama">
+  <meta name="robots" content="index, follow">
+  <title>Production n8n Workflow Hub | Muhammad Usama</title>
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css?v=20261028-12">
+  <link rel="stylesheet" href="./css/n8n-hub.css?v=20261028-4">
+  <link rel="stylesheet" href="./css/scroll-enhancements.css?v=20261027-1">
+  <style>
+    body {
+      background: #08090d;
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .hub-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(8, 9, 13, 0.85);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 16px 24px;
+    }
+    .hub-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .back-btn:hover {
+      color: #f8fafc;
+    }
+    .hub-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hub-brand span {
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .hub-main {
+      flex: 1;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    #n8n-hub-root {
+      width: 100%;
+    }
+    .hub-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hub-header">
+    <div class="hub-header-inner">
+      <a href="./index.html#projects" class="back-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>Back to Portfolio Projects</span>
+      </a>
+      <div class="hub-brand">
+        <span>81+ Production Pipelines</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="hub-main">
+    <div id="n8n-hub-root"></div>
+  </main>
+
+  <footer class="hub-footer">
+    <p>Muhammad Usama · Automation & Full-Stack Engineer · Workflows sanitized & production ready</p>
+  </footer>
+
+  <script type="module" src="./js/n8n-hub.js?v=20261028-5"></script>
+</body>
+</html>

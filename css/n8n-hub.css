@@ -1,0 +1,957 @@
+/* ==========================================================================
+   PRODUCTION N8N WORKFLOW HUB & TEMPLATE VIEWER
+   100% SVG Icons • Zero Emojis • Dark Glassmorphism
+   ========================================================================== */
+
+/* The hub is a self-contained dark stage inside the light page.
+   It owns its vertical scrolling so the full workflow catalogue stays reachable
+   without breaking the page's one-section-per-screen navigation. */
+#ai-lab.section {
+  justify-content: flex-start;
+  padding: 0;
+  background: #070c16 !important;
+  color: #f1f5f9 !important;
+}
+
+#n8n-hub-root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.45) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+#n8n-hub-root:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: -2px;
+}
+
+#n8n-hub-root::-webkit-scrollbar {
+  width: 8px;
+}
+
+#n8n-hub-root::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.4);
+  border-radius: 999px;
+}
+
+#ai-lab .n8n-hub-section {
+  padding-top: 92px;
+  padding-bottom: 56px;
+}
+
+.n8n-hub-section {
+  position: relative;
+  padding: 80px 0;
+  color: #f1f5f9;
+}
+
+.n8n-hub-section .section-title {
+  color: #ffffff;
+}
+
+.n8n-hub-header {
+  margin-bottom: 32px;
+}
+
+.n8n-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.12);
+  margin-bottom: 12px;
+}
+
+.n8n-badge-pill svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.n8n-hub-subtitle {
+  font-size: 16px;
+  color: #94a3b8;
+  max-width: 650px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Category Filters */
+.n8n-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.n8n-filter-btn {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.n8n-filter-btn:hover {
+  background: rgba(51, 65, 85, 0.8);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.n8n-filter-btn.active {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(99, 102, 241, 0.25));
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+}
+
+/* Featured Template Stage (Reference Layout from user image) */
+.n8n-viewer-container {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 32px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(16px);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .n8n-viewer-container {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}
+
+/* Left Column Info */
+.n8n-viewer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.n8n-node-icons-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.n8n-service-icon-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  transition: transform 0.2s;
+}
+
+.n8n-service-icon-badge:hover {
+  transform: scale(1.1);
+  border-color: #38bdf8;
+}
+
+.n8n-service-icon-badge svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.n8n-node-overflow-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.n8n-viewer-title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
+}
+
+.n8n-viewer-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 24px;
+}
+
+.n8n-viewer-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 28px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.n8n-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #38bdf8;
+}
+
+.n8n-meta-tag svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* Action Buttons */
+.n8n-actions-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-n8n-copy {
+  flex: 1;
+  min-width: 180px;
+  padding: 13px 22px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.btn-n8n-copy:hover {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.45);
+}
+
+.btn-n8n-copy.copied {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-n8n-download {
+  padding: 13px 18px;
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #f1f5f9;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-n8n-download:hover {
+  background: rgba(51, 65, 85, 0.9);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* Right Column: Interactive Visual Node Pipeline */
+.n8n-pipeline-canvas-box {
+  position: relative;
+  background: #090d16;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 18px;
+  height: 380px;
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.n8n-canvas-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle, rgba(56, 189, 248, 0.12) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.n8n-pipeline-viewport {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.3) transparent;
+}
+
+.n8n-pipeline-viewport:active {
+  cursor: grabbing;
+}
+
+.n8n-nodes-flow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: max-content;
+  padding: 20px 10px;
+}
+
+.n8n-node-chip {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+.n8n-node-chip:hover {
+  transform: translateY(-3px);
+  border-color: #38bdf8;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+}
+
+.n8n-chip-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+}
+
+.n8n-chip-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.n8n-chip-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.n8n-chip-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.n8n-chip-type {
+  font-size: 11px;
+  color: #94a3b8;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Connecting Arrow / Wire */
+.n8n-connector-arrow {
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.5), rgba(56, 189, 248, 0.85));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.n8n-connector-arrow::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #38bdf8;
+  border-right: 2px solid #38bdf8;
+  transform: rotate(45deg);
+  margin-right: -1px;
+}
+
+/* Canvas Zoom Controls (from user mockup) */
+.n8n-zoom-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 10px;
+  padding: 4px;
+  z-index: 5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.n8n-zoom-btn {
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  border: 1px solid rgba(148, 163, 184, 0.25) !important;
+  color: #94a3b8 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.n8n-zoom-btn:hover {
+  background: rgba(56, 189, 248, 0.22) !important;
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+  transform: translateY(-1px);
+}
+
+.n8n-zoom-btn:active {
+  transform: scale(0.94);
+}
+
+.n8n-zoom-btn svg {
+  width: 16px !important;
+  min-width: 16px !important;
+  max-width: 16px !important;
+  height: 16px !important;
+  min-height: 16px !important;
+  max-height: 16px !important;
+  fill: currentColor !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  pointer-events: none;
+}
+
+/* Workflow Card Selector Grid */
+.n8n-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.n8n-card {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.n8n-card:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.n8n-card.active {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: #38bdf8;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.22), inset 0 0 14px rgba(56, 189, 248, 0.05);
+}
+
+.n8n-card-category {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+.n8n-card-category[data-cat="seogrowth"] {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.n8n-card-category[data-cat="contentcms"] {
+  background: rgba(129, 140, 248, 0.12);
+  color: #a5b4fc;
+  border-color: rgba(129, 140, 248, 0.28);
+}
+
+.n8n-card-category[data-cat="aichatbots"],
+.n8n-card-category[data-cat="aicontent"] {
+  background: rgba(192, 132, 252, 0.12);
+  color: #d8b4fe;
+  border-color: rgba(192, 132, 252, 0.28);
+}
+
+.n8n-card-category[data-cat="crmmessaging"] {
+  background: rgba(52, 211, 153, 0.12);
+  color: #6ee7b7;
+  border-color: rgba(52, 211, 153, 0.28);
+}
+
+.n8n-card-category[data-cat="ecommerceops"] {
+  background: rgba(251, 191, 36, 0.12);
+  color: #fde68a;
+  border-color: rgba(251, 191, 36, 0.28);
+}
+
+.n8n-card-category[data-cat="devopsteam"] {
+  background: rgba(6, 182, 212, 0.12);
+  color: #67e8f9;
+  border-color: rgba(6, 182, 212, 0.28);
+}
+
+.n8n-card-category[data-cat="datascraping"] {
+  background: rgba(96, 165, 250, 0.12);
+  color: #93c5fd;
+  border-color: rgba(96, 165, 250, 0.28);
+}
+
+.n8n-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+}
+
+.n8n-card-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.n8n-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  padding-top: 12px;
+}
+
+.n8n-card-nodes-count {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #64748b;
+}
+
+.n8n-card-select-hint {
+  font-size: 11px;
+  font-weight: 700;
+  color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   Portfolio alignment layer � the hub now inherits the page palette instead of
+   running a separate cyan theme. The node canvas keeps its dark editor look.
+   ========================================================================== */
+
+#ai-lab.section {
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+  padding: 0 !important;
+}
+
+#ai-lab .n8n-hub-section {
+  width: 100%;
+  max-width: calc(var(--max-width) + (var(--gutter) * 2));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-top: 108px;
+  color: var(--ink);
+}
+
+#ai-lab .n8n-hub-section .section-title,
+#ai-lab .n8n-viewer-title,
+#ai-lab .n8n-card-title {
+  color: var(--ink);
+}
+
+#ai-lab .n8n-hub-subtitle,
+#ai-lab .n8n-viewer-desc,
+#ai-lab .n8n-card-desc {
+  color: var(--muted);
+}
+
+#ai-lab .n8n-badge-pill {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+#ai-lab .n8n-filter-btn {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--muted);
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+  font-size: 12px;
+  padding: 7px 14px;
+}
+
+#ai-lab .n8n-filter-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--ink);
+  transform: none;
+}
+
+#ai-lab .n8n-filter-btn.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+  box-shadow: none;
+}
+
+#ai-lab .n8n-viewer-container {
+  background: var(--bg-elevated);
+  border-color: var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+#ai-lab .n8n-service-icon-badge {
+  background: var(--accent-soft);
+  border-color: var(--line);
+  color: var(--accent);
+}
+
+#ai-lab .n8n-service-icon-badge:hover {
+  border-color: var(--accent);
+}
+
+#ai-lab .n8n-node-overflow-badge {
+  background: var(--bg);
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+#ai-lab .n8n-viewer-meta {
+  color: var(--muted);
+}
+
+#ai-lab .n8n-meta-tag {
+  color: var(--accent);
+}
+
+#ai-lab .btn-n8n-copy {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--radius-pill);
+  box-shadow: none;
+}
+
+#ai-lab .btn-n8n-copy:hover {
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: none;
+}
+
+#ai-lab .btn-n8n-download {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+}
+
+#ai-lab .btn-n8n-download:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+#ai-lab .n8n-pipeline-canvas-box {
+  background: #0c0f16;
+  border-color: rgba(123, 140, 255, 0.22);
+  border-radius: var(--radius);
+}
+
+#ai-lab .n8n-canvas-grid-bg {
+  background-image: radial-gradient(circle, rgba(123, 140, 255, 0.16) 1.2px, transparent 1.2px);
+}
+
+#ai-lab .n8n-node-chip {
+  background: #141822;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+#ai-lab .n8n-node-chip:hover {
+  border-color: var(--accent-2);
+  box-shadow: 0 12px 30px rgba(47, 75, 255, 0.28);
+}
+
+#ai-lab .n8n-chip-icon {
+  background: rgba(123, 140, 255, 0.14);
+  color: #a9b4ff;
+}
+
+#ai-lab .n8n-chip-name {
+  color: #f1f5f9;
+}
+
+#ai-lab .n8n-chip-type,
+#ai-lab .n8n-connector-arrow {
+  color: #94a3b8;
+}
+
+#ai-lab .n8n-card {
+  background: var(--bg-elevated);
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+#ai-lab .n8n-card:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+#ai-lab .n8n-card-category {
+  color: var(--accent);
+}
+
+#ai-lab .n8n-card-nodes-count,
+#ai-lab .n8n-card-select-hint,
+#ai-lab .n8n-card-footer {
+  color: var(--muted);
+}
+
+#ai-lab .n8n-card-footer {
+  border-top-color: var(--line);
+}
+
+/* Action row: the copy button is an action, not a banner. */
+#ai-lab .n8n-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#ai-lab .btn-n8n-copy {
+  flex: 0 0 auto;
+  min-width: 0;
+  height: 44px;
+  padding: 0 22px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#ai-lab .btn-n8n-download {
+  height: 44px;
+  padding: 0 18px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#ai-lab .n8n-pipeline-viewport {
+  padding: 28px 24px;
+  scrollbar-color: color-mix(in srgb, var(--accent) 40%, transparent) transparent;
+}
+
+#ai-lab .n8n-node-chip {
+  border-radius: var(--radius-sm);
+}
+
+#ai-lab .n8n-zoom-controls {
+  left: 16px;
+  bottom: 16px;
+}
+
+#ai-lab .n8n-zoom-btn {
+  background: rgba(20, 24, 34, 0.92);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #dbe0ff;
+  border-radius: var(--radius-sm);
+}
+
+#ai-lab .n8n-zoom-btn:hover {
+  border-color: var(--accent-2);
+  color: #ffffff;
+  background: rgba(47, 75, 255, 0.3);
+}
+
+/* Node chips: compact enough that a whole slice of the pipeline reads at rest. */
+#ai-lab .n8n-node-chip {
+  padding: 10px 14px;
+  gap: 9px;
+  max-width: 232px;
+}
+
+#ai-lab .n8n-chip-text {
+  max-width: 168px;
+  min-width: 0;
+}
+
+#ai-lab .n8n-chip-name {
+  display: block;
+  max-width: 168px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+#ai-lab .n8n-chip-type {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+#ai-lab .n8n-node-chip-more {
+  border-style: dashed;
+  border-color: rgba(123, 140, 255, 0.42);
+  background: rgba(123, 140, 255, 0.08);
+}
+
+#ai-lab .n8n-node-chip-more .n8n-chip-name {
+  color: #c7ceff;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+#ai-lab .n8n-connector-arrow {
+  flex: 0 0 auto;
+}
+
+/* Narrow canvases: stack the pipeline vertically. A horizontal strip that is
+   three screens wide hides the chain behind a scrollbar nobody discovers. */
+@media (max-width: 700px) {
+  #ai-lab .n8n-pipeline-canvas-box {
+    height: auto;
+  }
+
+  #ai-lab .n8n-pipeline-viewport {
+    position: relative;
+    inset: auto;
+    padding: 20px 16px 24px;
+    overflow: visible;
+    cursor: default;
+  }
+
+  #ai-lab .n8n-nodes-flow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    transform: none !important;
+  }
+
+  #ai-lab .n8n-node-chip {
+    width: 100%;
+    max-width: none;
+  }
+
+  #ai-lab .n8n-chip-text,
+  #ai-lab .n8n-chip-name {
+    max-width: none;
+  }
+
+  #ai-lab .n8n-chip-name {
+    white-space: normal;
+    overflow: visible;
+  }
+
+  #ai-lab .n8n-connector-arrow {
+    width: 2px;
+    height: 20px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: flex-end;
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.5), rgba(56, 189, 248, 0.85));
+  }
+
+  #ai-lab .n8n-connector-arrow::after {
+    margin: 0 0 -2px;
+    transform: rotate(135deg);
+  }
+
+  #ai-lab .n8n-zoom-controls {
+    display: none;
+  }
+}
+
+/* Give the canvas a little more air than the chips need, no more. */
+@media (min-width: 701px) {
+  #ai-lab .n8n-pipeline-canvas-box {
+    height: 300px;
+  }
+}

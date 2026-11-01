@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const content = {
       whatsapp: { logo: icons.whatsapp, title: 'Opening WhatsApp Web…', text: 'Preparing a quick hello for Muhammad.', url: 'https://web.whatsapp.com/send?phone=923207101485&text=Hi%20Muhammad%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.' },
       email: { logo: icons.email, title: 'Opening Gmail…', text: 'Getting a project email ready for you.', url: 'https://mail.google.com/mail/?view=cm&fs=1&to=tahir12721@gmail.com&su=Project%20inquiry%20from%20your%20portfolio' },
-      phone: { logo: icons.phone, title: 'Plot twist! 😅', text: 'My phone number is also my WhatsApp number. I’m much faster there — tap WhatsApp instead!' }
+      phone: { logo: icons.phone, title: 'Direct Contact Notice', text: 'My phone number is also my WhatsApp number. I’m much faster there — tap WhatsApp instead!' }
     }[channel];
     animationPanel.className = `channel-animation active ${channel}`;
     animationPanel.innerHTML = `<div class="motion-logo">${content.logo}</div><h3>${content.title}</h3><p>${content.text}</p>${content.url ? '<div class="loader"></div>' : ''}`;

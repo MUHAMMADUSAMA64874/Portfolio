@@ -23,3 +23,14 @@ private/
 linkdein all.pdf
 muhammad-usama-profile-data.txt
 Profile*.pdf
+
+# Scratch: local capture/asset scripts and their output
+.tmp/
+
+# Local-only project builds (not published):
+# equinix/ copies a real company's site; menucanvas/ holds a client-site copy;
+# caybookme/ is a crawled site; dragon/ is 270 MB of third-party 3D models.
+equinix/
+menucanvas/
+caybookme/
+dragon/

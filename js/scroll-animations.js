@@ -1,99 +1,155 @@
-import { playState } from './character.js';
+/**
+ * Scroll choreography — GSAP only, scoped to #smooth-wrapper.
+ * Every reveal is short (0.6–0.9s) so content is never blank on arrival.
+ */
 
 export function initScrollAnimations() {
-  // Register plugins
-  gsap.registerPlugin(ScrollTrigger);
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-  // Tell GSAP that our scrolling element is #smooth-wrapper (not window)
+  gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.defaults({ scroller: '#smooth-wrapper' });
 
-  // --- 1. Hero Animations ---
-  const heroTl = gsap.timeline();
-  
-  // Simple fade up if SplitText is unavailable (it's a premium plugin)
-  if (typeof SplitText !== 'undefined') {
-    const split = new SplitText('#hero-name', { type: 'chars' });
-    heroTl.from(split.chars, {
-      opacity: 0,
-      y: 40,
-      stagger: 0.03,
-      duration: 0.6,
-      ease: 'power3.out',
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion) {
+    gsap.set('.hero-eyebrow, #hero-name, .hero-subtitle, .hero-desc, .hero-actions, .hero-stat, .section-head, .bento-card, .featured-card, .archive-card, .timeline-item, .contact-form, .contact-card', {
+      clearProps: 'all'
     });
-  } else {
-    heroTl.from('#hero-name', { opacity: 0, y: 40, duration: 1, ease: 'power3.out' });
+    return;
   }
 
-  heroTl.from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.5 }, "-=0.4")
-        .from('.hero-desc', { opacity: 0, y: 20, duration: 0.5 }, "-=0.3");
+  /* --- hero intro ------------------------------------------------------ */
+  const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  heroTimeline
+    .from('.hero-eyebrow', { y: 12, opacity: 0, duration: 0.55 })
+    .from('#hero-name', { y: 46, opacity: 0, duration: 1.05 }, '-=0.3')
+    .from('.hero-subtitle', { y: 18, opacity: 0, duration: 0.6 }, '-=0.65')
+    .from('.hero-desc', { y: 18, opacity: 0, duration: 0.6 }, '-=0.45')
+    .from('.hero-actions', { y: 16, opacity: 0, duration: 0.55 }, '-=0.4')
+    .from('.hero-stat', { y: 18, opacity: 0, duration: 0.55, stagger: 0.07 }, '-=0.35')
+    .from('.hero-scroll-cue', { opacity: 0, duration: 0.6 }, '-=0.3');
 
-  // --- 2. Horizontal Scroll for Projects (Native CSS) ---
-  // GSAP pin removed to fix vertical scroll snapping. Native CSS handles horizontal scroll now.
+  // Safety net: if the ticker is throttled (background tab, headless, paused
+  // compositor) the intro must not leave the hero permanently invisible.
+  window.setTimeout(() => {
+    document.querySelectorAll('.hero-eyebrow, #hero-name, .hero-subtitle, .hero-desc, .hero-actions, .hero-stat, .hero-scroll-cue')
+      .forEach((el) => {
+        if (parseFloat(getComputedStyle(el).opacity) < 0.05) gsap.set(el, { clearProps: 'all' });
+      });
+  }, 2400);
 
-  // --- 3. Timeline Progress Line ---
-  gsap.to('#timeline-progress', {
+  /* --- section heads --------------------------------------------------- */
+  document.querySelectorAll('.section-head').forEach((head) => {
+    gsap.from(head.children, {
+      y: 26,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: head, start: 'top 86%', once: true }
+    });
+  });
+
+  /* --- about ----------------------------------------------------------- */
+  gsap.from('.about-content p', {
+    y: 20,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.06,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: '.about-content', start: 'top 82%', once: true }
+  });
+
+  gsap.from('.about-aside > *', {
+    y: 22,
+    opacity: 0,
+    duration: 0.75,
+    stagger: 0.09,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: '.about-aside', start: 'top 84%', once: true }
+  });
+
+  /* --- skills ---------------------------------------------------------- */
+  gsap.from('.bento-card', {
+    y: 30,
+    opacity: 0,
+    duration: 0.75,
+    stagger: 0.07,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: '#skills-grid', start: 'top 84%', once: true }
+  });
+
+  /* --- featured work --------------------------------------------------- */
+  gsap.from('.featured-card', {
+    y: 34,
+    opacity: 0,
+    duration: 0.85,
+    stagger: 0.07,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: '#featured-grid', start: 'top 82%', once: true }
+  });
+
+  /* --- archive --------------------------------------------------------- */
+  const archiveGrid = document.getElementById('archive-grid');
+  if (archiveGrid) {
+    ScrollTrigger.batch('.archive-card', {
+      start: 'top 92%',
+      once: true,
+      onEnter: (batch) => gsap.from(batch, {
+        y: 22,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.035,
+        ease: 'power2.out',
+        overwrite: true
+      })
+    });
+  }
+
+  /* --- experience ------------------------------------------------------ */
+  gsap.from('.timeline-item', {
+    y: 26,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.08,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: '.timeline-list', start: 'top 84%', once: true }
+  });
+
+  gsap.fromTo('.timeline-progress', { height: '0%' }, {
     height: '100%',
     ease: 'none',
     scrollTrigger: {
-      trigger: '#experience',
-      start: 'top center',
-      end: 'bottom center',
-      scrub: true,
+      trigger: '.timeline-list',
+      start: 'top 78%',
+      end: 'bottom 60%',
+      scrub: 0.4
     }
   });
 
-  // --- 4. Character State Triggers ---
-  const sectionStates = [
-    { trigger: '#hero',       state: 'idle', config: { text: "Hi! I'm your guide. Click me!", y: -2.5, pos: 'right' } },
-    { trigger: '#about',      state: 'about', config: { text: "Click me — I know more about Usama!", y: -2.5, pos: 'right' } },
-    { trigger: '#skills',     state: 'skills', config: { text: "Psst... click me to clean up! 🧹", y: -2.5, pos: 'hide-right' } },
-    { trigger: '#ai-lab',     state: 'ai', config: { text: "Analyzing workflows... Approved!", y: -2.5, pos: 'right' } },
-    { trigger: '#projects',   state: 'projects', config: { text: "Scroll to explore the filtered gallery.", x: 1, y: 2.25 } },
-    { trigger: '#experience', state: 'experience', config: { text: "My journey so far.", y: -2.5, pos: 'right' } },
-    { trigger: '#contact',    state: 'contact', config: { text: "You finished the journey. Bye bye! 👋<br><button id='meme-btn' class='bubble-btn'>Click me to finish</button>", y: -2.5, pos: 'right' } },
-  ];
-
-  sectionStates.forEach(({ trigger, state, config }) => {
-    ScrollTrigger.create({
-      trigger,
-      start: 'top 50%', // Trigger exactly when the top of the section hits the middle of the screen
-      end: 'bottom 50%',
-      onEnter: () => playState(state, { ...config, direction: 'down' }),
-      onEnterBack: () => playState(state, { ...config, direction: 'up' })
-    });
+  /* --- contact --------------------------------------------------------- */
+  gsap.from('.contact-form, .contact-card', {
+    y: 26,
+    opacity: 0,
+    duration: 0.75,
+    stagger: 0.1,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: '.contact-layout', start: 'top 84%', once: true }
   });
 
-  // Basic fade up for sections
-  gsap.utils.toArray('.section-title').forEach(title => {
-    gsap.from(title, {
-      opacity: 0,
-      y: 30,
-      scrollTrigger: {
-        trigger: title,
-        start: 'top 80%',
-      }
-    });
-  });
+  /* --- live-updating archive cards ------------------------------------ */
+  window.refreshArchiveReveals = () => {
+    gsap.fromTo(
+      '#archive-grid .archive-card',
+      { y: 14, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, stagger: 0.02, ease: 'power2.out', overwrite: true }
+    );
+    ScrollTrigger.refresh();
+  };
 
-  gsap.utils.toArray('.section').forEach(section => {
-    const content = section.querySelectorAll('.text-body, .text-h3, .bento-card, .timeline-item, .contact-form, .projects-header');
-    if (!content.length) return;
-    gsap.from(content, {
-      opacity: 0,
-      y: 42,
-      rotateX: 4,
-      duration: .85,
-      stagger: .07,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: section, start: 'top 68%', toggleActions: 'play none none reverse' }
-    });
+  // Images can change layout height after decode; keep triggers honest.
+  window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+  document.querySelectorAll('.featured-media img, .archive-media img').forEach((img) => {
+    if (!img.complete) img.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
   });
-
-  gsap.to('.brand-mark span', {
-    rotate: 360,
-    ease: 'none',
-    scrollTrigger: { trigger: '#smooth-content', start: 'top top', end: 'bottom bottom', scrub: .6 }
-  });
-
-  // Section snapping is handled natively by CSS scroll-snap-type: y mandatory & scroll-snap-stop: always.
 }

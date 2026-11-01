@@ -1,1 +1,44 @@
-html,body,#smooth-wrapper{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,body::-webkit-scrollbar,#smooth-wrapper::-webkit-scrollbar,.projects-track-container::-webkit-scrollbar{width:0;height:0;display:none}#smooth-wrapper{scroll-behavior:smooth;overscroll-behavior-y:none}.projects-track-container{scroll-behavior:smooth;overscroll-behavior-x:contain}.gallery-progress{position:absolute;z-index:8;left:50%;bottom:24px;width:min(560px,calc(100vw - 48px));height:24px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;pointer-events:none}.gallery-progress:before{content:'';position:absolute;left:0;right:62px;top:50%;height:2px;background:var(--line)}#gallery-progress-bar{position:relative;z-index:1;display:block;width:calc(100% - 62px);height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:scaleX(0);transform-origin:left;transition:transform .18s linear}.gallery-progress small{width:50px;color:var(--muted);font:600 10px/1 var(--font-mono);letter-spacing:.08em;text-align:right}@media(max-width:768px){.gallery-progress{bottom:14px;width:calc(100vw - 32px)}.projects-track-container{scroll-snap-type:x mandatory}.project-card{scroll-snap-align:center}}
+/* Scroll polish only — no layout rules live here. */
+
+html,
+body,
+#smooth-wrapper {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#smooth-wrapper::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+#smooth-wrapper {
+  scroll-behavior: auto;
+  overscroll-behavior-y: none;
+}
+
+#smooth-wrapper.modal-open {
+  overflow: hidden;
+}
+
+/* Images fade in once decoded, so slow thumbnails never flash grey. */
+img[loading='lazy'] {
+  background-color: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.featured-media img,
+.archive-media img,
+.preview-image-wrap img {
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+}
+
+img[data-loading='true'] {
+  opacity: 0;
+}
+
+/* Native find-in-page and keyboard scrolling still work because the real
+   scroll container is #smooth-wrapper. */

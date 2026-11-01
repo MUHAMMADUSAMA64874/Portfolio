@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Windows XP Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <!-- Windows XP Style Header -->
+    <header class="xp-header">
+        <h1>
+            
+            Windows XP Nostalgia Experience
+        </h1>
+    </header>
+
+    <!-- Desktop Icons -->
+    <div class="desktop">
+        <div class="desktop-icon" onclick="openWindow('home')">
+            <img src="https://picsum.photos/48/48?random=1" alt="Home">
+            <span>Home</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('about')">
+            <img src="https://picsum.photos/48/48?random=2" alt="About">
+            <span>About</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('games')">
+            <img src="https://picsum.photos/48/48?random=7" alt="Games">
+            <span>Games</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('minesweeper')">
+            <img src="https://picsum.photos/48/48?random=8" alt="Minesweeper">
+            <span>Minesweeper</span>
+        </div>
+        <div class="desktop-icon" onclick="showBSOD()">
+            <img src="https://picsum.photos/48/48?random=6" alt="BSOD">
+            <span>BSOD Test</span>
+        </div>
+    </div>
+    
+    <!-- Windows -->
+    <div class="window" id="home-window">
+        <div class="window-header">
+            <div class="window-title">Home</div>
+            <div class="window-controls">
+                <div class="window-control minimize" onclick="minimizeWindow('home')">_</div>
+                <div class="window-control maximize" onclick="toggleMaximize('home')">□</div>
+                <div class="window-control close" onclick="closeWindow('home')">X</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="page active" id="home-page">
+                <h1>Welcome to My Windows XP Website</h1>
+                <img src="https://picsum.photos/600/300?random=11" alt="Welcome" class="page-image">
+                <p>This is a nostalgic recreation of the Windows XP interface in a website format. Click on the desktop icons or use the start menu to navigate through different sections.</p>
+                <p>Experience the classic look and feel of Windows XP with modern web technologies.</p>
+                <button class="xp-button" onclick="openWindow('about')">Learn More</button>
+            </div>
+        </div>
+        <div class="window-resize-handle"></div>
+    </div>
+    
+    <div class="window" id="about-window">
+        <div class="window-header">
+            <div class="window-title">About Us</div>
+            <div class="window-controls">
+                <div class="window-control minimize" onclick="minimizeWindow('about')">_</div>
+                <div class="window-control maximize" onclick="toggleMaximize('about')">□</div>
+                <div class="window-control close" onclick="closeWindow('about')">X</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="page" id="about-page">
+                <h1>About Our Company</h1>
+                <img src="https://picsum.photos/600/200?random=12" alt="About" class="page-image">
+                <p>We are a team of passionate developers who love nostalgic interfaces and modern web technologies.</p>
+                <p>Our mission is to bring back the classic Windows XP experience to the web browser.</p>
+                <h2>Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://picsum.photos/100/100?random=21" alt="Team Member">
+                        <p>John Doe<br>CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://picsum.photos/100/100?random=22" alt="Team Member">
+                        <p>Jane Smith<br>Developer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://picsum.photos/100/100?random=23" alt="Team Member">
+                        <p>Mike Johnson<br>Designer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="window-resize-handle"></div>
+    </div>
+    
+    <div class="window" id="games-window">
+        <div class="window-header">
+            <div class="window-title">Games</div>
+            <div class="window-controls">
+                <div class="window-control minimize" onclick="minimizeWindow('games')">_</div>
+                <div class="window-control maximize" onclick="toggleMaximize('games')">□</div>
+                <div class="window-control close" onclick="closeWindow('games')">X</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="page" id="games-page">
+                <h1>Classic XP Games</h1>
+                <div class="games-grid">
+                    <div class="game-card" onclick="openWindow('minesweeper')">
+                        <img src="https://picsum.photos/200/150?random=71" alt="Minesweeper">
+                        <h3>Minesweeper</h3>
+                        <p>The classic puzzle game</p>
+                    </div>
+                    <div class="game-card" onclick="openWindow('solitaire')">
+                        <img src="https://picsum.photos/200/150?random=72" alt="Solitaire">
+                        <h3>Solitaire</h3>
+                        <p>The classic card game</p>
+                    </div>
+                    <div class="game-card" onclick="openSnakeGame()">
+                        <img src="https://picsum.photos/200/150?random=73" alt="Snake">
+                        <h3>Snake</h3>
+                        <p>The classic arcade game</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="window-resize-handle"></div>
+    </div>
+    
+    <div class="window" id="minesweeper-window">
+        <div class="window-header">
+            <div class="window-title">Minesweeper</div>
+            <div class="window-controls">
+                <div class="window-control minimize" onclick="minimizeWindow('minesweeper')">_</div>
+                <div class="window-control maximize" onclick="toggleMaximize('minesweeper')">□</div>
+                <div class="window-control close" onclick="closeWindow('minesweeper')">X</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="page" id="minesweeper-page">
+                <h1>Minesweeper</h1>
+                <div class="minesweeper-controls">
+                    <div class="minesweeper-info">
+                        <span>Mines: <span id="mine-count">10</span></span>
+                        <button class="xp-button" onclick="resetMinesweeper()">New Game</button>
+                    </div>
+                    <div class="minesweeper-board" id="minesweeper-board"></div>
+                </div>
+            </div>
+        </div>
+        <div class="window-resize-handle"></div>
+    </div>
+    
+    <!-- Blue Screen of Death -->
+    <div class="bsod" id="bsod">
+        <div class="bsod-title">A problem has been detected and this website has been shut down to prevent damage to your nostalgia.</div>
+        <div class="bsod-message">
+            <p>IRQL_NOT_LESS_OR_EQUAL</p>
+            <p>If this is the first time you've seen this error screen, refresh your browser. If this screen appears again, follow these steps:</p>
+            <p>Check to make sure any new hardware or software is properly installed. If this is a new installation, ask your website administrator for any updates you might need.</p>
+            <p>Technical information:</p>
+            <p>*** STOP: 0x0000000A (0x00000000, 0x00000002, 0x00000001, 0x804E9B1D)</p>
+        </div>
+        <div class="bsod-progress">
+            <div class="bsod-progress-bar"></div>
+        </div>
+        <p>Beginning dump of physical memory...</p>
+    </div>
+    
+    <!-- Windows XP Style Footer -->
+    <footer class="xp-footer">
+        <div>
+            &copy; 2023 Windows XP Nostalgia Project | 
+            <a href="#" onclick="openWindow('about')">About Us</a> | 
+            <a href="#" onclick="openWindow('contact')">Contact</a> | 
+            <a href="#" onclick="showBSOD()">Emergency BSOD</a>
+        </div>
+    </footer>
+    
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-button" id="start-button">
+            <img src="https://picsum.photos/16/16?random=100" alt="Start" class="start-button-icon">
+            Start
+        </button>
+        <div class="taskbar-windows" id="taskbar-windows"></div>
+        <div class="clock" id="clock">10:00 AM</div>
+    </div>
+    
+    <!-- Start Menu -->
+    <div class="start-menu" id="start-menu">
+        <div class="start-menu-header">Windows XP Website</div>
+        <div class="start-menu-items">
+            <div class="start-menu-sidebar">
+                <img src="https://picsum.photos/40/200?random=200" alt="XP Logo">
+            </div>
+            <div class="start-menu-main">
+                <div class="start-menu-item" onclick="openWindow('home')">
+                    <img src="https://picsum.photos/32/32?random=201" alt="Home">
+                    <span>Home</span>
+                </div>
+                <div class="start-menu-item" onclick="openWindow('about')">
+                    <img src="https://picsum.photos/32/32?random=202" alt="About">
+                    <span>About Us</span>
+                </div>
+                <div class="start-menu-item" onclick="openWindow('games')">
+                    <img src="https://picsum.photos/32/32?random=207" alt="Games">
+                    <span>Games</span>
+                </div>
+                <div class="start-menu-section">
+                    <div class="start-menu-section-title">Fun Stuff</div>
+                    <div class="start-menu-item" onclick="openWindow('minesweeper')">
+                        <img src="https://picsum.photos/32/32?random=208" alt="Minesweeper">
+                        <span>Minesweeper</span>
+                    </div>
+                    <div class="start-menu-item" onclick="openSnakeGame()">
+                        <img src="https://picsum.photos/32/32?random=209" alt="Snake">
+                        <span>Snake Game</span>
+                    </div>
+                    <div class="start-menu-item" onclick="showBSOD()">
+                        <img src="https://picsum.photos/32/32?random=210" alt="BSOD">
+                        <span>BSOD Test</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

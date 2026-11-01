@@ -1,111 +1,809 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'none'; upgrade-insecure-requests">
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
-  <title>Muhammad Usama — Professional CV</title>
+  <title>Muhammad Usama - Full-Stack WordPress & AI Automation Engineer CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/cv.css?v=20260723-1">
-  <link rel="stylesheet" href="./css/cv-print.css?v=20260723-1" media="print">
-  <link rel="stylesheet" href="./css/cv-print-compact.css?v=20260723-1" media="print">
-</head>
-<body>
-  <div class="screen-toolbar"><a href="./profile.html#cv">← Back to profile</a><button id="print-cv" type="button">Download / Print PDF</button></div>
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-accent: #0284c7;
+      --secondary: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --tag-bg: #f8fafc;
+      --badge-bg: #eff6ff;
+      --badge-text: #0369a1;
+    }
 
-  <main class="resume">
-    <header class="resume-header">
-      <div class="identity">
-        <p class="kicker">Full-Stack · AI Automation · WordPress</p>
-        <h1>Muhammad <br>Usama</h1>
-        <p class="headline">Full-Stack & Automation Engineer</p>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--secondary);
+      background-color: #f1f5f9;
+      line-height: 1.5;
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+      padding: 56px 20px 48px;
+    }
+
+    /* TOP ACTION TOOLBAR */
+    .cv-toolbar {
+      max-width: 880px;
+      margin: 0 auto 16px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      background: #ffffff;
+      padding: 9px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .toolbar-back-btn:hover {
+      background: #f8fafc;
+      color: var(--primary-accent);
+      border-color: #cbd5e1;
+      transform: translateX(-2px);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #475569;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color 0.15s ease;
+    }
+
+    .toolbar-link:hover {
+      color: var(--primary);
+    }
+
+    .toolbar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .toolbar-btn.secondary {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .toolbar-btn.secondary:hover {
+      background: #f8fafc;
+      color: var(--primary-accent);
+      border-color: #cbd5e1;
+    }
+
+    .toolbar-btn.primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+
+    .toolbar-btn.primary:hover {
+      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+    }
+
+    .cv-container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 44px 52px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 22px;
+      margin-bottom: 22px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .target-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--primary-accent);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .badge-available {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #ecfdf5;
+      color: #047857;
+      font-weight: 700;
+      font-size: 11.5px;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      border: 1px solid #a7f3d0;
+    }
+
+    .badge-available::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #10b981;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--primary-accent);
+      flex-shrink: 0;
+    }
+
+    .contact-item a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary-accent);
+      text-decoration: underline;
+    }
+
+    /* SECTION STYLES */
+    section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 5px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* SUMMARY */
+    .summary-text {
+      color: var(--secondary);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    /* SKILLS GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px 16px;
+    }
+
+    @media (max-width: 768px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-category {
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    .skill-category h4 {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .skill-tags {
+      font-size: 11.5px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* ENTRIES */
+    .job-entry {
+      margin-bottom: 18px;
+    }
+
+    .job-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .job-title-company {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .job-company {
+      color: var(--primary-accent);
+      font-weight: 700;
+    }
+
+    .job-meta {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project-links {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-links a {
+      color: var(--primary-accent);
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 14px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    ul.bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 5px;
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    ul.bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 3px;
+      color: var(--primary-accent);
+      font-size: 14px;
+      line-height: 1;
+      top: 2px;
+    }
+
+    ul.bullet-list li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* CERTIFICATIONS */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 18px;
+    }
+
+    @media (max-width: 600px) {
+      .certs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cert-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+
+    .cert-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 3px;
+    }
+
+    .cert-issuer {
+      font-size: 11.5px;
+      color: var(--primary-accent);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .cert-id {
+      font-size: 10.5px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--muted);
+    }
+
+    /* EDUCATION */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 3px;
+    }
+
+    .edu-degree {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .edu-school {
+      color: var(--secondary);
+      font-weight: 500;
+      font-size: 12.5px;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      .cv-toolbar {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+        padding: 0;
+        font-size: 11px;
+      }
+
+      .cv-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      header {
+        padding-bottom: 12px;
+        margin-bottom: 14px;
+      }
+
+      h1 { font-size: 24px; }
+      .target-title { font-size: 13.5px; margin-bottom: 6px; }
+      section { margin-bottom: 12px; }
+      .job-entry, .cert-item, .skill-category { break-inside: avoid; }
+      .section-title { break-after: avoid; }
+      .section-title { font-size: 11.5px; margin-bottom: 6px; }
+      .job-entry { margin-bottom: 12px; }
+      ul.bullet-list li { font-size: 10.5px; margin-bottom: 3px; }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); gap: 6px 10px; }
+      .skill-category { padding: 6px 8px; }
+      .certs-grid { grid-template-columns: repeat(2, 1fr); gap: 6px 10px; }
+      a { color: inherit !important; text-decoration: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP ACTION TOOLBAR -->
+  <div class="cv-toolbar">
+    <a href="./index.html" class="toolbar-back-btn" aria-label="Back to interactive 3D portfolio">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Interactive Portfolio</span>
+    </a>
+    <div class="toolbar-actions">
+      <a href="./profile.html" class="toolbar-link">Full Story & Profile</a>
+      <a href="./Muhammad-Usama-CV.pdf" class="toolbar-btn secondary" download>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>PDF Download</span>
+      </a>
+      <button class="toolbar-btn primary" type="button" onclick="window.print()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        <span>Print CV</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="cv-container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-top">
+        <div>
+          <h1>Muhammad Usama</h1>
+          <div class="target-title">Full-Stack WordPress Developer & AI Automation Engineer</div>
+        </div>
+        <div>
+          <span class="badge-available">Available for Global Remote Roles</span>
+        </div>
       </div>
-      <div class="contact-block">
-        <img src="./assets/images/my-avatar1.webp" alt="Muhammad Usama">
-        <address>
-          <strong>Muhammad Usama</strong>
-          <a href="mailto:tahir12721@gmail.com">tahir12721@gmail.com</a>
+
+      <div class="contact-bar">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Karachi, Pakistan (Open to Global Remote)
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           <a href="tel:+923207101485">+92 320 7101485</a>
-          <span>Karachi, Sindh, Pakistan</span>
-          <a href="https://www.linkedin.com/in/muhammad-usama-5996bb24b/">linkedin.com/in/muhammad-usama-5996bb24b</a>
-          <a href="https://github.com/MUHAMMADUSAMA64874">github.com/MUHAMMADUSAMA64874</a>
-        </address>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <a href="mailto:tahir12721@gmail.com">tahir12721@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          <a href="https://github.com/MUHAMMADUSAMA64874" target="_blank" rel="noopener noreferrer">github.com/MUHAMMADUSAMA64874</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          <a href="https://www.linkedin.com/in/muhammad-usama-5996bb24b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/muhammad-usama</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          <a href="./index.html">Interactive 3D Portfolio</a>
+        </div>
       </div>
     </header>
 
-    <div class="resume-grid">
-      <div class="main-column">
-        <section>
-          <h2>Professional profile</h2>
-          <p class="profile-copy">Full-Stack & Automation Engineer with 5+ years of hands-on experience building scalable web systems, AI-powered workflows and custom WordPress solutions. Experienced in connecting user-facing interfaces with dependable backend architecture, REST APIs, databases, LLMs and automation platforms. Focused on clean structure, performance, maintainability and practical business outcomes.</p>
-        </section>
-
-        <section class="experience-section">
-          <h2>Professional experience</h2>
-          <article class="role">
-            <div class="role-head"><div><h3>WordPress Developer</h3><p>Codencoders · Karachi, Pakistan</p></div><time>Feb 2026 — Present</time></div>
-            <ul><li>Deliver advanced WordPress development, custom functionality and production-ready client websites.</li><li>Build maintainable solutions aligned with performance, usability and client requirements.</li></ul>
-          </article>
-          <article class="role featured">
-            <div class="role-head"><div><h3>n8n Automation Engineer</h3><p>Decotechs · Karachi, Pakistan</p></div><time>Sep 2025 — Feb 2026</time></div>
-            <ul>
-              <li>Designed end-to-end n8n workflows integrating REST APIs, databases, web-scraping tools and AI models.</li>
-              <li>Built LLM-powered pipelines using cloud models and local Ollama deployments.</li>
-              <li>Developed customer-engagement chatbots and automated response-handling systems.</li>
-              <li>Implemented hybrid n8n and Make.com workflows spanning multiple business platforms.</li>
-              <li>Created structured scraping, transformation and analysis pipelines for operational and SEO data.</li>
-              <li>Connected frontend controls with automation backends and optimized workflows to reduce manual tasks.</li>
-            </ul>
-          </article>
-          <article class="role">
-            <div class="role-head"><div><h3>WordPress Developer</h3><p>Diznik · Karachi, Pakistan</p></div><time>Jul 2024 — Jul 2025</time></div>
-            <ul><li>Developed custom WordPress websites and delivered client-focused web solutions.</li><li>Supported site functionality, responsive presentation and ongoing production requirements.</li></ul>
-          </article>
-          <article class="role">
-            <div class="role-head"><div><h3>Web Developer</h3><p>XPACE TECHNOLOGIES (Pvt) Ltd · Karachi</p></div><time>May 2024 — Jul 2024</time></div>
-            <ul><li>Worked across frontend, backend and responsive web-interface development.</li></ul>
-          </article>
-          <div class="compact-roles">
-            <div><strong>WordPress Developer · CodexCue</strong><time>May 2024 — Jun 2024</time></div>
-            <div><strong>WordPress Developer · 10Coders</strong><time>Feb 2024 — Apr 2024</time></div>
-            <div><strong>WordPress Developer · BrandSoft Solutions</strong><time>Oct 2023 — Feb 2024</time></div>
-            <div><strong>Web Development Intern · CodSoft</strong><time>Jan 2024</time></div>
-            <div><strong>SEO Intern & WordPress Developer · DigiSkills.pk</strong><time>Nov 2022 — Jan 2023</time></div>
-          </div>
-        </section>
-      </div>
-
-      <aside class="side-column">
-        <section><h2>Core expertise</h2><ul class="pill-list"><li>Full-Stack Development</li><li>Backend Architecture</li><li>AI Workflow Automation</li><li>REST API Integration</li><li>Custom WordPress</li><li>WooCommerce</li><li>Web Scraping</li><li>Computer Vision</li><li>Database Design</li><li>Performance Optimization</li></ul></section>
-        <section><h2>Technology stack</h2><div class="stack-group"><h3>Languages & frameworks</h3><p>PHP, Laravel, JavaScript, Python, React.js, jQuery</p></div><div class="stack-group"><h3>Automation & AI</h3><p>n8n, Make.com, LLM workflows, Ollama, AI agents, chatbots</p></div><div class="stack-group"><h3>Web & commerce</h3><p>WordPress, WooCommerce, custom themes, plugin customization</p></div><div class="stack-group"><h3>Data & engineering</h3><p>MySQL, MSSQL, Firebase, OpenCV, REST APIs, Git</p></div></section>
-        <section><h2>Education</h2><div class="education"><h3>PAF-Karachi Institute of Economics & Technology</h3><p>Undergraduate studies</p><time>2022 — 2026</time></div><div class="education"><h3>Fazaia Degree College</h3><p>Matriculation</p></div></section>
-        <section><h2>Certifications</h2><ul class="cert-list"><li>Building Web Applications in PHP</li><li>Python Basics</li><li>Build a Full Website using WordPress</li><li>Introduction to Web Development</li><li>React.js AI Chatbot with ChatGPT, Gemini & DeepSeek</li></ul></section>
-      </aside>
-    </div>
-
-    <div class="page-break"></div>
-
-    <section class="projects-page">
-      <header><p class="kicker">Selected engineering work</p><h2>Projects & technical portfolio</h2><p>Selected from 58 public GitHub repositories and an extensive client website portfolio.</p></header>
-      <div class="project-grid">
-        <article><span>Automation</span><h3>n8n E-commerce Order Processor</h3><p>Automated order-processing workflow integrating customer information, payment and inventory APIs.</p><a href="https://github.com/MUHAMMADUSAMA64874/n8n-E-commerce-Order-Processor">View repository ↗</a></article>
-        <article><span>AI · Data</span><h3>n8n Customer Feedback Processor</h3><p>Workflow for automatic feedback categorization, sentiment analysis and summary reporting.</p><a href="https://github.com/MUHAMMADUSAMA64874/n8n-Customer-Feedback-Processor">View repository ↗</a></article>
-        <article><span>Python · Monitoring</span><h3>CNBC Monitor</h3><p>Records and transcribes a livestream, detects financial keywords and generates clips around relevant mentions.</p><a href="https://github.com/MUHAMMADUSAMA64874/CNBC-Monitor">View repository ↗</a></article>
-        <article><span>Python · E-commerce</span><h3>Pakistan E-commerce Price Tracker</h3><p>Tracks products on PriceOye and Daraz and sends threshold-based price-drop email notifications.</p><a href="https://github.com/MUHAMMADUSAMA64874/Pakistan-E-commerce-Price-Tracker">View repository ↗</a></article>
-        <article><span>Computer Vision</span><h3>Hand Detection Game</h3><p>Camera-based browser game using real-time index-finger tracking, with a privacy-focused permission experience.</p><a href="https://github.com/MUHAMMADUSAMA64874/hand_detection_game">View repository ↗</a></article>
-        <article><span>ESP32 · BLE</span><h3>Bluetooth Game Controller</h3><p>Wireless ESP32 game controller with arcade controls and support for standard BLE HID hosts.</p><a href="https://github.com/MUHAMMADUSAMA64874/Game-Contorller-ESP32">View repository ↗</a></article>
-        <article><span>JavaScript · Extension</span><h3>WhatsApp Persistent Filter</h3><p>Chrome extension that maintains a persistent WhatsApp Web search filter and prevents accidental clearing.</p><a href="https://github.com/MUHAMMADUSAMA64874/whatsapp-persistent-filter">View repository ↗</a></article>
-        <article><span>PHP · WordPress</span><h3>Custom WordPress Plugin</h3><p>Custom website-locker functionality developed as a WordPress plugin.</p><a href="https://github.com/MUHAMMADUSAMA64874/Wordpress-Plugin">View repository ↗</a></article>
-      </div>
-      <section class="client-work"><h2>Selected client website work</h2><p>Cut and Taste LV · Old Money · Varsovia Moda · Bellarosa Mode · Editing Dock · Pure Haven LLC · Cubix Build Construct · Adept Fire · Anchor Energy Partners · Vending Solutions · Home Sweet Linens · Sow Fertility · JDC Welfare · Rogue Logics · Zini Technologies · Noveha · Solidifyy · Chef Academy Online · The Designic · Texas Super League · Aerovex Systems</p></section>
-      <section class="working-style"><h2>Engineering approach</h2><div><p><strong>Structure first</strong><br>Clear architecture and maintainable implementation before shortcuts.</p><p><strong>Automation with purpose</strong><br>AI and workflows applied to measurable operational problems.</p><p><strong>Reliable delivery</strong><br>Responsive, performance-aware systems designed for real users.</p></div></section>
-      <footer><p>References and additional project details available upon request.</p><p>tahir12721@gmail.com · +92 320 7101485</p></footer>
+    <!-- PROFESSIONAL SUMMARY -->
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">
+<strong>Full-Stack WordPress Developer & AI Automation Engineer</strong> with <strong>4+ years of production experience</strong> engineering enterprise web platforms, custom WooCommerce stores, and autonomous AI automation pipelines. Launched <strong>37 live client websites</strong> (UK, US, Australia, Europe) with strict speed optimization, headless architectures, ACF Pro integrations, and zero reliance on heavy page builders. Deeply specialized in <strong>autonomous n8n workflows (81+ production pipelines)</strong>, local LLMs (Ollama / Llama 3.2, Qwen, Gemma, Phi), and on-device computer vision (<strong>Android MediaPipe 21 Hand Landmarks + TensorFlow Lite</strong>). Proven track record executing 3,474 legacy 301 redirects with zero SEO loss and mapping 72 payment flows.
+      </p>
     </section>
-  </main>
-  <script src="./js/cv.js?v=20260723-1"></script>
+
+    <!-- CORE TECHNICAL EXPERTISE -->
+    <section>
+      <h2 class="section-title">Technical Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Full-Stack CMS & E-Commerce</h4>
+          <div class="skill-tags">WordPress (Headless & Core), WooCommerce REST API, Shopify Liquid, Custom Plugins/Themes, ACF Pro, Polylang Pro, WP Rocket, Database Indexing, PageSpeed Optimization</div>
+        </div>
+        <div class="skill-category">
+          <h4>AI & Automation Workflows</h4>
+          <div class="skill-tags">n8n (Self-Hosted/Cloud), Make.com, LangChain, Local LLMs (Ollama, Llama 3.2, Gemma, Qwen, Phi), OpenAI GPT-4o, Claude API, Multi-Agent Swarms, Prompt Engineering</div>
+        </div>
+        <div class="skill-category">
+          <h4>Computer Vision & Edge AI</h4>
+          <div class="skill-tags">Google MediaPipe (21 3D Landmarks), TensorFlow Lite (TFLite), Android CameraX, OpenCV, Python Data Pipelines, AR Skeleton Overlays, Text-to-Speech (TTS)</div>
+        </div>
+        <div class="skill-category">
+          <h4>Programming & Backend</h4>
+          <div class="skill-tags">PHP 8.x, JavaScript (ES6+), TypeScript, Python 3.12, Node.js, Express, React.js, Electron, RESTful APIs, WebSockets, Webhooks</div>
+        </div>
+        <div class="skill-category">
+          <h4>Databases & Data Storage</h4>
+          <div class="skill-tags">MySQL, PostgreSQL, MSSQL, MongoDB, Supabase, Firebase Firestore, SQLite, Vector Databases (Pinecone, Qdrant), NocoDB</div>
+        </div>
+        <div class="skill-category">
+          <h4>DevOps & Business Integrations</h4>
+          <div class="skill-tags">Git/GitHub, Docker, Linux, DigitalOcean, Cloudways, Stripe Checkout & Split Billing, Meta Graph API, Google Cloud APIs, Slack, Jira, HubSpot</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED FLAGSHIP ARCHITECTURES -->
+    <section>
+      <h2 class="section-title">Featured Flagship Architectures</h2>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">Real-Time Android ASL Gesture Interpreter (Edge AI & Computer Vision)</div>
+          <div class="job-meta">Java, Android CameraX, Google MediaPipe, TensorFlow Lite, SQLite, Android TTS</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Architected an on-device American Sign Language translator: captures high-FPS live video via CameraX, extracts <strong>21 3D hand landmarks</strong> with Google MediaPipe, and classifies gestures in real-time using a custom quantized <strong>TensorFlow Lite neural network</strong> (`asl_model.tflite`).</li>
+          <li>Engineered custom `OverlayView` drawing real-time AR skeletal bones over detected hands, built dynamic SQLite sentence builder, and integrated multi-lingual Text-to-Speech synthesis for natural vocal playback.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">MenuCanvas Suite (Multi-Branch POS & Kitchen Dispatch with WooCommerce Sync)</div>
+          <div class="job-meta">Electron, React, Node.js, ESC/POS Thermal Printing, WooCommerce REST API, SQLite</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Engineered cross-platform restaurant ordering, inventory, and table management desktop application with Electron and React. Features multi-printer kitchen thermal routing and live order status boards.</li>
+          <li>Built bidirectional background synchronization with client's WooCommerce web storefront, synchronizing inventory stock and online orders in real-time without database contention.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">QRlytics Dynamic QR Attribution & Analytics Platform</div>
+          <div class="job-meta">Full-Stack SaaS, Dynamic Redirect Engine, Device Attribution, Geolocation Analytics</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Developed dynamic QR code campaign tracking SaaS allowing instant target destination switching without reprinting physical collateral, featuring real-time city-level scan geolocation and user device telemetry.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">Production n8n Workflow Automation Hub (81+ Deployed Workflows)</div>
+          <div class="job-meta">n8n, DataForSEO, Slack, WhatsApp Cloud API, OpenAI, Google Sheets, Jira REST API</div>
+        </div>
+        <ul class="bullet-list">
+          <li><strong>SERP Rank Tracker:</strong> Automated daily 1:00 AM UTC batch queries across hundreds of target keywords via DataForSEO, detecting rank anomalies (±3 positions) and firing instant Slack alerts.</li>
+          <li><strong>SEO Content Syndicator:</strong> Ingests markdown drafts, structures SEO meta tags via OpenAI, publishes directly via WordPress REST API, and syndicates assets across LinkedIn and Meta.</li>
+          <li><strong>WhatsApp CRM Helpdesk:</strong> Inbound ticket triage matching customer profiles in MongoDB, automating intent routing, and appending conversational logs to Google Sheets.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">Commander Safeguard Interactive Web Experience & Audio Engine</div>
+          <div class="job-meta">HTML5 Canvas, Sprite Animation Pipeline, WebAudio API, Responsive Event Loop</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Engineered high-performance multimedia character game experience featuring custom multi-frame sprite sheet cycles, multi-track audio playback, dynamic sound effect triggers, and responsive stage scaling.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">Enterprise Shopify & High-Scale E-Commerce (SKL Watches & Custom Brands)</div>
+          <div class="job-meta">Shopify Liquid, Custom WooCommerce REST API, AJAX Drawer Cart, Split Stripe Billing</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Developed bespoke Shopify Liquid templates and high-throughput WooCommerce checkout platforms with sub-second response times, multi-currency switching, and automated multi-warehouse inventory synchronization.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <section>
+      <h2 class="section-title">Professional Experience</h2>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">WordPress Developer — <span class="job-company">Codencoders</span></div>
+          <div class="job-meta">Feb 2026 – Present | Karachi</div>
+        </div>
+        <div class="project-links">
+          <span>Selected Client Deliveries:</span>
+          <a href="https://hairforce-1.co.uk/" target="_blank">Hairforce 1</a>
+          <a href="https://lightsalmon-skunk-273227.hostingersite.com/" target="_blank">SKL Watches</a>
+          <a href="https://inyourpostcode.co.uk/" target="_blank">InYourPostcode</a>
+          <a href="https://thequantumnorth.com/" target="_blank">The Quantum North</a>
+          <a href="https://www.whoopba.com/" target="_blank">Whoopba</a>
+          <a href="https://avizonetech.com/" target="_blank">Avizone Tech</a>
+        </div>
+        <ul class="bullet-list">
+          <li>Advanced WordPress development and enterprise client site delivery across WordPress, WooCommerce and Shopify, with custom plugin functionality instead of page-builder bloat.</li>
+          <li>Custom PHP modules, client dashboards and custom post type architectures with <strong>ACF Pro</strong> so non-technical teams can manage content.</li>
+          <li>Performance audits with WP Rocket, WebP compression, query optimization and Rank Math technical SEO, cutting load times by <strong>40–60%</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">n8n Automation Engineer — <span class="job-company">Decotechs</span></div>
+          <div class="job-meta">Sep 2025 – Feb 2026 | Karachi</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Architected and deployed <strong>81+ AI-driven automation workflows</strong> with n8n, Make.com, LLMs, web scrapers and multi-channel notification bots (Telegram / Slack).</li>
+          <li>Built SERP rank tracking with anomaly alerts, an SEO content auto-publisher with social syndication, and a WhatsApp helpdesk with MongoDB-based routing.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">WordPress Developer — <span class="job-company">Diznik</span></div>
+          <div class="job-meta">Jul 2024 – Jul 2025 | Karachi</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Bespoke WordPress theme and e-commerce development from Figma designs, with speed optimization and responsive design systems.</li>
+          <li>Client sites included Home Sweet Linens, Dawateislami USA, Rogue Logics, Flintrock Suites and Pursuit Athletic.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">Web Developer — <span class="job-company">XPACE Technologies (Pvt) Ltd</span></div>
+          <div class="job-meta">May 2024 – Jul 2024 | Karachi</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Full-stack work across responsive front ends, MySQL data models and Laravel backend endpoints.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">WordPress Developer — <span class="job-company">BrandSoft Solutions</span></div>
+          <div class="job-meta">Oct 2023 – Feb 2024 | Karachi</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Theme customization, custom WooCommerce flows, bug resolution and live production deployments; built in-house plugins including a certificate generator and an employee directory.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">SEO & WordPress Intern — <span class="job-company">DigiSkills.pk</span></div>
+          <div class="job-meta">Nov 2022 – Jan 2023 | Online</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAJOR CLIENT PROJECT -->
+    <section>
+      <h2 class="section-title">Major Client Project</h2>
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title-company">Lead WordPress & Migration Engineer — <span class="job-company">Chef Academy of London & Online (UK)</span></div>
+          <div class="job-meta">2025 – Present | Remote</div>
+        </div>
+        <div class="project-links">
+          <span>Live Systems:</span>
+          <a href="https://www.chefacademyonline.co.uk/" target="_blank">chefacademyonline.co.uk (Live)</a>
+          <a href="https://chefacademyoflondon.com/en/" target="_blank">chefacademyoflondon.com</a>
+        </div>
+        <ul class="bullet-list">
+          <li><strong>Enterprise CMS Migration:</strong> Spearheaded architectural migration from legacy Joomla to custom WordPress, restructuring international culinary courses, syllabus catalogs, and dynamic media.</li>
+          <li><strong>Multilingual Infrastructure:</strong> Configured 6 international languages using Polylang Pro, debugging and resolving 26 critical cross-language translation routing and taxonomy conflicts.</li>
+          <li><strong>Financial & Payment Integration:</strong> Audited, re-mapped, and verified 72 custom Stripe payment links and checkout flows for course deposits, ensuring zero payment drop-offs.</li>
+          <li><strong>SEO Authority Preservation:</strong> Mapped and executed <strong>3,474 old URL 301 redirects</strong> to prevent 404 errors, successfully safeguarding 100% of historical organic search rankings.</li>
+          <li><strong>Custom Booking Plugin (v4.3.2):</strong> Built a custom WordPress plugin for course intake dates, waitlists with threshold alerts, and a full enrolment application form with admin notifications.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- VERIFIED LICENSES & CERTIFICATIONS -->
+    <section>
+      <h2 class="section-title">Verified Licenses & Certifications</h2>
+      <div class="certs-grid">
+        <div class="cert-item">
+          <div class="cert-title">HTML, CSS, & Bootstrap - Certification Course for Beginners</div>
+          <div class="cert-issuer">Udemy • Issued Oct 2024</div>
+          <div class="cert-id">Credential ID: UC-46819960-3af4-4e1d-b78e-5178374527b7</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Git, GitHub & Markdown Crash Course: Learn Git, GitHub & MD</div>
+          <div class="cert-issuer">Udemy • Issued Oct 2024</div>
+          <div class="cert-id">Credential ID: UC-0021e75c-e501-4c60-9a97-26c693efa7dc</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">React-js AI Chatbot built with ChatGPT, Gemini and DeepSeek</div>
+          <div class="cert-issuer">Udemy • Issued Jun 2025</div>
+          <div class="cert-id">Credential ID: UC-91a46a00-4bee-48fb-b4c1-46772dc331cc</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">HTML, CSS, and Javascript for Web Developers</div>
+          <div class="cert-issuer">Johns Hopkins University (Coursera) • Issued Jan 2025</div>
+          <div class="cert-id">Credential ID: 5L3TTS7YY14A</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Building Web Applications in PHP</div>
+          <div class="cert-issuer">University of Michigan (Coursera) • Issued Feb 2025</div>
+          <div class="cert-id">Credential ID: 4HVBIOSDLLRH</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Introduction to Web Development</div>
+          <div class="cert-issuer">University of California, Davis (Coursera) • Issued Jan 2025</div>
+          <div class="cert-id">Credential ID: Q5PZN7EYLJRX</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="job-entry">
+        <div class="edu-row">
+          <div class="edu-degree">Bachelor of Science in Computer Science (BSCS)</div>
+          <div class="job-meta">2021 – 2026</div>
+        </div>
+        <div class="edu-school">PAF-Karachi Institute of Economics & Technology (KIET) — CGPA: 3.23 / 4.00</div>
+      </div>
+      <div class="job-entry" style="margin-top: 8px;">
+        <div class="edu-row">
+          <div class="edu-degree">Higher Secondary Certificate (HSC) — Pre-Engineering</div>
+          <div class="job-meta">2018 – 2019</div>
+        </div>
+        <div class="edu-school">Fazaia Degree College, Karachi</div>
+      </div>
+    </section>
+
+  </div>
+
 </body>
+
 </html>
