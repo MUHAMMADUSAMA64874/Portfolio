@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; frame-src 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Muhammad Usama — CV · Full-Stack WordPress Developer & AI Automation Engineer</title>
   <meta name="description" content="CV of Muhammad Usama — Full-Stack WordPress Developer & AI Automation Engineer in Karachi. 4+ years, 35 live client sites, 81+ production n8n automations. Available for remote roles.">
   <meta name="robots" content="index, follow">
@@ -11,7 +13,7 @@
   <meta property="og:title" content="Muhammad Usama — CV · Full-Stack WordPress Developer & AI Automation Engineer">
   <meta property="og:description" content="4+ years · 35 live client sites · 81+ production n8n automations · custom WordPress plugins · WooCommerce & Shopify. Download the PDF.">
   <meta property="og:url" content="https://muhammadusama64874.github.io/Portfolio/cv.html">
-  <meta property="og:image" content="https://muhammadusama64874.github.io/Portfolio/assets/images/cv-card.png">
+  <meta property="og:image" content="https://muhammadusama64874.github.io/Portfolio/assets/images/cv-card.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="./assets/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +79,10 @@
       .two { grid-template-columns: 1fr; gap: 0; }
       .job-head { flex-direction: column; gap: 2px; }
       .toolbar { margin-top: 84px; justify-content: flex-start; }
+      .sheet { font-size: 15px; }
+      .sheet li, .proj p, .skills, .skills dd, .avail, .when, .sheet .plain li, .summary, .contact { font-size: 14px !important; }
+      .proj a, .sheet .more a, footer.cv { font-size: 13px !important; }
+      .contact li a { display: inline-block; padding: 8px 0; }
     }
     @page { size: A4; margin: 0; }
     @media print {
@@ -91,6 +97,7 @@
       .page-break { break-before: page; padding-top: 12mm; }
     }
   </style>
+  <script src="./js/protect.js?v=20261103" defer></script>
 </head>
 <body>
   <div class="toolbar">
@@ -206,7 +213,7 @@
           <div class="proj"><b>Hand-tracking Fruit Ninja</b><p>Browser game you slice with your index finger, using MediaPipe hand tracking and HTML Canvas.</p><a href="https://github.com/MUHAMMADUSAMA64874/hand_detection_game">github.com/MUHAMMADUSAMA64874/hand_detection_game</a></div>
         </div>
       </div>
-      <p class="more" style="font-size:9pt;margin-top:1mm">All 93 projects, with live links and screenshots: <a href="https://muhammadusama64874.github.io/Portfolio/#archive">muhammadusama64874.github.io/Portfolio</a></p>
+      <p class="more" style="font-size:9pt;margin-top:1mm">All 90 projects, with live links and screenshots: <a href="https://muhammadusama64874.github.io/Portfolio/#archive">muhammadusama64874.github.io/Portfolio</a></p>
     </section>
 
     <div class="two">
@@ -223,10 +230,13 @@
         <h2>Certifications</h2>
         <ul class="plain">
           <li>Building Web Applications in PHP <span>— University of Michigan, 2025</span></li>
+          <li>Python Basics <span>— University of Michigan, 2025</span></li>
           <li>HTML, CSS and JavaScript for Web Developers <span>— Johns Hopkins University, 2025</span></li>
           <li>Introduction to Web Development <span>— UC Davis, 2025</span></li>
-          <li>React AI Chatbot with ChatGPT, Gemini &amp; DeepSeek <span>— Udemy, 2025</span></li>
-          <li>Git, GitHub &amp; Markdown <span>— Udemy, 2024</span></li>
+          <li>Build a Full Website using WordPress <span>— Coursera Project Network, 2025</span></li>
+          <li>React.js AI Chatbot with ChatGPT, Gemini &amp; DeepSeek <span>— Udemy, 2025</span></li>
+          <li>Git, GitHub &amp; Markdown <span>— Udemy, 2025</span></li>
+          <li>HTML, CSS &amp; Bootstrap <span>— Udemy, 2023</span></li>
         </ul>
       </section>
     </div>

@@ -959,3 +959,6 @@
 /* 2026-11 site palette: primary action uses the lime accent */
 .btn-n8n-copy { background: var(--accent) !important; color: var(--on-accent) !important; border: 0 !important; box-shadow: 0 10px 30px -10px rgba(200, 255, 46, .55) !important; }
 .btn-n8n-copy:hover { filter: brightness(1.05); transform: translateY(-1px); }
+/* contrast + heading level fixes (Lighthouse) */
+.n8n-card-nodes-count { color: #9aa3b5 !important; font-size: 12px !important; }
+h2.n8n-viewer-title { margin: 0; }

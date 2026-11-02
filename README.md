@@ -1,71 +1,60 @@
 # Muhammad Usama — Portfolio
 
-Interactive portfolio for a Full-Stack & Automation Engineer. Everything the owner has
-built lives here: live client sites, staging previews, local builds, a restored web
-archive, and credentials.
+Portfolio of a Full-Stack WordPress Developer & AI Automation Engineer.
+Live: https://muhammadusama64874.github.io/Portfolio/
 
-## Non-negotiable rules
+## Rules
 
-These came from the owner directly and should not be relaxed:
+1. **Show all the work.** Staging builds, local projects and sites that have gone offline stay listed.
+2. **Never label a dead link live.** Every project has a `status` from a real check (`live`, `staging`,
+   `local`, `archive`, `down`) and the date it was checked (`verified`, else `meta.lastAudit`).
+3. **Label the real platform.** Categories and tech reflect what the live site actually runs
+   (checked 2 November 2026 — WordPress, Shopify, Webflow, Squarespace, Next.js, custom).
+4. **One contact address.** `tahir12721@gmail.com`, everywhere.
+5. **Protect content without hurting recruiters.** `js/protect.js` blocks right-click, dragging and
+   selection on screenshots, certificates and photos, and adds a source credit to long copies.
+   Contact details and CV text stay selectable and the CV stays printable.
+6. **No secrets in the repo.** `js/workflows-data.js` is sanitised (no credentials, hosts or run data).
 
-1. **Show all the work.** There is a large body of work and every piece of it belongs on
-   the page — including staging builds, local-only projects, and sites that have since
-   gone offline. Never trim the archive to make it look curated.
-2. **Never label a dead link live.** Each project carries a `status` that reflects a real
-   check: `live`, `staging`, `local`, `archive`, `github`, or `down`. Every status is
-   shown with the date it was verified.
-3. **One contact address.** `tahir12721@gmail.com`, everywhere, always.
-4. **No security theatre.** The old password gate, session HUD, right-click/F12 blockers
-   and copy guards were removed on 2026-10-28. Do not reintroduce them.
+## Inventory
 
-## Current inventory
-
-- 93 entries total: 37 live client sites, 7 staging, 31 local builds, 1 archive, 15 offline, 2 credentials
-- 9 featured case studies, the rest in the filterable archive
-- Links verified 1 November 2026 (per-project `verified`, else `meta.lastAudit` in `js/data.js`)
+- 90 projects: 35 live client sites, 7 staging, 30 local builds, 1 archive, 16 offline (+1 practice site)
+- 8 certifications with official images and verification links
+- Commander Safeguard Web Museum under `commander-safeguard/` (static export, 1,170 archived files)
 
 ## Structure
 
-- `js/data.js` — single source of truth for projects, statuses, stats and copy
-- `js/app.js` — home page rendering, archive filters/search, project modal, cursor, tilt, reveals, theme
-- `js/mouse.js` — the boxing-mouse guide (sprites in `assets/mouse/`)
-- `css/site.css` — design system for the home page and case-study pages (dark-first, lime + violet)
-- `js/workflows-data.js` + `n8n-hub.html` — the automation hub (sanitised: no credentials, private hosts or captured run data)
-- `profile.html` / `cv.html` — long-form profile and printable CV (`Muhammad-Usama-CV.pdf` is printed from `cv.html`)
-- `equinix/`, `menucanvas/`, `caybookme/`, `dragon/` are local-only and git-ignored
+| Path | What it is |
+| --- | --- |
+| `index.html`, `js/app.js`, `css/site.css` | Home page: hero, work, automation, stack, archive, experience, certifications, about, contact |
+| `js/data.js` | Single source of truth: projects, experience, stack, certifications, education |
+| `js/mouse.js` | The boxing-mouse guide (sprites in `assets/mouse/`) |
+| `js/chrome.js`, `css/chrome.css` | Shared nav, theme, cursor and mouse for sub-pages |
+| `profile.html`, `cv.html`, `n8n-hub.html` | Long-form profile, printable CV (`Muhammad-Usama-CV.pdf`), n8n workflow hub |
+| `commander-safeguard/` | Restored museum (Ruffle emulator in `commander-safeguard/ruffle/`, MIT/Apache licensed) |
+| `js/protect.js`, `js/theme-init.js` | Content protection and pre-paint theme |
+| `scripts/serve.mjs` | Local preview server that mirrors GitHub Pages (`/Portfolio/` base) |
+| `scripts/audit-data.mjs` | Data audit: duplicate ids, missing files, bad statuses |
 
-## Adding a project
+Local-only folders (`equinix/`, `menucanvas/`, `caybookme/`, `dragon/`, `.tmp/`) are git-ignored.
 
-Append an object to `projects` in `js/data.js`:
+## Security
 
-```js
-{
-  id: 'unique-id',              // also the thumbnail key
-  title: 'Project Name',
-  category: 'WordPress & CMS',  // must be in `categories`
-  status: 'live',               // must be in `statusMeta`
-  role: 'What you did',
-  summary: 'One or two plain sentences.',
-  tech: ['WordPress', 'PHP'],
-  image: 'assets/images/name.webp',
-  link: 'https://example.com/',
-  linkLabel: 'Visit live site'
-}
-```
-
-Then add `assets/images/thumbs/<id>.webp` (800×520) — the archive resolves thumbnails by
-the image filename if `thumb` is not set. Re-run the audit before shipping:
-
-```bash
-node scripts/audit-data.mjs   # duplicate ids, missing files, bad statuses
-```
+- Every page has a Content Security Policy, a strict referrer policy and no inline scripts.
+- The site breaks out of foreign frames (clickjacking).
+- `robots.txt` allows search engines and link previews and blocks AI-training crawlers.
 
 ## Run locally
 
 ```bash
-node start-server.mjs   # http://127.0.0.1:3300/
+node scripts/serve.mjs   # http://localhost:3300/Portfolio/
 ```
 
-## Built with
+## Adding a project
 
-HTML, CSS, plain JavaScript, Three.js and GSAP.
+Append an object to `projects` in `js/data.js` (`id`, `title`, `category`, `status`, `verified`,
+`summary`, `tech`, `image`, `link`), add `assets/images/thumbs/<image-name>.webp` (800×520), then:
+
+```bash
+node scripts/audit-data.mjs
+```

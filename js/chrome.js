@@ -25,7 +25,7 @@ export function initChrome({ current = '', messages, mouse = true, forceTheme } 
     <div class="cursor" aria-hidden="true"><div class="cursor-ring"><span class="cursor-label"></span></div><div class="cursor-dot"></div></div>
     <div class="scroll-progress" aria-hidden="true"><i id="cx-progress"></i></div>
     <header class="nav" id="cx-nav">
-      <a class="logo" href="./index.html" data-magnetic aria-label="Muhammad Usama — home">MU<b>.</b></a>
+      <a class="logo" href="./index.html" data-magnetic aria-label="MU — Muhammad Usama, home">MU<b>.</b></a>
       <nav class="nav-links" aria-label="Primary">${links}</nav>
       <div class="nav-actions">
         <button class="icon-btn" id="cx-theme" type="button" aria-label="Toggle light / dark theme" data-magnetic>${sun}${moon}</button>

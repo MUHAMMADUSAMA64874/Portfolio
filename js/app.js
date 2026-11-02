@@ -1,6 +1,6 @@
 // Portfolio front end. Content comes from data.js; this file only renders and animates.
 import { initMouseGuide } from './mouse.js?v=20261102';
-import { meta, statusMeta, about, experience, projects, categories, categoryShort, projectStats, education, languages, workflows, stack } from './data.js';
+import { meta, statusMeta, about, experience, projects, categories, categoryShort, projectStats, education, languages, workflows, stack, certifications } from './data.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -90,7 +90,7 @@ function typeTerminal() {
 const featured = projects.filter(p => p.featured);
 $('#deck').innerHTML = ['skl-watches', 'chef-academy', 'seaholm']
   .map(id => projects.find(p => p.id === id)).filter(Boolean)
-  .map(p => `<div class="deck-card"><img src="${src(thumbFor(p))}" alt="" loading="eager"></div>`).join('');
+  .map((p, i) => `<div class="deck-card"><img src="${src(thumbFor(p))}" alt="" width="800" height="520" decoding="async" ${i === 2 ? 'fetchpriority="high"' : 'loading="lazy"'}></div>`).join('');
 
 /* ---------- Marquee ---------- */
 const marqueeWords = ['WordPress', 'WooCommerce', 'Shopify', 'n8n', 'PHP', 'Python', 'Make.com', 'OpenAI', 'Ollama', 'Playwright', 'ACF Pro', 'Node.js', 'Laravel', 'Supabase', 'Stripe', 'Docker'];
@@ -99,7 +99,7 @@ $('#marquee').innerHTML = [...marqueeWords, ...marqueeWords].map(w => `<span>${w
 /* ---------- Featured work ---------- */
 $('#featured').innerHTML = featured.map((p, i) => `
   <button class="feat" type="button" data-open="${esc(p.id)}" data-tilt data-cursor="View" data-reveal style="--i:${i % 2}">
-    <div class="feat-media"><img src="${src(p.image || thumbFor(p))}" alt="${esc(p.title)} preview" loading="lazy"></div>
+    <div class="feat-media"><img src="${src(thumbFor(p))}" srcset="${src(thumbFor(p))} 800w, ${src(p.image || thumbFor(p))} 1440w" sizes="(max-width: 720px) 92vw, (max-width: 1024px) 50vw, 640px" alt="${esc(p.title)} preview" loading="lazy" decoding="async"></div>
     <div class="shine"></div>
     <div class="feat-body">
       <div class="feat-top">${statusBadge(p.status)}<span class="mono muted">${esc(categoryShort[p.category] || p.category)}</span></div>
@@ -202,6 +202,33 @@ $('#timeline').insertAdjacentHTML('beforeend', experience.map((j, i) => `
     <p>${esc(j.description)}</p>
     <div class="tags">${(j.skills || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
   </li>`).join(''));
+
+/* ---------- Certifications ---------- */
+const monthYear = d => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+const certSorted = [...certifications].sort((x, y) => y.date.localeCompare(x.date));
+$('#certs').innerHTML = certSorted.map((c, i) => `
+  <article class="cert glow" data-reveal style="--i:${i % 4}">
+    <button class="cert-media" type="button" data-cert="${i}" data-cursor="View" aria-label="View certificate: ${esc(c.title)}">
+      <img src="${src(c.thumb)}" alt="${esc(c.title)} certificate" loading="lazy" width="640" height="450">
+    </button>
+    <div class="cert-body">
+      <p class="mono muted">${esc(c.issuer)} · ${monthYear(c.date)}</p>
+      <h3>${esc(c.title)}</h3>
+      <div class="tags">${c.skills.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+      <a class="cert-verify" href="${esc(c.url)}" target="_blank" rel="noopener">Verify credential ↗</a>
+    </div>
+  </article>`).join('');
+const certModal = $('#cert-modal');
+$('#certs').addEventListener('click', e => {
+  const b = e.target.closest('[data-cert]'); if (!b) return;
+  const c = certSorted[+b.dataset.cert];
+  $('#cert-img').src = src(c.image); $('#cert-img').alt = c.title + ' certificate';
+  $('#cert-cap').textContent = `${c.title} — ${c.issuer}, ${monthYear(c.date)} · ID ${c.credentialId}`;
+  $('#cert-verify').href = c.url;
+  certModal.showModal(); lenis?.stop(); document.documentElement.classList.remove('has-cursor');
+});
+certModal.addEventListener('click', e => { if (e.target === certModal || e.target.closest('[data-close]')) certModal.close(); });
+certModal.addEventListener('close', () => { lenis?.start(); if (finePointer && !reduced) document.documentElement.classList.add('has-cursor'); });
 
 /* ---------- About ---------- */
 $('#about-text').innerHTML = about.map(p => `<p>${p}</p>`).join('');
@@ -431,6 +458,6 @@ function boot() {
   initMouseGuide({ years: meta.years, stats: { total: projectStats.total, clientSites: projectStats.clientSites, automations: '81+', roles: experience.length } });
 }
 // Short intro: wait for fonts (max 1.2 s) so the title split doesn't jump.
-const fontsReady = document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 1000))]) : Promise.resolve();
-const minIntro = new Promise(r => setTimeout(r, reduced ? 0 : 650));
+const fontsReady = document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 500))]) : Promise.resolve();
+const minIntro = new Promise(r => setTimeout(r, reduced ? 0 : 300));
 Promise.all([fontsReady, minIntro]).then(boot, boot);

@@ -138,14 +138,14 @@
 @keyframes mgHop { 40% { translate: 0 -8px; } }
 .mg-bubble { position: absolute; left: 50%; bottom: calc(100% - 4px); translate: -24px 0; width: max-content; max-width: 230px; padding: 10px 14px; border-radius: 14px 14px 14px 4px; background: var(--text); color: var(--bg); font: 600 .82rem/1.35 var(--f-body); box-shadow: var(--shadow); opacity: 0; transform: translateY(8px) scale(.92); transform-origin: bottom left; transition: opacity .3s, transform .4s var(--ease-out); pointer-events: none; }
 .mg.talk .mg-bubble { opacity: 1; transform: none; }
-.mg-close { position: absolute; top: 4px; right: -6px; width: 22px; height: 22px; border-radius: 50%; font-size: 10px; background: var(--card); border: 1px solid var(--line-2); color: var(--muted); opacity: 0; transition: opacity .25s; pointer-events: auto; }
+.mg-close { position: absolute; top: 2px; right: -10px; width: 26px; height: 26px; border-radius: 50%; font-size: 10px; background: var(--card); border: 1px solid var(--line-2); color: var(--muted); opacity: 0; transition: opacity .25s; pointer-events: auto; }
 .mg:hover .mg-close, .mg-close:focus-visible { opacity: 1; }
 .mg.zz::after { content: 'z'; position: absolute; right: 8px; top: 6px; font: 700 14px var(--f-display); color: var(--muted); animation: zz 2s ease-in-out infinite; }
 @keyframes zz { 0% { opacity: 0; transform: translate(0, 6px) scale(.7); } 50% { opacity: 1; } 100% { opacity: 0; transform: translate(10px, -16px) scale(1.2); } }
 .mg-restore { position: fixed; left: 14px; bottom: 14px; z-index: 85; width: 42px; height: 42px; border-radius: 50%; background: var(--card); border: 1px solid var(--line-2); font-size: 20px; box-shadow: var(--shadow); }
 @media (max-width: 720px) {
   .mg-bubble { max-width: 180px; font-size: .74rem; padding: 8px 11px; }
-  .mg-close { opacity: 1; width: 20px; height: 20px; }
+  .mg-close { opacity: 1; width: 26px; height: 26px; }
 }
 .mg.chips .mg-bubble { pointer-events: auto; }
 .mg-chips { display: none; flex-wrap: wrap; gap: 5px; margin-top: 8px; }

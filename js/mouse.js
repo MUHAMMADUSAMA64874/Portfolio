@@ -29,6 +29,7 @@ export function initMouseGuide({ stats, years, messages }) {
     skills:     ['punch', 'WordPress, n8n, Python… the daily toolkit.'],
     archive:    ['flip',  `All ${stats.total} projects. Press / to search.`],
     experience: ['punch', `${years} years, ${stats.roles} roles — follow the timeline.`],
+    certifications: ['flip', 'Certified by Michigan, Johns Hopkins, UC Davis & Udemy 🎓'],
     about:      ['idle',  "That's Usama — Karachi-based, remote-ready."],
     contact:    ['cheer', 'Do you recognize me? If not, click me to watch ↗']
   };

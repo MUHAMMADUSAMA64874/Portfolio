@@ -144,19 +144,21 @@ export const projects = [
   },
   {
     id: 'chef-academy',
-    title: 'Chef Academy London & Online',
-    subtitle: 'UK enterprise CMS, booking engine and 160KB front end',
+    verified: '2026-11-02',
+    title: 'Chef Academy of London & Online',
+    subtitle: 'WordPress build + 6-language Joomla → WordPress migration',
     category: 'WordPress & CMS',
     status: 'live',
     featured: true,
-    role: 'WordPress development & performance',
-    summary: 'A UK cookery school running courses, gift vouchers and online classes. Custom theme work plus a booking flow that ships inside a ~160KB page budget.',
+    role: 'Lead WordPress & migration engineer (freelance)',
+    summary: 'UK culinary academy. I build and maintain chefacademyonline.co.uk on WordPress (live) and lead the migration of chefacademyoflondon.com from legacy Joomla to WordPress across six languages (in staging until launch).',
     highlights: [
-      'Custom WordPress theme with structured course and class templates',
-      'Booking and voucher flows kept light enough to stay fast on mobile',
-      'Content modelling that lets the client publish new courses without a developer'
+      '3,474 legacy URLs mapped to 301 redirects to keep search rankings',
+      '6 languages with Polylang Pro; 26 cross-language routing and taxonomy conflicts fixed',
+      '72 Stripe payment links audited and re-mapped for enrolment deposits',
+      'Custom course-booking plugin: intake dates, waitlists and enrolment forms'
     ],
-    tech: ['WordPress', 'WooCommerce', 'PHP', 'JavaScript', 'ACF'],
+    tech: ['WordPress', 'WooCommerce', 'Polylang Pro', 'Stripe', 'PHP', 'Elementor'],
     image: 'assets/images/chefacademyonline.webp',
     link: 'https://www.chefacademyonline.co.uk/',
     linkLabel: 'Visit live site',
@@ -198,7 +200,7 @@ export const projects = [
     summary: 'A luxury watch storefront built on WordPress and WooCommerce with Elementor, designed around large product imagery and a restrained buying flow.',
     highlights: ['WooCommerce catalogue and checkout tailored for high-value products', 'Product pages tuned for high-resolution photography', 'Staging deployment for client review'],
     tech: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
-    image: 'assets/images/skl-watches.png',
+    image: 'assets/images/skl-watches.webp',
     link: 'https://lightsalmon-skunk-273227.hostingersite.com/',
     linkLabel: 'Open staging site',
     gallery: []
@@ -218,7 +220,7 @@ export const projects = [
       'Dashboard views for campaigns and live activity'
     ],
     tech: ['PHP', 'Laravel', 'MySQL', 'JavaScript', 'REST APIs'],
-    image: 'assets/images/qrlytics.png',
+    image: 'assets/images/qrlytics.webp',
     link: 'http://mediumseagreen-sandpiper-209946.hostingersite.com',
     linkLabel: 'Open staging site',
     gallery: []
@@ -238,7 +240,7 @@ export const projects = [
       'Built for fast mobile loading, where most of the traffic lands'
     ],
     tech: ['WordPress', 'PHP', 'JavaScript', 'ACF'],
-    image: 'assets/images/hairforce-1-v1.png',
+    image: 'assets/images/hairforce-1-v1.webp',
     link: 'https://hairforce-1.co.uk/',
     linkLabel: 'Visit live site',
     gallery: []
@@ -589,7 +591,7 @@ export const projects = [
     role: 'WordPress development',
     summary: 'Digital agency site with services, work and contact flows.',
     tech: ['WordPress', 'PHP', 'JavaScript'],
-    image: 'assets/images/codencoder.png',
+    image: 'assets/images/codencoder.webp',
     link: 'https://codencoder.com/',
     linkLabel: 'Visit live site'
   },
@@ -601,7 +603,7 @@ export const projects = [
     role: 'WordPress development',
     summary: 'Software house site with service pages, portfolio and enquiry forms.',
     tech: ['WordPress', 'PHP'],
-    image: 'assets/images/avizonetech.png',
+    image: 'assets/images/avizonetech.webp',
     link: 'https://avizonetech.com/',
     linkLabel: 'Visit live site'
   },
@@ -613,7 +615,7 @@ export const projects = [
     role: 'WordPress development',
     summary: 'Global exporter site with product categories and international enquiry flows.',
     tech: ['WordPress', 'WooCommerce', 'PHP'],
-    image: 'assets/images/thequantumnorth.png',
+    image: 'assets/images/thequantumnorth.webp',
     link: 'https://thequantumnorth.com/',
     linkLabel: 'Visit live site'
   },
@@ -690,7 +692,7 @@ export const projects = [
     role: 'Shopify theme development',
     summary: 'Footwear storefront built on Shopify, currently on a staging domain.',
     tech: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
-    image: 'assets/images/hush-puppies-sandals.png',
+    image: 'assets/images/hush-puppies-sandals.webp',
     link: 'https://lightpink-walrus-156419.hostingersite.com/',
     linkLabel: 'Open staging site'
   },
@@ -703,7 +705,7 @@ export const projects = [
     role: 'Shopify theme development',
     summary: 'Restaurant and brewery storefront on a staging domain.',
     tech: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
-    image: 'assets/images/retrograde-bbq.png',
+    image: 'assets/images/retrograde-bbq.webp',
     link: 'https://sienna-elk-247779.hostingersite.com/',
     linkLabel: 'Open staging site'
   },
@@ -716,7 +718,7 @@ export const projects = [
     role: 'Shopify theme development',
     summary: 'Custom apparel store with print-on-demand style product flows.',
     tech: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
-    image: 'assets/images/inyourpostcode.png',
+    image: 'assets/images/inyourpostcode.webp',
     link: 'https://inyourpostcode.co.uk/',
     linkLabel: 'Visit live site'
   },
@@ -729,7 +731,7 @@ export const projects = [
     role: 'Shopify theme development',
     summary: 'Luxury pret fashion store with collection-led merchandising.',
     tech: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
-    image: 'assets/images/fatimashehzad.png',
+    image: 'assets/images/fatimashehzad.webp',
     link: 'https://fatimashehzad.com/',
     linkLabel: 'Visit live site'
   },
@@ -1053,30 +1055,6 @@ export const projects = [
   },
 
   // ── Verified credentials ────────────────────────────────────────────────
-  {
-    id: 'udemy-html-css-bootstrap',
-    title: 'Udemy: HTML, CSS & Bootstrap',
-    category: 'Credentials',
-    status: 'live',
-    role: 'Verified certification',
-    summary: 'Completed certification covering semantic HTML, responsive CSS and Bootstrap.',
-    tech: ['HTML', 'CSS', 'Bootstrap'],
-    image: 'assets/images/html-css-bootstrap-certificate.png',
-    link: 'https://www.udemy.com/certificate/UC-46819960-3af4-4e1d-b78e-5178374527b7/',
-    linkLabel: 'Verify certificate'
-  },
-  {
-    id: 'udemy-git-github-markdown',
-    title: 'Udemy: Git, GitHub & Markdown',
-    category: 'Credentials',
-    status: 'live',
-    role: 'Verified certification',
-    summary: 'Completed certification covering version control, GitHub workflows and Markdown.',
-    tech: ['Git', 'GitHub', 'Markdown'],
-    image: 'assets/images/git-github-markdown-certificate.png',
-    link: 'https://www.udemy.com/certificate/UC-0021e75c-e501-4c60-9a97-26c693efa7dc/',
-    linkLabel: 'Verify certificate'
-  },
 
   // ── Offline / unreachable client work (kept, not hidden) ────────────────
   {
@@ -1238,25 +1216,6 @@ export const projects = [
 
   // ── Added 2026-11-01 from the CV and the DATA folder (screenshots captured that day) ──
   {
-    id: 'chef-academy-london',
-    verified: '2026-11-02',
-    title: 'Chef Academy of London',
-    subtitle: 'Joomla → WordPress migration, 6 languages',
-    category: 'WordPress & CMS',
-    status: 'staging',
-    role: 'Lead WordPress & migration engineer',
-    summary: 'Enterprise migration of an international culinary academy from legacy Joomla to WordPress, with multilingual routing across six languages. The new WordPress build is in staging — the public site still runs the legacy Joomla version until launch.',
-    highlights: [
-      '3,474 legacy URLs mapped to 301 redirects to keep search rankings',
-      '6-language setup with Polylang Pro; 26 cross-language routing conflicts fixed',
-      '72 Stripe payment links audited and re-mapped for enrolment deposits'
-    ],
-    tech: ['WordPress', 'Polylang Pro', 'Stripe', 'PHP', 'Joomla migration', 'SEO'],
-    image: 'assets/images/chef-academy-london.webp',
-    link: 'https://chefacademyoflondon.com/en/',
-    linkLabel: 'Current (pre-migration) site'
-  },
-  {
     id: 'chef-academy-booking',
     verified: '2026-11-01',
     title: 'Chef Academy Course Booking Plugin',
@@ -1391,6 +1350,18 @@ export const stack = [
   { title: 'Integrations & Tools', icon: 'tools', tags: ['Stripe', 'Meta Graph API', 'Google Workspace APIs', 'Brevo', 'HubSpot', 'Git / GitHub', 'Jira', 'ClickUp', 'Slack'] }
 ];
 
+// Certifications (official images from the issuers; dates as printed on each certificate).
+export const certifications = [
+  { title: "HTML, CSS & Bootstrap — Certification Course for Beginners", issuer: "Udemy", date: '2023-02-16', credentialId: 'UC-46819960-3af4-4e1d-b78e-5178374527b7', url: 'https://www.udemy.com/certificate/UC-46819960-3af4-4e1d-b78e-5178374527b7/', image: 'assets/images/certs/udemy-html-css-bootstrap.webp', thumb: 'assets/images/certs/udemy-html-css-bootstrap-thumb.webp', skills: ["HTML5","CSS3","Bootstrap"] },
+  { title: "HTML, CSS, and JavaScript for Web Developers", issuer: "Johns Hopkins University · Coursera", date: '2025-01-01', credentialId: '5L3TTS7YY14A', url: 'https://www.coursera.org/account/accomplishments/verify/5L3TTS7YY14A', image: 'assets/images/certs/jhu-html-css-js.webp', thumb: 'assets/images/certs/jhu-html-css-js-thumb.webp', skills: ["HTML","CSS","JavaScript"] },
+  { title: "Introduction to Web Development", issuer: "University of California, Davis · Coursera", date: '2025-01-01', credentialId: 'Q5PZN7EYLJRX', url: 'https://www.coursera.org/account/accomplishments/verify/Q5PZN7EYLJRX', image: 'assets/images/certs/ucdavis-web-dev.webp', thumb: 'assets/images/certs/ucdavis-web-dev-thumb.webp', skills: ["HTML","CSS","Web development"] },
+  { title: "Build a Full Website using WordPress", issuer: "Coursera Project Network", date: '2025-01-01', credentialId: 'XPQP2S9GZB0K', url: 'https://www.coursera.org/account/accomplishments/verify/XPQP2S9GZB0K', image: 'assets/images/certs/coursera-wordpress.webp', thumb: 'assets/images/certs/coursera-wordpress-thumb.webp', skills: ["WordPress","PHP","HTML"] },
+  { title: "Building Web Applications in PHP", issuer: "University of Michigan · Coursera", date: '2025-02-01', credentialId: '4HVBIOSDLLRH', url: 'https://www.coursera.org/account/accomplishments/verify/4HVBIOSDLLRH', image: 'assets/images/certs/umich-php.webp', thumb: 'assets/images/certs/umich-php-thumb.webp', skills: ["PHP","HTML5","CSS"] },
+  { title: "Python Basics", issuer: "University of Michigan · Coursera", date: '2025-06-01', credentialId: 'M8KWDA8FYFXH', url: 'https://www.coursera.org/account/accomplishments/verify/M8KWDA8FYFXH', image: 'assets/images/certs/umich-python.webp', thumb: 'assets/images/certs/umich-python-thumb.webp', skills: ["Python"] },
+  { title: "React.js AI Chatbot built with ChatGPT, Gemini and DeepSeek", issuer: "Udemy", date: '2025-06-27', credentialId: 'UC-91a46a00-4bee-48fb-b4c1-46772dc331cc', url: 'https://www.udemy.com/certificate/UC-91a46a00-4bee-48fb-b4c1-46772dc331cc/', image: 'assets/images/certs/udemy-react-ai-chatbot.webp', thumb: 'assets/images/certs/udemy-react-ai-chatbot-thumb.webp', skills: ["React","Vite","AI APIs"] },
+  { title: "Git, GitHub & Markdown Crash Course", issuer: "Udemy", date: '2025-07-06', credentialId: 'UC-0021e75c-e501-4c60-9a97-26c693efa7dc', url: 'https://www.udemy.com/certificate/UC-0021e75c-e501-4c60-9a97-26c693efa7dc/', image: 'assets/images/certs/udemy-git-github.webp', thumb: 'assets/images/certs/udemy-git-github-thumb.webp', skills: ["Git","GitHub","Markdown"] }
+];
+
 // Education and languages (from the CV, 2026-10-23).
 export const education = [
   { degree: 'BS Computer Science', school: 'Karachi Institute of Economics & Technology (KIET)', period: '2021 – 2026', note: 'CGPA 3.23 / 4.00 · Software Engineering, DSA, Databases, Web, AI, OOP' },
@@ -1416,8 +1387,7 @@ export const categories = [
   'Shopify & E-Commerce',
   'AI & Automation',
   'Full-Stack & Apps',
-  'Frontend Practice',
-  'Credentials'
+  'Frontend Practice'
 ];
 
 export const categoryShort = {
@@ -1425,16 +1395,14 @@ export const categoryShort = {
   'Shopify & E-Commerce': 'Shopify',
   'AI & Automation': 'AI & n8n',
   'Full-Stack & Apps': 'Full-stack',
-  'Frontend Practice': 'Front-end',
-  'Credentials': 'Credentials'
+  'Frontend Practice': 'Front-end'
 };
 
 export const projectStats = {
   total: projects.length,
   live: projects.filter(p => p.status === 'live').length,
-  // Credentials are live links too, but they are not client sites — never let
-  // them inflate the headline number.
-  clientSites: projects.filter(p => p.status === 'live' && p.category !== 'Credentials').length,
+  // Practice builds are not client work — never let them inflate the headline number.
+  clientSites: projects.filter(p => p.status === 'live' && p.category !== 'Frontend Practice').length,
   staging: projects.filter(p => p.status === 'staging').length,
   local: projects.filter(p => p.status === 'local').length,
   archive: projects.filter(p => p.status === 'archive').length,

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; frame-src 'self'; form-action https://formspree.io; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Muhammad Usama — Full-Stack WordPress & AI Automation Engineer</title>
   <meta name="description" content="Muhammad Usama — Full-Stack WordPress Developer and AI Automation Engineer (n8n, Python, local LLMs) in Karachi, Pakistan. 35 live client sites, custom plugins, Shopify stores and production automations. Available for remote roles.">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -13,7 +15,7 @@
   <meta property="og:title" content="Muhammad Usama — Full-Stack WordPress & AI Automation Engineer">
   <meta property="og:description" content="Live client sites, custom WordPress plugins, Shopify stores and n8n/AI automations. Open to remote roles.">
   <meta property="og:url" content="https://muhammadusama64874.github.io/Portfolio/">
-  <meta property="og:image" content="https://muhammadusama64874.github.io/Portfolio/assets/images/og-card.png">
+  <meta property="og:image" content="https://muhammadusama64874.github.io/Portfolio/assets/images/og-card.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <script type="application/ld+json">
@@ -32,21 +34,14 @@
 
   <link rel="icon" href="./assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="./assets/favicon.png">
+  <link rel="manifest" href="./site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/site.css?v=20261102">
 
-  <script>
-    // Resolve theme before first paint (no flash).
-    (function () {
-      try {
-        var saved = localStorage.getItem('portfolio-theme');
-        var t = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-        document.documentElement.dataset.theme = t;
-      } catch (e) {}
-    })();
-  </script>
+  <script src="./js/theme-init.js?v=20261103"></script>
+  <script src="./js/protect.js?v=20261103" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -64,12 +59,13 @@
   <div class="scroll-progress" aria-hidden="true"><i id="progress"></i></div>
 
   <header class="nav" id="nav">
-    <a class="logo" href="#top" data-magnetic aria-label="Muhammad Usama — home">MU<b>.</b></a>
+    <a class="logo" href="#top" data-magnetic aria-label="MU — Muhammad Usama, home">MU<b>.</b></a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#work">Work</a>
       <a href="#automation">Automation</a>
       <a href="#archive">Archive</a>
       <a href="#experience">Experience</a>
+      <a href="#certifications">Certificates</a>
       <a href="#about">About</a>
     </nav>
     <div class="nav-actions">
@@ -88,6 +84,7 @@
       <a href="#automation">Automation</a>
       <a href="#archive">Archive</a>
       <a href="#experience">Experience</a>
+      <a href="#certifications">Certificates</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -211,8 +208,20 @@
       </div>
     </section>
 
+    <!-- CERTIFICATIONS -->
+    <section class="section section-alt" id="certifications">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="kicker"><span>06</span> Certifications</p>
+          <h2>Verified <em>learning.</em></h2>
+          <p class="lede">Every certificate links to the issuer's own verification page.</p>
+        </header>
+        <div class="certs" id="certs"></div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
-    <section class="section section-alt" id="about">
+    <section class="section" id="about">
       <div class="wrap about">
         <div class="about-photo" data-reveal data-tilt>
           <img src="./assets/images/my-avatar1.webp" alt="Portrait of Muhammad Usama" width="360" height="360" loading="lazy">
@@ -220,7 +229,7 @@
         </div>
         <div class="about-copy">
           <header class="sec-head" data-reveal>
-            <p class="kicker"><span>06</span> About</p>
+            <p class="kicker"><span>07</span> About</p>
             <h2>Systems first, <em>interfaces second.</em></h2>
           </header>
           <div class="about-text" id="about-text" data-reveal></div>
@@ -232,7 +241,7 @@
     <!-- CONTACT -->
     <section class="section contact" id="contact">
       <div class="wrap">
-        <p class="kicker center-k" data-reveal><span>07</span> Contact</p>
+        <p class="kicker center-k" data-reveal><span>08</span> Contact</p>
         <h2 class="big-cta" data-reveal>Let's build<br><em>something reliable.</em></h2>
         <p class="lede center" data-reveal>Hiring for WordPress, Shopify or automation work? I reply within 24 hours.</p>
         <div class="contact-actions" data-reveal>
@@ -284,6 +293,12 @@
         </div>
       </div>
     </div>
+  </dialog>
+
+  <dialog class="modal cert-modal" id="cert-modal" aria-label="Certificate">
+    <button class="modal-close" type="button" data-close aria-label="Close">✕</button>
+    <img id="cert-img" alt="">
+    <div class="cert-modal-bar"><span id="cert-cap"></span><a class="btn btn-accent btn-sm" id="cert-verify" target="_blank" rel="noopener">Verify ↗</a></div>
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

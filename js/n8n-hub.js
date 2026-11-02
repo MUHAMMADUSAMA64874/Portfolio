@@ -174,7 +174,7 @@ function updateViewerStage() {
           ${iconsHtml}
           ${overflowBadge}
         </div>
-        <h3 class="n8n-viewer-title">${escapeHtml(activeWorkflow.title)}</h3>
+        <h2 class="n8n-viewer-title">${escapeHtml(activeWorkflow.title)}</h2>
         <p class="n8n-viewer-desc">${escapeHtml(activeWorkflow.description)}</p>
       </div>
 
