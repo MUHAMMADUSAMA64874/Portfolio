@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A local preservation viewer for Commander Safeguard's original website.">
+    <title>Commander Safeguard · Web Museum</title>
+    <link rel="stylesheet" href="/Portfolio/commander-safeguard/styles.css">
+    <script src="/Portfolio/commander-safeguard/app.js" defer></script>
+  </head>
+  <body>
+<div style="position:sticky;top:0;z-index:9999;background:#0b0c10;color:#ecedf2;font:500 13px/1.4 system-ui,sans-serif;padding:8px 14px;text-align:center;border-bottom:1px solid #2a2c35">Unofficial fan preservation project — not affiliated with Procter &amp; Gamble or Safeguard. Restored from the Internet Archive by <a href="https://muhammadusama64874.github.io/Portfolio/" style="color:#c8ff2e">Muhammad Usama</a>.</div>
+    <a class="skip-link" href="#versions">Skip to versions</a>
+    <header class="masthead">
+      <a class="brand" href="/" aria-label="Commander Safeguard Web Museum home">
+        <span class="brand-mark" aria-hidden="true">CS</span>
+        <span><b>Commander Safeguard</b><small>Web Museum</small></span>
+      </a>
+      <nav aria-label="Museum navigation">
+        <a href="#versions">Versions</a>
+        <a href="/Portfolio/commander-safeguard/catalogue.html?filter=game">Original games</a>
+        <a href="/Portfolio/commander-safeguard/catalogue.html">Recovered catalogue</a>
+        <a href="/Portfolio/commander-safeguard/research.html">User research</a>
+        <button class="text-button" id="about-button" type="button">About</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Digital preservation project · 2005–2016</p>
+          <h1 id="hero-title">The lost website,<br><em>back on patrol.</em></h1>
+          <p class="lede">Explore the surviving Commander Safeguard site across four original designs and six later playback points. Revisit recovered original games, downloads, and animations, with archive gaps kept clearly visible.</p>
+          <div class="hero-actions">
+            <button class="primary-button" data-open-year="2015" type="button">Launch the best-preserved version <span>→</span></button>
+            <a class="secondary-link" href="/Portfolio/commander-safeguard/catalogue.html">Browse recovered data</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Recovered artwork from the archived 2015 site">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="archive-image-frame">
+            <img src="/Portfolio/commander-safeguard/snapshot/2015/images/commander_bg.jpg" alt="Recovered Commander Safeguard website artwork">
+          </div>
+          <div class="status-chip"><i></i><span>Archive status</span><b id="hero-status">Checking files…</b></div>
+        </div>
+      </section>
+
+      <section class="archive-strip" aria-label="Archive statistics">
+        <div><strong id="stat-files">—</strong><span>unique files recovered</span></div>
+        <div><strong>10</strong><span>historical playback points</span></div>
+        <div><strong>5</strong><span>original Flash files recovered</span></div>
+        <p>Sources: <code>commandersafeguard.com</code> and <code>safeguard.com.pk/commandersafeguard/</code></p>
+      </section>
+
+      <section class="versions-section" id="versions" aria-labelledby="versions-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> Choose a playback point</p>
+            <h2 id="versions-title">Versions through time</h2>
+          </div>
+          <p>Version labels mark distinct designs or useful historical snapshots. Some adjacent years share a layout but preserve different content.</p>
+        </div>
+        <div class="timeline" role="list">
+          <button class="version-card" data-open-year="2005" role="listitem" type="button">
+            <span class="version-number">V1</span><span class="year">2005</span><small>Original PHP portal</small><b>First design · partial art</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card" data-open-year="2007" role="listitem" type="button">
+            <span class="version-number">V2</span><span class="year">2007</span><small>Safeguard Lab</small><b>Second major design</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card" data-open-year="2008" role="listitem" type="button">
+            <span class="version-number">V3</span><span class="year">2008</span><small>Flat navigation</small><b>Third design · partial art</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card" data-open-year="2010" role="listitem" type="button">
+            <span class="version-number">V4</span><span class="year">2010</span><small>Final .com era</small><b>Late legacy capture</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card" data-open-year="2011" role="listitem" type="button">
+            <span class="version-number">V5</span><span class="year">2011</span><small>ASP relaunch</small><b>Fourth major design</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card" data-open-year="2012" role="listitem" type="button">
+            <span class="version-number">V6</span><span class="year">2012</span><small>PHP era begins</small><b>Major archive expansion</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card" data-open-year="2013" role="listitem" type="button">
+            <span class="version-number">V7</span><span class="year">2013</span><small>PHP snapshot</small><b>Rich page coverage</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card" data-open-year="2014" role="listitem" type="button">
+            <span class="version-number">V8</span><span class="year">2014</span><small>PHP snapshot</small><b>Late-site capture</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card featured" data-open-year="2015" role="listitem" type="button">
+            <span class="recommended">Best preserved</span><span class="version-number">V9</span><span class="year">2015</span><small>Final full crawl</small><b>Best Flash coverage</b><i>Open snapshot →</i>
+          </button>
+          <button class="version-card" data-open-year="2016" role="listitem" type="button">
+            <span class="version-number">V10</span><span class="year">2016</span><small>Partial capture</small><b>Last known landing</b><i>Open snapshot →</i>
+          </button>
+        </div>
+      </section>
+
+      <section class="principles" aria-labelledby="principles-title">
+        <div>
+          <p class="eyebrow"><span></span> Preservation rules</p>
+          <h2 id="principles-title">Restored, never invented.</h2>
+        </div>
+        <article><b>01</b><h3>Original files first</h3><p>HTML, images, audio, downloads, and SWF files come directly from timestamped Wayback captures.</p></article>
+        <article><b>02</b><h3>Flash made playable</h3><p>A local Ruffle runtime opens preserved games in modern browsers when the original file is compatible.</p></article>
+        <article><b>03</b><h3>Changes stay visible</h3><p>Missing media remains marked as absent. Compatibility patches are separated, documented, and never overwrite archived originals.</p></article>
+      </section>
+    </main>
+
+    <footer>
+      <p>Unofficial, non-commercial preservation project. Commander Safeguard and Safeguard belong to their respective owners.</p>
+      <p><a href="https://web.archive.org/" target="_blank" rel="noreferrer">Internet Archive</a> · <a href="https://commandersafeguard.fandom.com/wiki/Commander_Safeguard%27s_Original_Website" target="_blank" rel="noreferrer">CommanderSafeguard Wiki</a></p>
+    </footer>
+
+    <dialog id="viewer-dialog" class="viewer-dialog">
+      <div class="viewer-toolbar">
+        <div><span class="live-dot"></span><b id="viewer-version">V5 · 2015</b><small>Local restored playback</small></div>
+        <div class="viewer-actions">
+          <button id="viewer-home" type="button" title="Archived home">Home</button>
+          <a id="viewer-new-tab" href="/Portfolio/commander-safeguard/snapshot/2015/" target="_blank">Open in new tab</a>
+          <button id="viewer-close" type="button" aria-label="Close viewer">Close ×</button>
+        </div>
+      </div>
+      <iframe id="site-viewer" title="Restored Commander Safeguard website" src="about:blank"></iframe>
+    </dialog>
+
+    <dialog id="about-dialog" class="about-dialog">
+      <button class="dialog-close" data-close-about type="button" aria-label="Close">×</button>
+      <p class="eyebrow"><span></span> About this project</p>
+      <h2>A transparent restoration</h2>
+      <p>Deep archive research recovered the original <code>commandersafeguard.com</code> portal from 2005–2010 and its successor at <code>safeguard.com.pk/commandersafeguard/</code> from 2011–2016. The similarly named <code>commandersafeguard.com.pk</code> host only preserved robots files.</p>
+      <p>Playback selects the newest captured copy available by that year. If an asset was first captured later, the viewer uses the earliest surviving copy as a recovery fallback. Missing game files remain clearly marked archive gaps; playable games use only untouched recovered SWF files.</p>
+      <a href="/Portfolio/commander-safeguard/catalogue.html">See the recovered catalogue and sources →</a>
+    </dialog>
+  </body>
+</html>

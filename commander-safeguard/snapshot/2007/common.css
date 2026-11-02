@@ -1,0 +1,158 @@
+
+body
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	font-weight: bold;
+	font-size: x-small;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+	font-family: 'Comic Sans MS';
+	background-color:  #454545;
+}
+.mytable
+{
+	border-right: lightgrey 1px solid;
+	border-top: darkgray 1px solid;
+	font-size: xx-small;
+	border-left: darkgray 1px solid;
+	border-bottom: lightgrey 1px solid;
+}
+.errorlabel
+{
+	font-size: xx-small;
+	color: red;
+	font-style: italic;
+}
+.textbox
+{
+	border-right: black 1px inset;
+	border-top: black 1px inset;
+	padding-left: 5px;
+	font-weight: bold;
+	font-size: xx-small;
+	border-left: black 1px inset;
+	color: midnightblue;
+	border-bottom: black 1px inset;
+	font-family: Verdana;
+	background-color: whitesmoke;
+}
+.button
+{
+	border-right: lightsteelblue 1px solid;
+	border-top: aliceblue 1px solid;
+	font-weight: bold;
+	font-size: xx-small;
+	border-left: aliceblue 1px solid;
+	cursor: hand;
+	color: white;
+	border-bottom: lightsteelblue 1px solid;
+	font-family: Verdana;
+	background-color: darkorange;
+	
+}
+.combo
+{
+	font-weight: bold;
+	font-size: xx-small;
+	cursor: hand;
+	color: darkslateblue;
+	font-family: Verdana;
+	font-variant: normal;
+}
+.heading
+{
+	font-weight: bold;
+	font-size: x-small;
+	text-transform: lowercase;
+	color: saddlebrown;
+	font-family: Arial;
+}
+.datagrid
+{
+	border-right: dimgray 1px solid;
+	border-top: darkgray 1px solid;
+	font-size: xx-small;
+	border-left: darkgray 1px solid;
+	border-bottom: dimgray 1px solid;
+}
+.datagridheader
+{
+	border-right: #ffff66 1px solid;
+	border-top: #ffff66 1px solid;
+	font-weight: bold;
+	font-size: xx-small;
+	border-left: #ffff66 1px solid;
+	color: #000099;
+	border-bottom: #ffff66 1px solid;
+	background-color: beige;
+}
+.datagriditem
+{
+	border-right: #ffff66 1px solid;
+	border-top: #ffff66 1px solid;
+	font-weight: normal;
+	font-size: xx-small;
+	border-left: #ffff66 1px solid;
+	color: black;
+	border-bottom: #ffff66 1px solid;
+	background-color: ghostwhite;
+}
+.datagridalternatingitem
+{
+	border-right: #ffff66 1px solid;
+	border-top: #ffff66 1px solid;
+	font-weight: normal;
+	font-size: xx-small;
+	border-left: #ffff66 1px solid;
+	color: black;
+	border-bottom: #ffff66 1px solid;
+	background-color: whitesmoke;
+}
+A
+{
+	font-size: xx-small;
+	color: darkblue;
+	font-family: 'Century Gothic';
+	text-decoration:none;
+}
+
+A:hover
+{
+	color: firebrick;
+	text-decoration: underline;
+}
+.window
+{
+	border-right: dimgray 1px solid;
+	padding-right: 0px;
+	border-top: dimgray 1px solid;
+	padding-left: 0px;
+	font-weight: normal;
+	font-size: xx-small;
+	padding-bottom: 0px;
+	margin: 0px;
+	border-left: dimgray 1px solid;
+	padding-top: 0px;
+	border-bottom: dimgray 1px solid;
+	font-style: normal;
+	font-family: 'Comic Sans MS';
+	background-color: #d4d4d4;
+}
+.window_header
+{
+	border-right: black 1px;
+	border-top: black 1px;
+	padding-left: 5px;
+	font-weight: bold;
+	font-size: small;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr= 'SteelBlue' , EndColorStr= 'LightBlue' );
+	border-left: black 1px;
+	color: black;
+	border-bottom: black 1px solid;
+	font-style: normal;
+	font-family: 'Comic Sans MS';
+	text-align: center;
+	font-variant: small-caps;
+}

@@ -29,5 +29,15 @@
       <a class="btn btn-ghost" href="/Portfolio/#archive">Browse all projects</a>
     </div>
   </main>
+  <script>
+    // Inside the Commander Safeguard museum a 404 means the Wayback Machine never captured that file.
+    if (location.pathname.indexOf('/Portfolio/commander-safeguard/') === 0) {
+      document.querySelector('h1').textContent = 'Not in the archive';
+      document.querySelector('main p').textContent = 'The Internet Archive never captured this page or file, so it could not be restored. Everything that survived is in the museum.';
+      var a = document.querySelectorAll('.row a');
+      a[0].href = '/Portfolio/commander-safeguard/'; a[0].textContent = 'Back to the museum';
+      a[1].href = '/Portfolio/commander-safeguard/catalogue.html'; a[1].textContent = 'Recovered catalogue';
+    }
+  </script>
 </body>
 </html>
