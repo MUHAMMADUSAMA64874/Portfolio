@@ -1364,7 +1364,7 @@ export const certifications = [
 
 // Education and languages (from the CV, 2026-10-23).
 export const education = [
-  { degree: 'BS Computer Science', school: 'Karachi Institute of Economics & Technology (KIET)', period: '2021 – 2026', note: 'CGPA 3.23 / 4.00 · Software Engineering, DSA, Databases, Web, AI, OOP' },
+  { degree: 'BS Computer Science', school: 'Karachi Institute of Economics & Technology (KIET)', period: '2022 – 2026', note: 'CGPA 3.23 / 4.00 · Software Engineering, DSA, Databases, Web, AI, OOP' },
   { degree: 'HSC — Pre-Engineering', school: 'Fazaia Degree College, Karachi', period: '2018 – 2019', note: '' }
 ];
 
