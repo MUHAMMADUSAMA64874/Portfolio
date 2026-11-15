@@ -89,7 +89,7 @@ function initPointer() {
       m.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`;
     }
   }, { passive: true });
-  (function loop() { rx += (mx - rx) * .16; ry += (my - ry) * .16; ring.style.transform = `translate(${rx}px, ${ry}px)`; requestAnimationFrame(loop); })();
+  (function loop() { if (document.hidden) { requestAnimationFrame(loop); return; } rx += (mx - rx) * .16; ry += (my - ry) * .16; ring.style.transform = `translate(${rx}px, ${ry}px)`; requestAnimationFrame(loop); })();
   document.addEventListener('pointerover', e => {
     const t = e.target.closest('a, button, [data-cursor], input, textarea, select, label, summary');
     const lab = e.target.closest('[data-cursor]')?.dataset.cursor;

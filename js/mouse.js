@@ -139,6 +139,8 @@ export function initMouseGuide({ stats, years, messages }) {
   size(); onScroll(); x = targetX; setAction('idle');
   setTimeout(() => say(SECTION.top[1], 4500), 1800);
   function tick(t) {
+    // Pause all work while the tab is hidden to avoid burning CPU in the background.
+    if (document.hidden) { requestAnimationFrame(tick); return; }
     const dt = Math.min(64, t - last); last = t;
     // movement
     const dx = targetX - x;

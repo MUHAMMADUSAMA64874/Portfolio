@@ -241,6 +241,7 @@ function trimFlowToFit() {
   const budget = viewport.clientWidth - 28;
   const more = flow.querySelector('.n8n-node-chip-more');
   let guard = 24;
+  let lastWidth = flow.scrollWidth;
 
   while (flow.scrollWidth > budget && guard-- > 0) {
     const chips = [...flow.querySelectorAll('.n8n-node-chip:not(.n8n-node-chip-more)')];
@@ -256,6 +257,9 @@ function trimFlowToFit() {
       if (label) label.textContent = `+${hidden} more`;
       more.title = `${hidden} more nodes in this workflow`;
     }
+    // Guard against a layout that never shrinks (would otherwise spin).
+    if (flow.scrollWidth >= lastWidth) break;
+    lastWidth = flow.scrollWidth;
   }
 }
 
@@ -357,16 +361,21 @@ function setupViewerActions() {
 
 // The chip count depends on canvas width, so a resize has to rebuild the stage.
 // Registered once, debounced, and skipped while the width is unchanged.
-let lastCanvasWidth = window.innerWidth;
+// Only the chip-count bucket (>=1080 / >=720 / below) changes how many chips we
+// render, so a full stage rebuild is only worth it when that bucket changes.
+// Other width changes just re-fit the existing flow.
+function canvasBucket(w) { return w >= 1080 ? 3 : w >= 720 ? 2 : 1; }
+let lastCanvasBucket = canvasBucket(window.innerWidth);
 let resizeTimer = 0;
 window.addEventListener('resize', () => {
   window.clearTimeout(resizeTimer);
   resizeTimer = window.setTimeout(() => {
-    if (window.innerWidth === lastCanvasWidth) {
+    const b = canvasBucket(window.innerWidth);
+    if (b === lastCanvasBucket) {
       fitFlowToViewport();
       return;
     }
-    lastCanvasWidth = window.innerWidth;
+    lastCanvasBucket = b;
     if (document.getElementById('n8n-viewer-stage')) updateViewerStage();
   }, 220);
 }, { passive: true });
