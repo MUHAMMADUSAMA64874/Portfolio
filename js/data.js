@@ -24,7 +24,7 @@ export const meta = {
   workModes: 'Remote worldwide · Hybrid / on-site in Karachi',
   timezone: 'PKT (UTC+5)',
   site: 'https://muhammadusama64874.github.io/Portfolio/',
-  lastAudit: '2026-10-27',
+  lastAudit: '2026-11-16',
   auditNote: 'Statuses marked Offline represent preserved projects whose work and codebase still exist.'
 };
 
